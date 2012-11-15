@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  image: MyString
+  state: MyString
+  region: MyString
+  unit: MyString
+  hunter: MyString
+  spread_tip: 1
+  spread_greatest: 1
+  spread_inside: 1
+  alias: MyString
+  cert: MyString
+
+two:
+  image: MyString
+  state: MyString
+  region: MyString
+  unit: MyString
+  hunter: MyString
+  spread_tip: 1
+  spread_greatest: 1
+  spread_inside: 1
+  alias: MyString
+  cert: MyString
