@@ -11,9 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121115031132) do
+ActiveRecord::Schema.define(:version => 20121121043308) do
 
-  create_table "muledeers", :force => true do |t|
+  create_table "animals", :force => true do |t|
+    t.string   "kind"
     t.string   "image"
     t.string   "state"
     t.string   "region"
@@ -23,9 +24,47 @@ ActiveRecord::Schema.define(:version => 20121115031132) do
     t.integer  "spread_greatest"
     t.integer  "spread_inside"
     t.string   "alias"
-    t.string   "cert"
+    t.string   "certification"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "antlers", :force => true do |t|
+    t.integer  "animal_id"
+    t.integer  "parent_id"
+    t.string   "image"
+    t.string   "certification"
+    t.integer  "lg_mainbeam"
+    t.integer  "lg_one"
+    t.integer  "lg_two"
+    t.integer  "lg_three"
+    t.integer  "lg_four"
+    t.integer  "lg_five"
+    t.integer  "lg_six"
+    t.integer  "lg_seven"
+    t.integer  "circ_one"
+    t.integer  "circ_two"
+    t.integer  "circ_three"
+    t.integer  "circ_four"
+    t.string   "side"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "points", :force => true do |t|
+    t.integer  "antler_id"
+    t.integer  "lg_point"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "roles", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "animal_id"
+    t.integer  "antler_id"
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

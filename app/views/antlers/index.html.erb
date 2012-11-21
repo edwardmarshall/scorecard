@@ -1,0 +1,55 @@
+<h1>Listing antlers</h1>
+
+<table>
+  <tr>
+    <th>Animal</th>
+    <th>Parent</th>
+    <th>Image</th>
+    <th>Certification</th>
+    <th>Lg mainbeam</th>
+    <th>Lg one</th>
+    <th>Lg two</th>
+    <th>Lg three</th>
+    <th>Lg four</th>
+    <th>Lg five</th>
+    <th>Lg six</th>
+    <th>Lg seven</th>
+    <th>Circ one</th>
+    <th>Circ two</th>
+    <th>Circ three</th>
+    <th>Circ four</th>
+    <th>Side</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @antlers.each do |antler| %>
+  <tr>
+    <td><%= antler.animal_id %></td>
+    <td><%= antler.parent_id %></td>
+    <td><%= antler.image %></td>
+    <td><%= antler.certification %></td>
+    <td><%= antler.lg_mainbeam %></td>
+    <td><%= antler.lg_one %></td>
+    <td><%= antler.lg_two %></td>
+    <td><%= antler.lg_three %></td>
+    <td><%= antler.lg_four %></td>
+    <td><%= antler.lg_five %></td>
+    <td><%= antler.lg_six %></td>
+    <td><%= antler.lg_seven %></td>
+    <td><%= antler.circ_one %></td>
+    <td><%= antler.circ_two %></td>
+    <td><%= antler.circ_three %></td>
+    <td><%= antler.circ_four %></td>
+    <td><%= antler.side %></td>
+    <td><%= link_to 'Show', antler %></td>
+    <td><%= link_to 'Edit', edit_antler_path(antler) %></td>
+    <td><%= link_to 'Destroy', antler, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Antler', new_antler_path %>

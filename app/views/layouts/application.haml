@@ -2,13 +2,25 @@
 %html
 	%head
 		%title Elusive Index
-		= stylesheet_link_tag    "application", :media => "all"
+		= stylesheet_link_tag "styles"
 		= javascript_include_tag "application"
 		= csrf_meta_tags
+
+		%script(type="text/javascript" src="//use.typekit.net/fgu2vyh.js")
+		%script(type="text/javascript")
+			try{Typekit.load();}catch(e){}
+	
 	%body
-		%h1 Elusive Index
-		%nav
-			= link_to 'User', users_url
-			|
-			= link_to 'Mule Deer', muledeers_url
-		= yield
+		.container
+			%header
+				.logo
+				%h1 ELUSIVE INDEX
+			%nav
+				= link_to 'Users', users_url
+				|
+				= link_to 'Animals', animals_url
+				|
+				= link_to 'Antlers', antlers_url
+				|
+				= link_to 'Point(s)', points_url
+			= yield

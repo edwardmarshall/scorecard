@@ -1,0 +1,85 @@
+<%= form_for(@antler) do |f| %>
+  <% if @antler.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@antler.errors.count, "error") %> prohibited this antler from being saved:</h2>
+
+      <ul>
+      <% @antler.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :animal_id %><br />
+    <%= f.number_field :animal_id %>
+  </div>
+  <div class="field">
+    <%= f.label :parent_id %><br />
+    <%= f.number_field :parent_id %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= f.text_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :side %><br />
+    <%= f.text_field :side %>
+  </div>
+  <div class="field">
+    <%= f.label :lg_mainbeam %><br />
+    <%= f.number_field :lg_mainbeam %> <%= f.number_field :lg_mainbeam %>/8
+  </div>
+  <div class="field">
+    <%= f.label :lg_one %><br />
+    <%= f.number_field :lg_one %> <%= f.number_field :lg_one %>/8
+  </div>
+  <div class="field">
+    <%= f.label :lg_two %><br />
+    <%= f.number_field :lg_two %> <%= f.number_field :lg_two %>/8
+  </div>
+  <div class="field">
+    <%= f.label :lg_three %><br />
+    <%= f.number_field :lg_three %> <%= f.number_field :lg_three %>/8
+  </div>
+  <div class="field">
+    <%= f.label :lg_four %><br />
+    <%= f.number_field :lg_four %> <%= f.number_field :lg_four %>/8
+  </div>
+  <div class="field">
+    <%= f.label :lg_five %><br />
+    <%= f.number_field :lg_five %> <%= f.number_field :lg_five %>/8
+  </div>
+  <div class="field">
+    <%= f.label :lg_six %><br />
+    <%= f.number_field :lg_six %> <%= f.number_field :lg_six %>/8
+  </div>
+  <div class="field">
+    <%= f.label :lg_seven %><br />
+    <%= f.number_field :lg_seven %> <%= f.number_field :lg_seven %>/8
+  </div>
+  <div class="field">
+    <%= f.label :circ_one %><br />
+    <%= f.number_field :circ_one %> <%= f.number_field :circ_one %>/8
+  </div>
+  <div class="field">
+    <%= f.label :circ_two %><br />
+    <%= f.number_field :circ_two %> <%= f.number_field :circ_two %>/8
+  </div>
+  <div class="field">
+    <%= f.label :circ_three %><br />
+    <%= f.number_field :circ_three %> <%= f.number_field :circ_three %>/8
+  </div>
+  <div class="field">
+    <%= f.label :circ_four %><br />
+    <%= f.number_field :circ_four %> <%= f.number_field :circ_four %>/8
+  </div>
+    <div class="field">
+    <%= f.label :certification %><br />
+    <%= f.text_field :certification %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

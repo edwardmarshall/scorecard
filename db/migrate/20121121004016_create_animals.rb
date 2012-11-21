@@ -1,6 +1,7 @@
-class CreateMuledeers < ActiveRecord::Migration
+class CreateAnimals < ActiveRecord::Migration
   def change
-    create_table :muledeers do |t|
+    create_table :animals do |t|
+      t.string :kind
       t.string :image
       t.string :state
       t.string :region
@@ -10,7 +11,7 @@ class CreateMuledeers < ActiveRecord::Migration
       t.integer :spread_greatest
       t.integer :spread_inside
       t.string :alias
-      t.string :cert
+      t.string :certification
 
       t.timestamps
     end

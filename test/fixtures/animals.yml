@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  kind: MyString
   image: MyString
   state: MyString
   region: MyString
@@ -10,9 +11,10 @@ one:
   spread_greatest: 1
   spread_inside: 1
   alias: MyString
-  cert: MyString
+  certification: MyString
 
 two:
+  kind: MyString
   image: MyString
   state: MyString
   region: MyString
@@ -22,4 +24,4 @@ two:
   spread_greatest: 1
   spread_inside: 1
   alias: MyString
-  cert: MyString
+  certification: MyString

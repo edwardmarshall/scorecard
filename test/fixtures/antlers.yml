@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  animal_id: 1
+  parent_id: 1
+  image: MyString
+  certification: MyString
+  lg_mainbeam: 1
+  lg_one: 1
+  lg_two: 1
+  lg_three: 1
+  lg_four: 1
+  lg_five: 1
+  lg_six: 1
+  lg_seven: 1
+  circ_one: 1
+  circ_two: 1
+  circ_three: 1
+  circ_four: 1
+  side: MyString
+
+two:
+  animal_id: 1
+  parent_id: 1
+  image: MyString
+  certification: MyString
+  lg_mainbeam: 1
+  lg_one: 1
+  lg_two: 1
+  lg_three: 1
+  lg_four: 1
+  lg_five: 1
+  lg_six: 1
+  lg_seven: 1
+  circ_one: 1
+  circ_two: 1
+  circ_three: 1
+  circ_four: 1
+  side: MyString
