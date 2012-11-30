@@ -25,14 +25,19 @@ class UsersController < ApplicationController
       format.html # new.html.erb
       format.json { render json: @user }
     end
+
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = User.new
+    @user.email = params[:user][:email]
+    @user.username = params[:user][:username]
+    @user.password = params[:user][:password]
+    @user.password_confirmation = params[:user][:password_confirmation]
 
     respond_to do |format|
       if @user.save

@@ -1,0 +1,11 @@
+%h2 Sign in!
+-# form_tag is ALWAYS use the http method of 'post' (see routes) by default AND requires a url (form_for will accept a model name)
+= form_tag '/sessions' do
+	.field
+		= label_tag :email
+		= text_field_tag :email
+	.field
+		= label_tag :password
+		= password_field_tag :password
+	.actions
+		= submit_tag "Let Me In!"

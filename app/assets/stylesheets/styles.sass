@@ -1,17 +1,60 @@
 $logo-icon: image-url('elusive_icon.svg')
 
+h1
+	font-family: abril-text, sans-serif
+	color: #363636
+
+body
+	font-family: ff-basic-gothic-web-pro, sans-serif
+	font-style: light
+	font-size: 14px
+	background: #fafafa
+
+header
+	background: none
+
+a
+	color: orange
+	&:hover
+		color: red
+
+.container
+	margin: 0px auto
+	width: 100%
+
 .logo
 	content: $logo-icon
 	width: 100px
 
-h1
-	font-family: nimbus-sans-condensed, sans-serif
-	color: #363636
 
-body
-	font-family: freight-sans-pro, sans-serif
 
-.container
-	margin: 0px auto
-	padding: 20px
-	width: 960px
+.helper_note
+	font-size: 10px
+	color: grey
+
+
+
+.table-wrapper
+	position: relative
+	width: 100%
+
+thead
+	tr
+		background: #ccc
+	th
+		border-style: solid
+		border-width: 0 1px 0 0
+		border-color: white
+
+tbody
+	tr
+		td:nth-of-type(n+5)
+			text-align: center
+			background: none
+
+td, th
+	padding: 5px 5px
+	font-size: 10px
+
+tr:nth-of-type(even)
+	background: #eee

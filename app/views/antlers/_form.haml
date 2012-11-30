@@ -1,0 +1,68 @@
+= form_for(@antler) do |f|
+  - if @antler.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@antler.errors.count, "error")
+        prohibited this antler from being saved:
+      %ul
+        - @antler.errors.full_messages.each do |msg|
+          %li = msg %>
+
+  .field
+    = f.label :image
+    = f.text_field :image
+
+  .field
+    = f.label :side
+    = f.select :side, [["Right","Rt"],["Left","Lt"]] 
+
+  .field
+    = f.label :lg_mainbeam
+    = f.text_field :lg_mainbeam
+
+  .field
+    = f.label :lg_one
+    = f.text_field :lg_one
+
+  .field
+    = f.label :lg_two
+    = f.text_field :lg_two
+
+  .field
+    = f.label :lg_three
+    = f.text_field :lg_three
+
+  .field
+    = f.label :lg_four
+    = f.text_field :lg_four
+
+  .field
+    = f.label :lg_five
+    = f.text_field :lg_five
+
+  .field
+    = f.label :lg_six
+    = f.text_field :lg_six
+
+  .field
+    = f.label :lg_seven
+    = f.text_field :lg_seven
+
+  .field
+    = f.label :circ_one
+    = f.text_field :circ_one
+
+  .field
+    = f.label :circ_two
+    = f.text_field :circ_two
+
+  .field
+    = f.label :circ_three
+    = f.text_field :circ_three
+
+  .field
+    = f.label :circ_four
+    = f.text_field :circ_four
+
+  .actions
+    = f.submit

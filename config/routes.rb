@@ -1,13 +1,20 @@
 Scorecard::Application.routes.draw do
 
-  resources :points
+	root :to => 'scorecards#index'
 
-  resources :antlers
+	resources :points
 
-  resources :users
-  resources :animals
-  
-  root :to => 'Mockup#scorecard'
-  get '/mockup/scorecard' => 'Mockup#scorecard'
+	resources :antlers
+
+	resources :users
+
+	resources :animals
+
+	get '/login' => 'sessions#new', as: :sign_in
+	post '/sessions' => 'sessions#create' 
+	get '/logout' => 'sessions#destroy', as: :sign_out
+
+	get '/scorecards' => 'scorecards#index', as: :scorecards
+	get '/scorecards/:id' => 'scorecards#show', as: :scorecard
   
 end

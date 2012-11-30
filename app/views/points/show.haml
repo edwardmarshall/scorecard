@@ -1,0 +1,14 @@
+%p.notice
+
+%p
+  %b Antler:
+  = @point.antler_id
+
+%p
+  %b Lg point:
+  = @point.lg_point
+
+
+= link_to 'Edit', edit_point_path(@point)
+|
+= link_to 'Back', points_path

@@ -1,0 +1,56 @@
+= form_for(@animal) do |f|
+  - if @animal.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@animal.errors.count, "error")
+        prohibited this animal from being saved:
+      %ul
+        - @animal.errors.full_messages.each do |msg|
+          %li
+            = msg
+
+  .field
+    = f.label :kind, "Create a new scorecard for my:"
+    = f.select :kind, [["Mule Deer", "Mule Deer"],["White Tail Deer", "White Tail Deer"],["Elk", "Elk"]]
+  
+  .field
+    = f.label :hunter, "Hunter name: "
+    = f.text_field :hunter, :placeholder => "First and Last"
+
+  .field
+    = f.label :state, "What state was your trophy taken in?"
+    = f.select :state, [["AZ - Arizona", "AZ"],["CA - California", "CA"],["CO - Colorado", "CO"],["ID - Idaho", "ID"],["MT - Montana","MT"],["NM - New Mexico","NM"],["NV - Nevada", "NV"],["UT - Utah", "UT"],["WY - Wyoming", "WY"]]
+
+  .field
+    = f.label :spread_tip, "Tip to Tip Spread:"
+    = f.text_field :spread_tip_whole
+    &
+    = f.select :spread_tip_fraction, [["0/8","0"],["1/8","1"],["2/8","2"],["3/8","3"],["4/8","4"],["5/8","5"],["6/8","6"],["7/8", "7"]]
+    Inches
+
+  .field
+    = f.label :spread_greatest, "Greatest Spread:"  
+    = f.text_field :spread_greatest_whole
+    &
+    = f.select :spread_greatest_fraction, [["0/8","0"],["1/8","1"],["2/8","2"],["3/8","3"],["4/8","4"],["5/8","5"],["6/8","6"],["7/8", "7"]]
+    Inches
+
+  .field
+    = f.label :spread_inside, "Inside Spread of Main Beams:"
+    = f.text_field :spread_inside_whole
+    &
+    = f.select :spread_inside_fraction, [["0/8","0"],["1/8","1"],["2/8","2"],["3/8","3"],["4/8","4"],["5/8","5"],["6/8","6"],["7/8", "7"]]
+    Inches
+
+  .field
+    = f.label :image, "Upload your image:"
+    = f.text_field :image
+
+  .field
+    = f.label :alias, "Alias:"
+    = f.text_field :alias, :placeholder => "e.g. 'The Buck of Justice'"
+
+  .actions
+    = f.submit "Save"
+    or
+    = link_to 'Cancel', @animal
