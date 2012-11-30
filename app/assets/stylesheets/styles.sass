@@ -1,3 +1,9 @@
+// color pallete
+$background: #fafafa
+$col-em: rgba(255,200,0,0.05)
+$red: 		#ff6633
+$orange: 	#ff9900
+
 $logo-icon: image-url('elusive_icon.svg')
 
 h1
@@ -8,15 +14,15 @@ body
 	font-family: ff-basic-gothic-web-pro, sans-serif
 	font-style: light
 	font-size: 14px
-	background: #fafafa
+	background: $background
 
 header
 	background: none
 
 a
-	color: orange
+	color: $red
 	&:hover
-		color: red
+		color: $orange
 
 .container
 	margin: 0px auto
@@ -26,35 +32,49 @@ a
 	content: $logo-icon
 	width: 100px
 
-
-
 .helper_note
 	font-size: 10px
 	color: grey
 
 
-
+// --- TABLE
 .table-wrapper
 	position: relative
 	width: 100%
-
-thead
-	tr
-		background: #ccc
-	th
-		border-style: solid
-		border-width: 0 1px 0 0
-		border-color: white
-
-tbody
-	tr
-		td:nth-of-type(n+5)
-			text-align: center
-			background: none
 
 td, th
 	padding: 5px 5px
 	font-size: 10px
 
-tr:nth-of-type(even)
-	background: #eee
+// --- SCOPE: .admin
+table.admin
+	thead
+		tr
+			background: #ccc
+		th
+			border-style: solid
+			border-width: 0 1px 0 0
+			border-color: white
+	tbody
+		tr:nth-of-type(even)
+			background: #eee
+		tr
+			td
+				border-style: solid
+				border-width: 0 1px 0 0
+				border-color: white
+				&:hover
+					background: rgba(255,255,255,0.5)
+				&:first-child
+					text-align: right
+				&:last-child
+					background: $background
+					border: none
+// --- SNIPE: .class
+tr.animal
+	td
+		&:nth-of-type(n+6)
+			text-align: center
+			background: none
+		&:nth-of-type(n+7)
+			background: $col-em

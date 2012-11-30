@@ -17,8 +17,19 @@ class Animal < ActiveRecord::Base
     self.spread_inside = (self.spread_inside_whole.to_i * 8) + self.spread_inside_fraction.to_i
   end
 
-  
 # --- Defining the methods for re-populating the form_for when edit page is requested
+
+  # before_create :divide_spread_values
+
+  # def divide_spread_values
+  #   spread_tip_whole = spread_tip.to_i / 8
+  #   spread_tip_fraction = spread_tip.to % 8
+  #   spread_greatest_whole = spread_greatest.to_i / 8
+  #   spread_greatest_fraction = spread_greatest.to_i % 8
+  #   spread_inside_whole = spread_tip_inside.to_i / 8
+  #   spread_inside_fraction = spread_tip_inside.to_i % 8
+  # end
+
   def spread_tip_whole
     spread_tip.to_i / 8
   end

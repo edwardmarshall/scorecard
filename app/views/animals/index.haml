@@ -1,9 +1,10 @@
 %h2 Listing all Animals
  
 .table-wrapper
-    %table#tech-companies.enhanced{:cellspacing => "0"}
+    %table.admin{:cellspacing => "0"}
         %thead
             %tr
+                %th id
                 %th image
                 %th kind
                 %th alias
@@ -41,7 +42,9 @@
                     %br _pts
         %tbody
             - @animals.each do |animal|
-                %tr
+                %tr.animal
+                    %td
+                        = animal.id
                     %td
                         = animal.image
                     %td
@@ -51,13 +54,13 @@
                     %td
                         = animal.hunter
                     %td
-                        = animal.state                    
+                        = animal.state
                     %td
                         = animal.spread_tip
                     %td
                         = animal.spread_greatest
                     %td
-                        = animal.right_antler
+                        = animal.spread_inside
                     %td ???
                     %td ???
                     %td ???
