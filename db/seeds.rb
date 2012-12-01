@@ -20,22 +20,26 @@ antlers = [
 	{ :side => "left", :certification => "true", :lg_mainbeam => 220, :lg_one => 22, :lg_two => 158, :lg_three => 107, :lg_four => 123, :circ_one => 42, :circ_two => 37, :circ_three => 32, :circ_four => 36 },
 ]
 
-points = [
+right_points = [
 	{ :lg_point => 37 },
 	{ :lg_point => 36 },
 	{ :lg_point => 35 },
 	{ :lg_point => 40 },
 ]
 
+left_points = [
+	{ :lg_point => 50}
+]
+
 User.create users
-Animal.create animals
-Antler.create antlers
-Point.create points
 
 # belongs_to relationships
-animals.each do |animal|
-	Animal.create(animal)
-		
+animals.each do |animal| #grabs all animals from SEED and loop for each
+	a = Animal.create(animal) # create THIS animal in an instance variable 'a'
+	a.antlers.create(antlers) # take 'a' and create THESE antlers for THIS animal
+	a.right_antler.points.create(right_points) # take right_antler (defined in animal model) of 'a' and give it THESE points
+	a.left_antler.points.create(left_points)
+end
 
 # many_to_many relationships
 # roles.each do |role|

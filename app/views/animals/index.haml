@@ -18,7 +18,7 @@
                     spread
                     %br _inside
                 %th
-                    @spread
+                    spread
                     %br _credit
                 %th 
                     @typical
@@ -35,11 +35,19 @@
                 %th 
                     @difference
                 %th 
-                    @total_ab
-                    %br _pts
+                    @lg_points
                 %th 
-                    @total
-                    %br _pts
+                    @right.pts_all
+                %th
+                    @left.pts_all
+                %th
+                    @right.pts_frame_subtotal
+                %th
+                    @left.pts_frame_subtotal
+                %th
+                    @right.pts_slang
+                %th
+                    @left.pts_slang
         %tbody
             - @animals.each do |animal|
                 %tr.animal
@@ -52,14 +60,19 @@
                     %td= animal.spread_tip
                     %td= animal.spread_greatest
                     %td= animal.spread_inside
-                    %td ???
-                    %td ???
-                    %td ???
-                    %td ???
-                    %td ???
-                    %td ???
-                    %td ???
-                    %td ???
+                    %td= animal.spread_credit
+                    %td= animal.typical_score
+                    %td= animal.nontypical_score
+                    %td= animal.right_antler.lg_antler
+                    %td= animal.left_antler.lg_antler
+                    %td= animal.dif_antler
+                    %td= animal.lg_points
+                    %td= animal.right_antler.pts_all
+                    %td= animal.left_antler.pts_all
+                    %td= animal.right_antler.pts_frame_subtotal
+                    %td= animal.left_antler.pts_frame_subtotal
+                    %td= animal.right_antler.pts_slang
+                    %td= animal.left_antler.pts_slang
                     %td
                         = link_to 'Show', animal
                         |

@@ -24,6 +24,7 @@
                 %th circ_two
                 %th circ_three
                 %th circ_four
+                %th @lg_points
         %tbody
             - @antlers.each do |antler|
                 %tr.antler
@@ -45,6 +46,7 @@
                     %td= antler.circ_two
                     %td= antler.circ_three
                     %td= antler.circ_four
+                    %td= antler.lg_points
                     %td
                         = link_to 'Show', antler
                         |

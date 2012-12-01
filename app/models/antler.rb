@@ -141,4 +141,49 @@ class Antler < ActiveRecord::Base
   	circ_four.to_i % 8
   end
 
+#-- Def Score methods
+  def lg_antler
+    lg_mainbeam.to_i + lg_one.to_i + lg_two.to_i + lg_three.to_i + lg_four.to_i + lg_five.to_i + lg_six.to_i + lg_seven.to_i + circ_one.to_i + circ_two.to_i + circ_three.to_i + circ_four.to_i
+  end
+
+  def lg_points
+    sum = 0
+    self.points.each do |p|
+      sum += p.lg_point.to_i # -or- sum = p.lg_point.to_i + sum
+    end
+    return sum
+  end
+
+#-- Def Mule Point Totals
+  def pts_frame_subtotal
+    count = 2
+    if lg_three.to_i > 0
+      count += 1
+    end
+    if lg_four.to_i > 0
+      count += 1
+    end
+    return count
+  end
+
+  def pts_frame_total
+    count = pts_frame_subtotal
+    if lg_one.to_i > 0
+      count += 1
+    end
+    return count
+  end
+
+  def pts_points
+    points.count
+  end
+
+  def pts_all
+    pts_frame_total + pts_points
+  end
+
+  def pts_slang
+    pts_frame_subtotal + pts_points
+  end
+
 end

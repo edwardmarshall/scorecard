@@ -60,8 +60,11 @@ class AnimalsController < ApplicationController
   def update
     @animal = Animal.find(params[:id])
 
+    @animal.attributes=(params[:animal])
+    @animal.calculate_lg_value
+
     respond_to do |format|
-      if @animal.update_attributes(params[:animal])
+      if @animal.save
         format.html { redirect_to @animal, notice: 'Animal was successfully updated.' }
         format.json { head :no_content }
       else

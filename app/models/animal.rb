@@ -43,11 +43,53 @@ class Animal < ActiveRecord::Base
 
 
 # --- Defining additional 
-  def spread_credit
-    longest_mainbeam = self.antlers.lg_mainbeam
+  def right_antler
+    self.antlers.find_by_side("right")
+  end
 
-  	@count_points
-  	@lg_points
+  def left_antler
+    self.antlers.find_by_side("left")
+  end
+
+  def longest_antler_mainbeam
+    if right_antler.lg_mainbeam >= left_antler.lg_mainbeam
+      return right_antler.lg_mainbeam
+    else
+      left_antler.lg_mainbeam
+    end
+  end
+
+  def spread_credit
+    if antlers.count < 2
+        return 0
+    end
+    
+    if spread_inside <= longest_antler_mainbeam
+      return spread_inside
+    else
+      longest_antler_mainbeam
+    end
+  end
+
+  def dif_antler
+    (right_antler.lg_antler - left_antler.lg_antler).abs
+  end
+
+  def lg_points
+    right_antler.lg_points + left_antler.lg_points
+  end
+
+  def subtotal_score
+    subtotal = spread_credit + right_antler.lg_antler + left_antler.lg_antler
+    subtotal - dif_antler
+  end
+
+  def typical_score
+      subtotal_score + lg_points
+  end
+  
+  def nontypical_score
+      subtotal_score - lg_points
   end
 
 end
