@@ -1,55 +1,55 @@
-%h2 Listing aantlers
+%h2 Listing all Antlers
 
-<table>
-  <tr>
-    <th>Animal</th>
-    <th>Parent</th>
-    <th>Image</th>
-    <th>Certification</th>
-    <th>Lg mainbeam</th>
-    <th>Lg one</th>
-    <th>Lg two</th>
-    <th>Lg three</th>
-    <th>Lg four</th>
-    <th>Lg five</th>
-    <th>Lg six</th>
-    <th>Lg seven</th>
-    <th>Circ one</th>
-    <th>Circ two</th>
-    <th>Circ three</th>
-    <th>Circ four</th>
-    <th>Side</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+.table-wrapper
+    %table.admin{:cellspacing => "0"}
+        %thead
+            %tr
+                %th id
+                %th animal_id
+                %th parent_id
+                %th image
+                %th certification
+                %th side
+                %th
+                    lg_main
+                    %br beam
+                %th lg_one
+                %th lg_two
+                %th lg_three
+                %th lg_four
+                %th lg_five
+                %th lg_six
+                %th lg_seven
+                %th circ_one
+                %th circ_two
+                %th circ_three
+                %th circ_four
+        %tbody
+            - @antlers.each do |antler|
+                %tr.antler
+                    %td= antler.id
+                    %td= antler.animal_id
+                    %td= antler.parent_id
+                    %td= antler.image
+                    %td= antler.certification
+                    %td= antler.side
+                    %td= antler.lg_mainbeam
+                    %td= antler.lg_one
+                    %td= antler.lg_two
+                    %td= antler.lg_three
+                    %td= antler.lg_four
+                    %td= antler.lg_five
+                    %td= antler.lg_six
+                    %td= antler.lg_seven
+                    %td= antler.circ_one
+                    %td= antler.circ_two
+                    %td= antler.circ_three
+                    %td= antler.circ_four
+                    %td
+                        = link_to 'Show', antler
+                        |
+                        = link_to 'Edit', edit_antler_path(antler)
+                        |
+                        = link_to 'Destory', antler, method: :delete, data: {confirm: 'Are you sure you want to delete this ' + antler.side + ' antler?'}
 
-<% @antlers.each do |antler| %>
-  <tr>
-    <td><%= antler.animal_id %></td>
-    <td><%= antler.parent_id %></td>
-    <td><%= antler.image %></td>
-    <td><%= antler.certification %></td>
-    <td><%= antler.lg_mainbeam %></td>
-    <td><%= antler.lg_one %></td>
-    <td><%= antler.lg_two %></td>
-    <td><%= antler.lg_three %></td>
-    <td><%= antler.lg_four %></td>
-    <td><%= antler.lg_five %></td>
-    <td><%= antler.lg_six %></td>
-    <td><%= antler.lg_seven %></td>
-    <td><%= antler.circ_one %></td>
-    <td><%= antler.circ_two %></td>
-    <td><%= antler.circ_three %></td>
-    <td><%= antler.circ_four %></td>
-    <td><%= antler.side %></td>
-    <td><%= link_to 'Show', antler %></td>
-    <td><%= link_to 'Edit', edit_antler_path(antler) %></td>
-    <td><%= link_to 'Destroy', antler, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Antler', new_antler_path %>
+%p= link_to '+ New Antler', new_antler_url

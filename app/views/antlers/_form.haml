@@ -14,55 +14,91 @@
 
   .field
     = f.label :side
-    = f.select :side, [["Right","Rt"],["Left","Lt"]] 
+    = f.select :side, [["Right","right"],["Left","left"]] 
 
   .field
     = f.label :lg_mainbeam
-    = f.text_field :lg_mainbeam
+    = f.text_field :lg_mainbeam_whole
+    &
+    = f.select :lg_mainbeam_fraction, [["0/8","0"],["1/8","1"],["2/8","2"],["3/8","3"],["4/8","4"],["5/8","5"],["6/8","6"],["7/8", "7"]]
+    inches
 
   .field
     = f.label :lg_one
-    = f.text_field :lg_one
+    = f.text_field :lg_one_whole
+    &
+    = f.select :lg_one_fraction, [["0/8","0"],["1/8","1"],["2/8","2"],["3/8","3"],["4/8","4"],["5/8","5"],["6/8","6"],["7/8", "7"]]
+    inches
 
   .field
     = f.label :lg_two
-    = f.text_field :lg_two
+    = f.text_field :lg_two_whole
+    &
+    = f.select :lg_two_fraction, [["0/8","0"],["1/8","1"],["2/8","2"],["3/8","3"],["4/8","4"],["5/8","5"],["6/8","6"],["7/8", "7"]]
+    inches
 
   .field
     = f.label :lg_three
-    = f.text_field :lg_three
+    = f.text_field :lg_three_whole
+    &
+    = f.select :lg_three_fraction, [["0/8","0"],["1/8","1"],["2/8","2"],["3/8","3"],["4/8","4"],["5/8","5"],["6/8","6"],["7/8", "7"]]
+    inches
 
   .field
     = f.label :lg_four
-    = f.text_field :lg_four
+    = f.text_field :lg_four_whole
+    &
+    = f.select :lg_four_fraction, [["0/8","0"],["1/8","1"],["2/8","2"],["3/8","3"],["4/8","4"],["5/8","5"],["6/8","6"],["7/8", "7"]]
+    inches
 
   .field
     = f.label :lg_five
-    = f.text_field :lg_five
+    = f.text_field :lg_five_whole
+    &
+    = f.select :lg_five_fraction, [["0/8","0"],["1/8","1"],["2/8","2"],["3/8","3"],["4/8","4"],["5/8","5"],["6/8","6"],["7/8", "7"]]
+    inches
 
   .field
     = f.label :lg_six
-    = f.text_field :lg_six
+    = f.text_field :lg_six_whole
+    &
+    = f.select :lg_six_fraction, [["0/8","0"],["1/8","1"],["2/8","2"],["3/8","3"],["4/8","4"],["5/8","5"],["6/8","6"],["7/8", "7"]]
+    inches
 
   .field
     = f.label :lg_seven
-    = f.text_field :lg_seven
+    = f.text_field :lg_seven_whole
+    &
+    = f.select :lg_seven_fraction, [["0/8","0"],["1/8","1"],["2/8","2"],["3/8","3"],["4/8","4"],["5/8","5"],["6/8","6"],["7/8", "7"]]
+    inches
 
   .field
     = f.label :circ_one
-    = f.text_field :circ_one
+    = f.text_field :circ_one_whole
+    &
+    = f.select :circ_one_fraction, [["0/8","0"],["1/8","1"],["2/8","2"],["3/8","3"],["4/8","4"],["5/8","5"],["6/8","6"],["7/8", "7"]]
+    inches
 
   .field
     = f.label :circ_two
-    = f.text_field :circ_two
+    = f.text_field :circ_two_whole
+    &
+    = f.select :circ_two_fraction, [["0/8","0"],["1/8","1"],["2/8","2"],["3/8","3"],["4/8","4"],["5/8","5"],["6/8","6"],["7/8", "7"]]
+    inches
 
   .field
     = f.label :circ_three
-    = f.text_field :circ_three
+    = f.text_field :circ_three_whole
+    &
+    = f.select :circ_three_fraction, [["0/8","0"],["1/8","1"],["2/8","2"],["3/8","3"],["4/8","4"],["5/8","5"],["6/8","6"],["7/8", "7"]]
+    inches
 
   .field
     = f.label :circ_four
-    = f.text_field :circ_four
+    = f.text_field :circ_four_whole
+    &
+    = f.select :circ_four_fraction, [["0/8","0"],["1/8","1"],["2/8","2"],["3/8","3"],["4/8","4"],["5/8","5"],["6/8","6"],["7/8", "7"]]
+    inches
 
   .actions
     = f.submit

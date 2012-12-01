@@ -1,5 +1,5 @@
 class Animal < ActiveRecord::Base
-  attr_accessible :alias, :certification, :hunter, :image, :kind, :region, :state, :unit,
+  attr_accessible :alias, :certification, :hunter, :image, :kind, :region, :state, :unit, :contributor,
     :spread_tip, :spread_tip_whole, :spread_tip_fraction,
     :spread_greatest, :spread_greatest_whole, :spread_greatest_fraction,
     :spread_inside, :spread_inside_whole, :spread_inside_fraction
@@ -12,24 +12,12 @@ class Animal < ActiveRecord::Base
   before_save :calculate_spread_values
 
   def calculate_spread_values
-    self.spread_tip = (self.spread_tip_whole.to_i * 8) + self.spread_tip_fraction.to_i
-    self.spread_greatest = (self.spread_greatest_whole.to_i * 8) + self.spread_greatest_fraction.to_i
-    self.spread_inside = (self.spread_inside_whole.to_i * 8) + self.spread_inside_fraction.to_i
+    self.spread_tip       =        (@spread_tip_whole.to_i * 8) + @spread_tip_fraction.to_i
+    self.spread_greatest  =   (@spread_greatest_whole.to_i * 8) + @spread_greatest_fraction.to_i
+    self.spread_inside    =     (@spread_inside_whole.to_i * 8) + @spread_inside_fraction.to_i
   end
 
-# --- Defining the methods for re-populating the form_for when edit page is requested
-
-  # before_create :divide_spread_values
-
-  # def divide_spread_values
-  #   spread_tip_whole = spread_tip.to_i / 8
-  #   spread_tip_fraction = spread_tip.to % 8
-  #   spread_greatest_whole = spread_greatest.to_i / 8
-  #   spread_greatest_fraction = spread_greatest.to_i % 8
-  #   spread_inside_whole = spread_tip_inside.to_i / 8
-  #   spread_inside_fraction = spread_tip_inside.to_i % 8
-  # end
-
+# --- Defining the methods for re-populating the form when edit page is requested
   def spread_tip_whole
     spread_tip.to_i / 8
   end
@@ -56,25 +44,11 @@ class Animal < ActiveRecord::Base
 
 
 # --- Defining additional 
-  def right_antler
-  	@total_size
-  	@count_points
-  	@lg_points
-  end
-
-  def left_antler
-  	@total_size
-  	@count_points
-  	@lg_points
-  end
-
   def spread_credit
-  	@spread_credit
-  end
+    longest_mainbeam = self.antlers.lg_mainbeam
 
-  def score
-  	@typical
-  	@nontypical
+  	@count_points
+  	@lg_points
   end
 
 end
