@@ -41,6 +41,7 @@ class PointsController < ApplicationController
   # POST /points.json
   def create
     @point = Point.new(params[:point])
+    @point.calculate_lg_value
 
     respond_to do |format|
       if @point.save
@@ -57,7 +58,8 @@ class PointsController < ApplicationController
   # PUT /points/1.json
   def update
     @point = Point.find(params[:id])
-
+    @point.calculate_lg_value
+    
     respond_to do |format|
       if @point.update_attributes(params[:point])
         format.html { redirect_to @point, notice: 'Point was successfully updated.' }

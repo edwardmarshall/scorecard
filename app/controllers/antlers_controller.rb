@@ -41,6 +41,7 @@ class AntlersController < ApplicationController
   # POST /antlers.json
   def create
     @antler = Antler.new(params[:antler])
+    @antler.calculate_lg_value
 
     respond_to do |format|
       if @antler.save
@@ -57,6 +58,7 @@ class AntlersController < ApplicationController
   # PUT /antlers/1.json
   def update
     @antler = Antler.find(params[:id])
+    @antler.calculate_lg_value
 
     respond_to do |format|
       if @antler.update_attributes(params[:antler])

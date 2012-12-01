@@ -1,4 +1,8 @@
 class Antler < ActiveRecord::Base
+
+  belongs_to :animal
+  has_many :points
+
   attr_accessible :animal_id, :parent_id, :certification, :image, :side, :kind, :state,
   	:lg_mainbeam, :lg_mainbeam_whole, :lg_mainbeam_fraction,
   	:lg_one, :lg_one_whole, :lg_one_fraction,
@@ -26,14 +30,7 @@ class Antler < ActiveRecord::Base
   	:circ_three_whole, :circ_three_fraction,
   	:circ_four_whole, :circ_four_fraction
 
-  belongs_to :animal
-
-  has_many :points
-  has_many :users, :through => :roles
-
-  before_save :calculate_spread_values
-
-  def calculate_spread_values
+  def calculate_lg_value
     self.lg_mainbeam  =    (@lg_mainbeam_whole.to_i * 8) + @lg_mainbeam_fraction.to_i
     self.lg_one       =         (@lg_one_whole.to_i * 8) + @lg_one_fraction.to_i
     self.lg_two       =         (@lg_two_whole.to_i * 8) + @lg_two_fraction.to_i

@@ -33,9 +33,9 @@ Antler.create antlers
 Point.create points
 
 # belongs_to relationships
-# antlers.each do |antler|
-# 	a = Animal.find_by_
-# end
+animals.each do |animal|
+	Animal.create(animal)
+		
 
 # many_to_many relationships
 # roles.each do |role|

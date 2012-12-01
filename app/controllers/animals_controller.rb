@@ -25,6 +25,7 @@ class AnimalsController < ApplicationController
   # GET /animals/new.json
   def new
     @animal = Animal.new
+    @animal.calculate_lg_value
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,7 +42,8 @@ class AnimalsController < ApplicationController
   # POST /animals.json
   def create
     @animal = Animal.new(params[:animal])
-
+    @animal.calculate_lg_value
+    
     respond_to do |format|
       if @animal.save
         format.html { redirect_to @animal, notice: 'Animal was successfully created.' }

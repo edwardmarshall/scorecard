@@ -1,4 +1,8 @@
 class Animal < ActiveRecord::Base
+ 
+  has_many :antlers
+  has_many :users, :through => :roles
+
   attr_accessible :alias, :certification, :hunter, :image, :kind, :region, :state, :unit, :contributor,
     :spread_tip, :spread_tip_whole, :spread_tip_fraction,
     :spread_greatest, :spread_greatest_whole, :spread_greatest_fraction,
@@ -6,12 +10,7 @@ class Animal < ActiveRecord::Base
   
   attr_accessor :spread_tip_whole, :spread_tip_fraction, :spread_greatest_whole, :spread_greatest_fraction, :spread_inside_whole, :spread_inside_fraction
   
-  has_many :antlers
-  has_many :users, :through => :roles
-  
-  before_save :calculate_spread_values
-
-  def calculate_spread_values
+  def calculate_lg_value
     self.spread_tip       =        (@spread_tip_whole.to_i * 8) + @spread_tip_fraction.to_i
     self.spread_greatest  =   (@spread_greatest_whole.to_i * 8) + @spread_greatest_fraction.to_i
     self.spread_inside    =     (@spread_inside_whole.to_i * 8) + @spread_inside_fraction.to_i
