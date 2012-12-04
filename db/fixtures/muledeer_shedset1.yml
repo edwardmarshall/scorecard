@@ -1,0 +1,52 @@
+:animal:
+  :certification: "true"
+  :image: "image.jpg"
+  :kind: "mule deer shed(s)"
+  :state: "co"
+  :alias: "elvis, goliath, double-beam"
+
+:antlers:
+- :side: "right"
+  :lg_mainbeam: 178
+  :lg_one: 24
+  :lg_two: 126
+  :lg_three: 47
+  :lg_four: 93
+  :circ_one: 49
+  :circ_two: 47
+  :circ_three: 34
+  :circ_four: 32
+- :side: "left"
+  :lg_mainbeam: 176
+  :lg_one: 47
+  :lg_two: 85
+  :lg_three: 33
+  :circ_one: 86
+  :circ_two: 35
+  :circ_three: 35
+  :circ_four: 31
+
+:right_points:
+- :lg_point: 124
+- :lg_point: 171
+- :lg_point: 31
+- :lg_point: 37
+- :lg_point: 37
+- :lg_point: 30
+- :lg_point: 30
+- :lg_point: 19
+- :lg_point: 75
+- :lg_point: 12
+- :lg_point: 16
+- :lg_point: 43
+
+:left_points:
+- :lg_point: 32
+- :lg_point: 47
+- :lg_point: 18
+- :lg_point: 40
+- :lg_point: 55
+- :lg_point: 16
+- :lg_point: 62
+- :lg_point: 72
+- :lg_point: 24

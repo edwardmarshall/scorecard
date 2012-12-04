@@ -1,0 +1,41 @@
+:animal:
+  :certification: "true"
+  :image: "image.jpg"
+  :kind: "mule deer"
+  :state: "ut"
+  :unit: "13b"
+  :alias: "the buck of justice"
+  :spread_tip: 162
+  :spread_greatest: 260
+  :spread_inside: 195
+
+:antlers:
+- :side: "right"
+  :lg_mainbeam: 220
+  :lg_one: 26
+  :lg_two: 147
+  :lg_three: 110
+  :lg_four: 131
+  :circ_one: 42
+  :circ_two: 37
+  :circ_three: 32
+  :circ_four: 31
+- :side: "left"
+  :lg_mainbeam: 220
+  :lg_one: 22
+  :lg_two: 158
+  :lg_three: 107
+  :lg_four: 123
+  :circ_one: 42
+  :circ_two: 37
+  :circ_three: 32
+  :circ_four: 36
+
+:right_points:
+- :lg_point: 37
+- :lg_point: 36
+- :lg_point: 35
+- :lg_point: 40
+
+:left_points:
+- :lg_point: 50

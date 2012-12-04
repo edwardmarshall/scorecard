@@ -1,0 +1,35 @@
+:animal:
+  :certification: "true"
+  :image: "image.jpg"
+  :kind: "elk"
+  :state: "co"
+  :alias: "elk2"
+  :spread_tip: 318
+  :spread_greatest: 414
+  :spread_inside: 364
+
+:antlers:
+- :side: "right"
+  :lg_mainbeam: 445
+  :lg_one: 165
+  :lg_two: 219
+  :lg_three: 160
+  :lg_four: 224
+  :lg_five: 127
+  :lg_six: 95
+  :circ_one: 97
+  :circ_two: 61
+  :circ_three: 63
+  :circ_four: 64
+- :side: "left"
+  :lg_mainbeam: 477
+  :lg_one: 165
+  :lg_two: 205
+  :lg_three: 149
+  :lg_four: 173
+  :lg_five: 124
+  :lg_six: 59
+  :circ_one: 90
+  :circ_two: 61
+  :circ_three: 64
+  :circ_four: 72

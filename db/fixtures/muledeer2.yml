@@ -1,0 +1,31 @@
+:animal:
+  :certification: "true"
+  :image: "image.jpg"
+  :kind: "mule deer"
+  :state: "az"
+  :unit: "13a"
+  :alias: "muledeer2"
+  :spread_tip: 112
+  :spread_greatest: 206
+  :spread_inside: 154
+
+:antlers:
+- :side: "right"
+  :lg_mainbeam: 160
+  :lg_one: 14
+  :lg_two: 124
+  :lg_three: 49
+  :lg_four: 60
+  :circ_one: 38
+  :circ_two: 33
+  :circ_three: 28
+  :circ_four: 29
+- :side: "left"
+  :lg_mainbeam: 156
+  :lg_one: 11
+  :lg_two: 128
+  :lg_four: 76
+  :circ_one: 40
+  :circ_two: 35
+  :circ_three: 26
+  :circ_four: 28

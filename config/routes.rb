@@ -14,7 +14,7 @@ Scorecard::Application.routes.draw do
 	post '/sessions' => 'sessions#create' 
 	get '/logout' => 'sessions#destroy', as: :sign_out
 
-	get '/scorecards' => 'scorecards#index', as: :scorecards
-	get '/scorecards/:id' => 'scorecards#show', as: :scorecard
+	get '/scorecards' => 'animals#scorecards', as: :scorecards
+	get '/scorecards/:id' => 'animal#scorecard', as: :scorecard
   
 end

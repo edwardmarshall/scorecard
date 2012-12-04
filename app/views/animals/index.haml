@@ -1,84 +1,143 @@
 %h2 Listing all Animals
  
-.table-wrapper
-    %table.admin
-        %thead
-            %tr
-                %th id
-                %th image
-                %th kind
-                %th alias
-                %th hunter
-                %th state
-                %th spread_tip
-                %th
-                    spread
-                    %br _greatest
-                %th 
-                    spread
-                    %br _inside
-                %th
-                    spread
-                    %br _credit
-                %th 
-                    @typical
-                    %br _score
-                %th 
-                    @nontypical
-                    %br _score
-                %th 
-                    @lg_right
-                    %br _antler
-                %th 
-                    @lg_left
-                    %br _antler
-                %th 
-                    @difference
-                %th 
-                    @lg_points
-                %th 
-                    @right.pts_all
-                %th
-                    @left.pts_all
-                %th
-                    @right.pts_frame_subtotal
-                %th
-                    @left.pts_frame_subtotal
-                %th
-                    @right.pts_slang
-                %th
-                    @left.pts_slang
-        %tbody
-            - @animals.each do |animal|
-                %tr.animal
-                    %td= animal.id
-                    %td= animal.image
-                    %td= animal.kind
-                    %td= animal.alias
-                    %td= animal.hunter
-                    %td= animal.state
-                    %td= animal.spread_tip
-                    %td= animal.spread_greatest
-                    %td= animal.spread_inside
-                    %td= animal.spread_credit
-                    %td= animal.typical_score
-                    %td= animal.nontypical_score
-                    %td= animal.right_antler.lg_antler
-                    %td= animal.left_antler.lg_antler
-                    %td= animal.dif_antler
-                    %td= animal.lg_points
-                    %td= animal.right_antler.pts_all
-                    %td= animal.left_antler.pts_all
-                    %td= animal.right_antler.pts_frame_subtotal
-                    %td= animal.left_antler.pts_frame_subtotal
-                    %td= animal.right_antler.pts_slang
-                    %td= animal.left_antler.pts_slang
-                    %td
-                        = link_to 'Show', animal
-                        |
-                        = link_to 'Edit', edit_animal_path(animal)
-                        |
-                        = link_to 'Destroy', animal, method: :delete, data: {confirm: 'Are you sure you want to delete this ' + animal.kind }
+%p
+    .table-wrapper
+        %table.admin
+            %thead
+                %tr
+                    %th id
+                    %th image
+                    %th kind
+                    %th alias
+                    %th hunter
+                    %th state
+                    %th spread_tip
+                    %th
+                        spread
+                        %br _greatest
+                    %th 
+                        spread
+                        %br _inside
+                    %th
+                        spread
+                        %br _credit
+                    %th
+                        subtotal
+                        %br _score
+                    %th
+                        subtotal2
+                        %br _score
+                    %th 
+                        typical
+                        %br _score
+                    %th 
+                        nontypical
+                        %br _score
+                    %th
+                        gross
+                    %th 
+                        lg_right
+                        %br _antler
+                    %th 
+                        lg_left
+                        %br _antler
+                    %th 
+                        difference
+                    %th
+                        typical
+                        %br _difference
+                    %th 
+                        lg_points
+                    %th 
+                        \.pts_all
+                    %th
+                        \.pts_frame
+                        %br _subtotal
+                    %th
+                        \.pts_slang
+            %tbody
+                - @scoreable_animals.each do |animal|
+                    %tr.animal
+                        %td= animal.id
+                        %td= animal.image
+                        %td= animal.kind
+                        %td= animal.alias
+                        %td= animal.hunter
+                        %td= animal.state
+                        %td= animal.spread_tip
+                        %td= animal.spread_greatest
+                        %td= animal.spread_inside
+                        %td= animal.spread_credit
+                        %td= animal.subtotal_score
+                        %td= animal.subtotal2_score
+                        %td= animal.typical_score
+                        %td= animal.nontypical_score
+                        %td= animal.gross_score
+                        %td= animal.right_antler.lg_antler
+                        %td= animal.left_antler.lg_antler
+                        %td= animal.difference
+                        %td= animal.typical_difference
+                        %td= animal.lg_points
+                        %td
+                            R: 
+                            = animal.right_antler.pts_all
+                            x
+                            = animal.left_antler.pts_all
+                            \:L
+                        %td
+                            R: 
+                            = animal.right_antler.pts_frame_subtotal
+                            x
+                            = animal.left_antler.pts_frame_subtotal
+                            \:L
+                        %td
+                            R:
+                            = animal.right_antler.pts_slang
+                            x
+                            = animal.left_antler.pts_slang
+                            \:L
+                        %td
+                            = link_to 'Show', animal
+                            |
+                            = link_to 'Edit', edit_animal_path(animal)
+                            |
+                            = link_to 'Destroy', animal, method: :delete, data: {confirm: 'Are you sure you want to delete this ' + animal.kind }
 
+%p
+    .table-wrapper
+        %table.admin
+            %thead
+                %tr
+                    %th id
+                    %th image
+                    %th kind
+                    %th alias
+                    %th hunter
+                    %th state
+                    %th spread_tip
+                    %th
+                        spread
+                        %br _greatest
+                    %th 
+                        spread
+                        %br _inside
+            %tbody
+                - @unscoreable_animals.each do |animal|
+                    %tr.animal
+                        %td= animal.id
+                        %td= animal.image
+                        %td= animal.kind
+                        %td= animal.alias
+                        %td= animal.hunter
+                        %td= animal.state
+                        %td= animal.spread_tip
+                        %td= animal.spread_greatest
+                        %td= animal.spread_inside
+                        %td
+                            = link_to 'Show', animal
+                            |
+                            = link_to 'Edit', edit_animal_path(animal)
+                            |
+                            = link_to 'Destroy', animal, method: :delete, data: {confirm: 'Are you sure you want to delete this ' + animal.kind }
 
 %p= link_to '+ New Animal', new_animal_url

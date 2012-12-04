@@ -3,6 +3,5 @@ class Role < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :animal
-  belongs_to :antler
 
 end

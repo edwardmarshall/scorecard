@@ -30,8 +30,10 @@
 				|
 				= link_to 'Point(s)', points_url
 				|
+				= link_to 'Scorecards', scorecards_url
+				|
 				- if current_user
-					= link_to 'My Scorecards', scorecards_url(current_user)
+					= link_to 'My Scorecard', scorecards_url(current_user)
 					|
 					= link_to "My Profile", user_url(current_user)
 					|

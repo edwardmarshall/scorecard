@@ -1,6 +1,7 @@
 %h2 Listing users
 %table
   %tr
+    %th id
     %th Username
     %th Email
     %th First name
@@ -10,6 +11,7 @@
     %th
   - @users.each do |user|
     %tr
+      %td= user.id
       %td= user.username
       %td= user.email
       %td= user.first_name

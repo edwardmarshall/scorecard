@@ -6,7 +6,6 @@
             %tr
                 %th id
                 %th animal_id
-                %th parent_id
                 %th image
                 %th certification
                 %th side
@@ -24,13 +23,12 @@
                 %th circ_two
                 %th circ_three
                 %th circ_four
-                %th @lg_points
+                %th lg_points
         %tbody
             - @antlers.each do |antler|
                 %tr.antler
                     %td= antler.id
                     %td= antler.animal_id
-                    %td= antler.parent_id
                     %td= antler.image
                     %td= antler.certification
                     %td= antler.side

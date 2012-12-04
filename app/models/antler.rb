@@ -141,7 +141,7 @@ class Antler < ActiveRecord::Base
   	circ_four.to_i % 8
   end
 
-#-- Def Score methods
+# --- def for score calcultor
   def lg_antler
     lg_mainbeam.to_i + lg_one.to_i + lg_two.to_i + lg_three.to_i + lg_four.to_i + lg_five.to_i + lg_six.to_i + lg_seven.to_i + circ_one.to_i + circ_two.to_i + circ_three.to_i + circ_four.to_i
   end
@@ -154,7 +154,7 @@ class Antler < ActiveRecord::Base
     return sum
   end
 
-#-- Def Mule Point Totals
+# --- def mule_deer Point Totals
   def pts_frame_subtotal
     count = 2
     if lg_three.to_i > 0

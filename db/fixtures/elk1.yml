@@ -1,0 +1,33 @@
+:animal:
+  :certification: "true"
+  :image: "image.jpg"
+  :kind: "elk"
+  :state: "nv"
+  :alias: "elk1"
+  :spread_tip: 292
+  :spread_greatest: 337
+  :spread_inside: 298
+
+:antlers:
+- :side: "right"
+  :lg_mainbeam: 436
+  :lg_one: 142
+  :lg_two: 135
+  :lg_three: 119
+  :lg_four: 159
+  :lg_five: 110
+  :circ_one: 70
+  :circ_two: 60
+  :circ_three: 52
+  :circ_four: 47
+- :side: "left"
+  :lg_mainbeam: 457
+  :lg_one: 148
+  :lg_two: 151
+  :lg_three: 115
+  :lg_four: 158
+  :lg_five: 103
+  :circ_one: 68
+  :circ_two: 57
+  :circ_three: 55
+  :circ_four: 48

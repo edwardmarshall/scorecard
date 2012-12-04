@@ -1,10 +1,27 @@
+// global mixin(s)
+@mixin box-shadow($shadow...)
+	-webkit-box-shadow: $shadow
+	-moz-bok-shadow: $shadow
+	box-shadow: $shadow
+
+@mixin lin-gradient-r2l($left, $right)
+	background-color: $left // fallback
+	background-repeat: repeat-y
+	background: -webkit-gradient(linear, left top, right top, from($left), to($right)) // Safari 4-5, Chrome 1-9
+	background: -webkit-linear-gradient(left, $right, $left) // Safari 5.1, Chrome 10+
+	background:	-moz-linear-gradient(left, $right, $left) // Firefox 3.6+
+	background: -ms-linear-gradient(left, $right, $left) // IE 10
+	background:	-o-linear-gradient(left, $right, $left) // Opera 11.10+
+
 // color pallete
-$background: #fafafa
+$background: #fafaee
+$copy: #393931
 $model-val-em: rgba(255,200,0,0.1)
 $instance-val-em: rgba(0,0,255,0.1)
 $id-val-em: rgba(0,255,0,0.1)
 $red: 		#ff6633
 $orange: 	#ff9900
+$test_bg: rgba(#000, 0.0)
 
 $logo-icon: image-url('elusive_icon.svg')
 
@@ -13,10 +30,23 @@ h1
 	font-family: abril-text, sans-serif
 	color: #363636
 
+h2
+	margin-top: 0
+	margin-bottom: 0
+	color: #363636
+	font-size: 30px
+
+h6
+	margin-top: 0
+	margin-bottom: 0
+	font-size: 10px
+
+
 body
 	font-family: ff-basic-gothic-web-pro, sans-serif
 	font-style: light
 	font-size: 14px
+	color: $copy
 	background: $background
 
 a
@@ -36,6 +66,12 @@ a
 	font-size: 10px
 	color: grey
 
+ul.cards
+	list-style: none
+	li
+		display: inline
+		margin: 0 25px
+		float: left
 
 // --- TABLE
 .table-wrapper
@@ -49,7 +85,7 @@ td, th
 // --- SCOPE: .admin
 table.admin
 	border-collapse: collapse
-	thead
+	thead 
 		tr
 			background: #ccc
 		th
@@ -59,16 +95,15 @@ table.admin
 	tbody
 		tr:nth-of-type(even)
 			background: #eee
-		tr
-			td
-				border-style: solid
-				border-width: 0 1px 0 0
-				border-color: white
-				&:first-child
-					text-align: right
-				&:last-child
-					background: $background
-					border: none
+		td
+			border-style: solid
+			border-width: 0 1px 0 0
+			border-color: white
+			&:first-child
+				text-align: right
+			&:last-child
+				background: $background
+				border: none
 
 // --- SNIPE: .class
 tr.animal
@@ -88,9 +123,11 @@ tr.antler
 		&:nth-of-type(n+6)
 			text-align: center
 			background: none
-		&:nth-of-type(n+7)
+		&:nth-of-type(n+6)
 			background: $model-val-em
-		&:nth-of-type(-n+3)
+		&:nth-of-type(n+18)
+			background: $instance-val-em
+		&:nth-of-type(-n+2)
 			background: $id-val-em
 
 tr.point
@@ -102,3 +139,87 @@ tr.point
 			background: $model-val-em
 		&:nth-of-type(-n+2)
 			background: $id-val-em
+
+
+// --- CARD: mini scorecard(s)
+$card_border_radius: 3px
+$card_padding: 10px
+
+.card
+	postition: relative
+	background: white
+	width: 250px
+	height: 310px
+	padding: $card_padding
+	border-radius: $card_border_radius
+	+box-shadow(0 0 8px rgba(0, 0, 0, 0.3))
+
+header.cards
+	postition: relative
+	background: none
+	width: 250px
+	height: 20px
+	vertical-align: bottom
+	border-radius: $card_border-radius $card_border-radius 0 0
+
+.image
+	background: image-url('photo.jpg')
+	position: relative
+	width: 100%
+	height: 200px
+	overflow: hidden
+	margin: 0 0 10px 0
+	+box-shadow(inset 0 3px 3px rgba(0,0,0, 0.3))
+
+.score
+	position: relative
+	float: left
+	width: 45.5%
+	height: 60px
+	padding: 10px 10px 10px 0
+	background: $test_bg
+
+.points
+	postition: relative
+	float: left
+	width: 46%
+	height: 60px
+	padding: 10px 0 10px 10px
+	text-align: right
+	border-width: 0 0 0 1px
+	border-style: solid
+	border-color: grey
+	background: $test_bg
+
+.graph
+	position: relative
+	width: 100%
+	height: 10px
+	background: none
+	border-width: 1px
+	border-style: solid
+	border-color: #ccc
+	.ranking
+		position: relative
+		z-index: 2
+		width: 75%
+		height: 10px
+		background: #efefef
+		border-width: 0 1px 0 0
+		border-style: solid
+		border-color:	#ccc
+		+lin-gradient-r2l(#eee, #fff)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

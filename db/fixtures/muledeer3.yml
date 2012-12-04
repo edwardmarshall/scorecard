@@ -1,0 +1,38 @@
+:animal:
+  :certification: "true"
+  :image: "image.jpg"
+  :kind: "mule deer"
+  :state: "ks"
+  :unit: "13a"
+  :alias: "muledeer3"
+  :spread_tip: 112
+  :spread_greatest: 206
+  :spread_inside: 154
+
+:antlers:
+- :side: "right"
+  :lg_mainbeam: 185
+  :lg_one: 15
+  :lg_two: 139
+  :lg_three: 98
+  :lg_four: 96
+  :circ_one: 39
+  :circ_two: 39
+  :circ_three: 31
+  :circ_four: 39
+- :side: "left"
+  :lg_mainbeam: 180
+  :lg_one: 15
+  :lg_two: 124
+  :lg_three: 96
+  :lg_four: 100
+  :circ_one: 40
+  :circ_two: 38
+  :circ_three: 32
+  :circ_four: 36
+
+:right_points:
+- :lg_point: 124
+
+:left_points:
+- :lg_point: 31

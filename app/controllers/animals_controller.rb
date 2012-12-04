@@ -3,9 +3,26 @@ class AnimalsController < ApplicationController
   # GET /animals.json
   def index
     @animals = Animal.all
+    @user = User.find_by_id(session[:user_id])#why is current user not accessable here?
+    @scoreable_animals, @unscoreable_animals = @user.animals.partition do |animal|
+      animal.scoreable?
+    end
 
     respond_to do |format|
       format.html # index.html.erb
+      format.json { render json: @animals }
+    end
+  end
+
+  def scorecards
+    @animals = Animal.all
+    
+    @scoreable_animals, @unscoreable_animals = @animals.partition do |animal|
+      animal.scoreable?
+    end
+
+    respond_to do |format|
+      format.html # scorecards.html.erb
       format.json { render json: @animals }
     end
   end
@@ -85,4 +102,5 @@ class AnimalsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end
