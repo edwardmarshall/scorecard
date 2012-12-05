@@ -48,7 +48,10 @@
 
   .field
     = f.label :alias, "Alias:"
-    = f.text_field :alias, :placeholder => "e.g. 'The Buck of Justice'"
+    = f.text_field :alias, :placeholder => "e.g. The Buck of Justice"
+
+  .field
+    = f.hidden_field(:user_id, :value => session[:user_id])
 
   .actions
     = f.submit "Save"

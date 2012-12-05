@@ -4,14 +4,33 @@
 	-moz-bok-shadow: $shadow
 	box-shadow: $shadow
 
-@mixin lin-gradient-r2l($left, $right)
-	background-color: $left // fallback
+@mixin lin-gradient-l2r($left, $right)
+	background-color: $right // fallback
 	background-repeat: repeat-y
-	background: -webkit-gradient(linear, left top, right top, from($left), to($right)) // Safari 4-5, Chrome 1-9
-	background: -webkit-linear-gradient(left, $right, $left) // Safari 5.1, Chrome 10+
-	background:	-moz-linear-gradient(left, $right, $left) // Firefox 3.6+
-	background: -ms-linear-gradient(left, $right, $left) // IE 10
-	background:	-o-linear-gradient(left, $right, $left) // Opera 11.10+
+	background: -webkit-gradient(linear, left top, right top, from($right), to($left)) // Safari 4-5, Chrome 1-9
+	background: -webkit-linear-gradient(left, $left, $right) // Safari 5.1, Chrome 10+
+	background:	-moz-linear-gradient(left, $left, $right) // Firefox 3.6+
+	background: -ms-linear-gradient(left, $left, $right) // IE 10
+	background:	-o-linear-gradient(left, $left, $right) // Opera 11.10+
+
+@mixin lin-gradient-b2t($top, $bottom)
+	background-color: #1a82f7 // fallback
+	background: url(images/linear_bg_2.png)
+	background-repeat: repeat-x
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($bottom), to($top)) //Safari 4-5, Chrome 1-9
+	background: -webkit-linear-gradient(top, $top, $bottom) //Safari 5.1, Chrome 10+
+	background: -moz-linear-gradient(top, $top, $bottom) //Firefox 3.6+
+	background: -ms-linear-gradient(top, $top, $bottom) //IE 10
+	background: -o-linear-gradient(top, $top, $bottom) //Opera 11.10+
+
+.before, .after
+	visibility: hidden
+	display: block
+	content: ""
+	height: 0
+
+.after
+	clear: both
 
 // color pallete
 $background: #fafaee
@@ -21,13 +40,14 @@ $instance-val-em: rgba(0,0,255,0.1)
 $id-val-em: rgba(0,255,0,0.1)
 $red: 		#ff6633
 $orange: 	#ff9900
+$grey:		#999999
 $test_bg: rgba(#000, 0.0)
 
 $logo-icon: image-url('elusive_icon.svg')
 
 // --- CONTENT
 h1
-	font-family: abril-text, sans-serif
+	font-family: abril-text, serif
 	color: #363636
 
 h2
@@ -39,11 +59,31 @@ h2
 h6
 	margin-top: 0
 	margin-bottom: 0
-	font-size: 10px
+	font-size: 9px
+	font-weight: 200
+	color: white
 
+span.helper
+	font-size: 15px
+	color: gray
+span.data
+	color: #363636
+	font-size: 30px
+	font-weight: bold
+span.sub_text
+	font-size: 12px
+	color: gray
+span.rank
+	position: absolute
+
+span.alias
+	font-style: italic
+	color: white
+	padding: 5px
+	margin: 0 auto
 
 body
-	font-family: ff-basic-gothic-web-pro, sans-serif
+	font-family: helvetica, nimbus-sans, sans-serif
 	font-style: light
 	font-size: 14px
 	color: $copy
@@ -141,75 +181,118 @@ tr.point
 			background: $id-val-em
 
 
-// --- CARD: mini scorecard(s)
+// --- index mode: grid
 $card_border_radius: 3px
-$card_padding: 10px
 
 .card
+	float: left
 	postition: relative
 	background: white
 	width: 250px
-	height: 310px
-	padding: $card_padding
+	padding: 10px
+	margin: 0 50px 50px 0
 	border-radius: $card_border_radius
 	+box-shadow(0 0 8px rgba(0, 0, 0, 0.3))
+	&:before
+		@extend .before
+	&:after
+		@extend .after
+	*zoom: 1
+	header
+		postition: relative
+		background: none
+		width: 250px
+		vertical-align: bottom
+		border-radius: $card_border-radius $card_border-radius 0 0
 
-header.cards
-	postition: relative
-	background: none
-	width: 250px
-	height: 20px
-	vertical-align: bottom
-	border-radius: $card_border-radius $card_border-radius 0 0
-
-.image
-	background: image-url('photo.jpg')
+figure.image
 	position: relative
 	width: 100%
 	height: 200px
 	overflow: hidden
-	margin: 0 0 10px 0
+	margin: 10px 0 10px 0
 	+box-shadow(inset 0 3px 3px rgba(0,0,0, 0.3))
+	background: image-url('photo.jpg')
+	background-repeat:no-repeat
+	background-attachment:fixed
+	background-position: -50px -5px
+	&:before
+		@extend .before
+	&:after
+		@extend .after
+	*zoom: 1
 
-.score
+img
+	position: absolute
+	left: -50px
+	top: -20px
+
+.aka
+	position: absolute
+	width: 100%
+	padding: 5px 5px 5px 5px
+	z-index: 2
+	background: rgba(0,0,0, 0.5)
+	bottom: 0
+	+box-shadow(inset 0 -3px 3px rgba(0,0,0, 0.3))
+
+.card_stats
 	position: relative
-	float: left
-	width: 45.5%
-	height: 60px
-	padding: 10px 10px 10px 0
-	background: $test_bg
+	&:before
+		@extend .before
+	&:after
+		@extend .after
+	*zoom: 1
+	.score
+		float: left
+		width: 114px
+		padding: 10px 10px 10px 0
+		border-width: 0 1px 0 0
+		border-style: solid
+		border-color: grey
+		background: $test_bg
+	.points
+		float: left
+		width: 115px
+		padding: 10px 0 10px 10px
+		text-align: right
+		background: $test_bg
 
-.points
-	postition: relative
+.fraction
+	postition: absolute
 	float: left
-	width: 46%
-	height: 60px
-	padding: 10px 0 10px 10px
-	text-align: right
-	border-width: 0 0 0 1px
-	border-style: solid
-	border-color: grey
-	background: $test_bg
+	font-size: 12px
+	&:before
+		@extend .before
+	&:after
+		@extend .after
+	*zoom: 1
+	.number
+		border-style: solid
+		border-width: 0 0 1px 0
+		border-color: grey
 
+
+
+// --- index mode: list
 .graph
 	position: relative
 	width: 100%
 	height: 10px
-	background: none
-	border-width: 1px
-	border-style: solid
-	border-color: #ccc
-	.ranking
+	background: rgba(black, 0.1)
+	.data
 		position: relative
+		text-align: right
 		z-index: 2
-		width: 75%
+		width: 83%
 		height: 10px
+		padding: 0 2px 0 2px
 		background: #efefef
 		border-width: 0 1px 0 0
 		border-style: solid
-		border-color:	#ccc
-		+lin-gradient-r2l(#eee, #fff)
-
+		border-color:	white
+		+lin-gradient-l2r($orange, $red)
+		+box-shadow(inset 0 5px 1px rgba(white, 0.3))
 
 
 

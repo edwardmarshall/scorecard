@@ -1,13 +1,30 @@
 .card
-	%header.cards
+	%header
 		Mule Deer
-	.image
-	.score
-		Trophy Score
-		%h2 304
-		.graph
-			.ranking
-				%h6 75%
-	.points
-		Points Total
-		%h2 4x4
+		%p 
+			Rifle • DIY
+			%span.rank Ranked 80,298
+	%figure.image
+		.aka
+			%span.alias "The Buck of Justice"
+		%img{:src => "assets/photo.jpg"}
+	.card_stats
+		.score
+			Typical Score
+			%br
+			%span.data 304
+			.fraction
+				.number
+					3
+				%div
+					8
+			%span.helper in
+		.points
+			Points Total
+			%br
+				%span.helper L
+				%span.data 27
+				%span.helper X
+				%span.data 23
+				%span.helper R
+

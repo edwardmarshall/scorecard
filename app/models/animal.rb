@@ -4,12 +4,12 @@ class Animal < ActiveRecord::Base
   has_many :roles
   has_many :users, :through => :roles
 
-  attr_accessible :alias, :certification, :hunter, :image, :kind, :region, :state, :unit, :contributor,
+  attr_accessible :alias, :certification, :hunter, :image, :kind, :region, :state, :unit, :contributor, :user_id,
     :spread_tip, :spread_tip_whole, :spread_tip_fraction,
     :spread_greatest, :spread_greatest_whole, :spread_greatest_fraction,
-    :spread_inside, :spread_inside_whole, :spread_inside_fraction
+    :spread_inside, :spread_inside_whole, :spread_inside_fraction # <-- These guys have permission to be mass assigned
   
-  attr_accessor :spread_tip_whole, :spread_tip_fraction, :spread_greatest_whole, :spread_greatest_fraction, :spread_inside_whole, :spread_inside_fraction
+  attr_accessor :spread_tip_whole, :spread_tip_fraction, :spread_greatest_whole, :spread_greatest_fraction, :spread_inside_whole, :spread_inside_fraction, :user_id
   
   def calculate_lg_value
     self.spread_tip       =        (@spread_tip_whole.to_i * 8) + @spread_tip_fraction.to_i
