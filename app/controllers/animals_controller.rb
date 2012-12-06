@@ -3,8 +3,14 @@ class AnimalsController < ApplicationController
   # GET /animals.json
   def index
     @animals = Animal.all
-    @user = User.find_by_id(session[:user_id])#why is current user not accessable here?
-    @scoreable_animals, @unscoreable_animals = @animals.partition do |animal|
+    @user = User.find_by_id(session[:user_id])
+    
+    if @user == nil
+      redirect_to sign_in_url
+      return
+    end
+
+    @scoreable_animals, @unscoreable_animals = @user.animals.partition do |animal|
       animal.scoreable?
     end
 
@@ -30,7 +36,10 @@ class AnimalsController < ApplicationController
   # GET /animals/1
   # GET /animals/1.json
   def show
-    @animal = Animal.find(params[:id])
+    @animal = Animal.find_by_id(params[:id])
+    if @animal.nil?
+      @animal = Animal.find_by_alias(params[:id])
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -42,8 +51,8 @@ class AnimalsController < ApplicationController
   # GET /animals/new.json
   def new
     @animal = Animal.new
-    @animal.calculate_lg_value
-
+    @animal.calculate_lg_value # <-- is used to combine whole/fraction given by user
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @animal }
@@ -60,9 +69,14 @@ class AnimalsController < ApplicationController
   def create
     @animal = Animal.new(params[:animal])
     @animal.calculate_lg_value
+    # raise params.inspect # <--- helps figure via browser log what is in params
+    @role = Role.new(:user_id => params[:animal][:user_id], :title => "hunter")
     
     respond_to do |format|
       if @animal.save
+        #raise @animal.inspect # <--- helps figure via browser log what is in @animal
+        @role.animal_id = @animal.id
+        @role.save
         format.html { redirect_to @animal, notice: 'Animal was successfully created.' }
         format.json { render json: @animal, status: :created, location: @animal }
       else

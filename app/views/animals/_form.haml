@@ -10,6 +10,9 @@
             = msg
 
   .field
+    = f.hidden_field(:user_id, :value => session[:user_id])
+  
+  .field
     = f.label :kind, "Create a new scorecard for my:"
     = f.select :kind, [["Mule Deer", "mule deer"],["White Tail Deer", "white tail deer"],["Elk", "elk"]]
   
@@ -50,10 +53,24 @@
     = f.label :alias, "Alias:"
     = f.text_field :alias, :placeholder => "e.g. The Buck of Justice"
 
-  .field
-    = f.hidden_field(:user_id, :value => session[:user_id])
-
   .actions
     = f.submit "Save"
     or
     = link_to 'Cancel', @animal
+
+%br
+- if @animal.right_antler.present?
+  Right Antler
+  = @animal.right_antler.id
+  |
+  = link_to 'edit', edit_antler_url(@animal.right_antler.id)
+- else
+  = link_to '+ add right antler', new_antler_url(side: 'right', animal_id: @animal.id)
+
+- if @animal.left_antler.present?
+  Left Antler
+  = @animal.left_antler.id
+  |
+  = link_to 'edit',  edit_antler_url(@animal.left_antler.id)
+- else
+  = link_to '+ add left antler', new_antler_url(side: 'left', animal_id: @animal.id)

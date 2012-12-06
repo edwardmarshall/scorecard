@@ -1,0 +1,12 @@
+%h2= "Editing #{@antler.side.titleize} Antler"
+
+= render 'form'
+
+= link_to 'Back to Animal', edit_animal_path(@antler.animal_id)
+
+%ul
+	- @antler.points.each do |point|
+		%li
+			= point.id
+			|
+			= link_to 'edit', edit_point_url(point.id)

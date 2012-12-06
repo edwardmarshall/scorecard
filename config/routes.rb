@@ -1,6 +1,6 @@
 Scorecard::Application.routes.draw do
 
-	root :to => 'scorecards#index'
+	root :to => 'animals#index'
 
 	resources :points
 

@@ -47,13 +47,18 @@ class Animal < ActiveRecord::Base
   end
 
 
-# --- defining right/left side
+# --- defining foriegn relationships
   def right_antler
     self.antlers.find_by_side("right")
   end
 
   def left_antler
     self.antlers.find_by_side("left")
+  end
+
+  def hunter
+    role = roles.find_by_title("hunter")
+    role.user
   end
 
 # --- defining for score calculator

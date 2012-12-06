@@ -4,8 +4,8 @@ Antler.destroy_all
 Point.destroy_all
 
 
-u1 = { :username => "tophamt",	:email => "travis.topham@gmail.com", :first_name => "Travis", :last_name => "Topham", :password => "test", :password_confirmation => "test" },
-User.create u1
+u1 = { :username => "tophamt",	:email => "travis.topham@gmail.com", :first_name => "Travis", :last_name => "Topham", :password => "test", :password_confirmation => "test" }
+u = User.create u1
 
 ["db/fixtures/muledeer1.yml",
 	"db/fixtures/muledeer2.yml",
@@ -20,6 +20,7 @@ User.create u1
 	a.antlers.create(animal_data[:antlers]) # take 'a' and create THESE antlers for THIS animal
 	a.right_antler.points.create(animal_data[:right_points]) # take right_antler (defined in animal model) of 'a' and give it THESE points
 	a.left_antler.points.create(animal_data[:left_points])
+	r = Role.create(:title => 'hunter', :user_id => u.id, :animal_id => a.id)
 end
 
 # # belongs_to relationships

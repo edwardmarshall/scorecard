@@ -13,12 +13,3 @@
           %td= point.id
           %td= point.antler_id
           %td= point.lg_point
-          %td
-            = link_to 'Show', point
-            |
-            = link_to 'Edit', edit_point_path(point)
-            |
-            = link_to 'Destroy', point, method: :delete, data: {confirm: 'Are you sure you want to delete this point?'} 
-
-
-%p= link_to '+ New Point', new_point_url

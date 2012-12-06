@@ -9,12 +9,12 @@
           %li = msg %>
 
   .field
-    = f.label :image
-    = f.text_field :image
+    = f.hidden_field :side # we can do this without specifying the value b/c @antler already knows about :side. We already defined this in the controller action for 'new'
+    = f.hidden_field :animal_id
 
   .field
-    = f.label :side
-    = f.select :side, [["Right","right"],["Left","left"]] 
+    = f.label :image
+    = f.text_field :image
 
   .field
     = f.label :lg_mainbeam

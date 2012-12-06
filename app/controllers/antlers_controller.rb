@@ -24,7 +24,7 @@ class AntlersController < ApplicationController
   # GET /antlers/new
   # GET /antlers/new.json
   def new
-    @antler = Antler.new
+    @antler = Antler.new(side: params[:side], animal_id: params[:animal_id])
 
     respond_to do |format|
       format.html # new.html.erb
