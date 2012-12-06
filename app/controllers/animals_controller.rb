@@ -3,14 +3,13 @@ class AnimalsController < ApplicationController
   # GET /animals.json
   def index
     @animals = Animal.all
-    @user = User.find_by_id(session[:user_id])
     
-    if @user == nil
+    if current_user == nil
       redirect_to sign_in_url
       return
     end
 
-    @scoreable_animals, @unscoreable_animals = @user.animals.partition do |animal|
+    @scoreable_animals, @unscoreable_animals = current_user.animals.partition do |animal|
       animal.scoreable?
     end
 
@@ -52,7 +51,7 @@ class AnimalsController < ApplicationController
   def new
     @animal = Animal.new
     @animal.calculate_lg_value # <-- is used to combine whole/fraction given by user
-    
+    # raise params.inspect
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @animal }
@@ -75,7 +74,9 @@ class AnimalsController < ApplicationController
     respond_to do |format|
       if @animal.save
         #raise @animal.inspect # <--- helps figure via browser log what is in @animal
-        @role.animal_id = @animal.id
+        # @role.animal_id = @animal.id #<-- think of this as an object not a number (user_id) see next line
+        @role.animal = @animal
+        @role.user = current_user
         @role.save
         format.html { redirect_to @animal, notice: 'Animal was successfully created.' }
         format.json { render json: @animal, status: :created, location: @animal }

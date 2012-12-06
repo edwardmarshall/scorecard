@@ -60,7 +60,7 @@
                     %tr.animal
                         %td= animal.id
                         %td= animal.image
-                        %td= animal.kind
+                        %td= link_to "#{animal.kind}", animal
                         %td= animal.alias
                         %td= animal.hunter.full_name
                         %td= animal.state
@@ -96,12 +96,7 @@
                             x
                             = animal.left_antler.pts_slang
                             \:L
-                        %td
-                            = link_to 'Show', animal
-                            |
-                            = link_to 'Edit', edit_animal_path(animal)
-                            |
-                            = link_to 'Destroy', animal, method: :delete, data: {confirm: 'Are you sure you want to delete this ' + animal.kind }
+
 
 %p
     .table-wrapper

@@ -15,10 +15,6 @@
   .field
     = f.label :kind, "Create a new scorecard for my:"
     = f.select :kind, [["Mule Deer", "mule deer"],["White Tail Deer", "white tail deer"],["Elk", "elk"]]
-  
-  .field
-    = f.label :hunter, "Hunter name: "
-    = f.text_field :hunter, :placeholder => "First and Last"
 
   .field
     = f.label :state, "What state was your trophy taken in?"
