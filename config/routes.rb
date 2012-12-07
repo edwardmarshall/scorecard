@@ -1,6 +1,6 @@
 Scorecard::Application.routes.draw do
 
-	root :to => 'animals#index'
+	root :to => 'animals#home'
 
 	resources :points
 
@@ -15,6 +15,8 @@ Scorecard::Application.routes.draw do
 	get '/logout' => 'sessions#destroy', as: :sign_out
 
 	get '/scorecards' => 'animals#scorecards', as: :scorecards
-	get '/scorecards/:id' => 'animal#scorecard', as: :scorecard
+	get '/scorecards/:id' => 'animals#scorecard', as: :scorecard
+
+	get '/home/' => 'animals#home', as: :home
   
 end

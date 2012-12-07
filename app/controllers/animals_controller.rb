@@ -118,22 +118,8 @@ class AnimalsController < ApplicationController
     end
   end
 
-  def scorecards
-        @animals = Animal.all
+  def home
     
-    if current_user == nil
-      redirect_to sign_in_url
-      return
-    end
-
-    @scoreable_animals, @unscoreable_animals = current_user.animals.partition do |animal|
-      animal.scoreable?
-    end
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @animals }
-    end
   end
 
 end
