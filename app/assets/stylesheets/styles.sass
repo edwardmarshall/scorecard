@@ -34,7 +34,7 @@
 
 // color pallete
 $background: #fafaee
-$copy: #393931
+$copy: #333333
 $model-val-em: rgba(255,200,0,0.1)
 $instance-val-em: rgba(0,0,255,0.1)
 $id-val-em: rgba(0,255,0,0.1)
@@ -157,9 +157,6 @@ tr.animal
 			background: $instance-val-em
 		&:nth-of-type(1)
 			background: $id-val-em
-		&:last-child
-			background: $background
-			border: none
 
 tr.antler
 	td
@@ -170,6 +167,8 @@ tr.antler
 			background: $model-val-em
 		&:nth-of-type(-n+2)
 			background: $id-val-em
+		&:nth-of-type(n+18)
+			background: $instance-val-em
 
 tr.point
 	td
@@ -240,32 +239,33 @@ figure.card_avatar
 	*zoom: 1
 	.score
 		float: left
-		width: 114px
+		width: 108px
 		padding: 10px 10px 10px 0
 		border-width: 0 1px 0 0
 		border-style: solid
-		border-color: grey
+		border-color: $grey
 		background: $test_bg
 	.points
 		float: left
-		width: 115px
+		width: 121px
 		padding: 10px 0 10px 10px
 		text-align: right
 		background: $test_bg
 
 .fraction
-	postition: absolute
-	float: left
+	display: inline
+	position: absolute
+	width: 12px
 	font-size: 12px
-	&:before
-		@extend .before
-	&:after
-		@extend .after
-	*zoom: 1
 	.number
+		position: relative
+		width: 100%
 		border-style: solid
 		border-width: 0 0 1px 0
 		border-color: grey
+	.eight
+		position: relative
+		display: inline
 
 
 

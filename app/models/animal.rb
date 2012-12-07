@@ -159,6 +159,23 @@ class Animal < ActiveRecord::Base
   def nontypical_score
     subtotal2_score + lg_points
   end
+
+  def score
+    if typical_score >= nontypical_score
+      return typical_score
+    else
+      return nontypical_score
+    end
+  end
+
+  def score_title
+    if typical_score >= nontypical_score
+      return "typical"
+    else
+      return "nontypical"
+    end
+  end
+
 # --- calculating gross for reference
   def gross_score
     spread_credit.to_i + (right_antler.lg_antler + right_antler.lg_points.to_i) + (left_antler.lg_antler + left_antler.lg_points.to_i)

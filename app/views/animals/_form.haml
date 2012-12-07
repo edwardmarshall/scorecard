@@ -56,16 +56,14 @@
 
 %br
 - if @animal.right_antler.present?
-  Right Antler
-  = @animal.right_antler.id
+  = "#{@animal.right_antler.lg_antler / 8} #{@animal.right_antler.lg_antler % 8}/8 in Right Antler"
   |
   = link_to 'edit', edit_antler_url(@animal.right_antler.id)
 - else
   = link_to '+ add right antler', new_antler_url(side: 'right', animal_id: @animal.id)
-
+%br
 - if @animal.left_antler.present?
-  Left Antler
-  = @animal.left_antler.id
+  = "#{@animal.left_antler.lg_antler / 8} #{@animal.left_antler.lg_antler % 8}/8 in Left Antler"
   |
   = link_to 'edit',  edit_antler_url(@animal.left_antler.id)
 - else
