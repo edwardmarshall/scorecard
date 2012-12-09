@@ -16,19 +16,19 @@
     %td= @animal.state
   %tr
     %th Tip to Tip Spread:
-    %td= "#{@animal.spread_tip / 8} #{@animal.spread_tip % 8}/8 in"
+    %td= "#{@animal.spread_tip.to_i / 8} #{@animal.spread_tip.to_i % 8}/8 in"
   %tr
     %th Greatest Spread:
-    %td= "#{@animal.spread_greatest. / 8} #{@animal.spread_greatest. % 8}/8 in"
+    %td= "#{@animal.spread_greatest.to_i / 8} #{@animal.spread_greatest.to_i % 8}/8 in"
   %tr
     %th Inside Spread:
-    %td= "#{@animal.spread_inside / 8} #{@animal.spread_inside % 8}/8 in"
+    %td= "#{@animal.spread_inside.to_i / 8} #{@animal.spread_inside.to_i % 8}/8 in"
   %tr
     %th Right Antler:
-    %td= "#{@animal.right_antler.lg_antler / 8} #{@animal.right_antler.lg_antler % 8}/8 in"
+    %td= "#{@animal.right_antler.lg_antler.to_i / 8} #{@animal.right_antler.lg_antler.to_i % 8}/8 in"
   %tr
     %th Left Antler:
-    %td= "#{@animal.left_antler.lg_antler / 8} #{@animal.left_antler.lg_antler % 8}/8 in"
+    %td= "#{@animal.left_antler.lg_antler.to_i / 8} #{@animal.left_antler.lg_antler.to_i % 8}/8 in"
 
 %br
 = link_to "Edit", edit_animal_path(@animal)

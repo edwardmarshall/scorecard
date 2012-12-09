@@ -71,14 +71,23 @@ strong
 
 span.helper
 	font-size: 15px
+
 span.data
 	color: #363636
 	font-size: 30px
 	font-weight: bold
+
 span.sub_text
 	font-size: 12px
+
 span.rank
 	position: absolute
+
+span.card-index
+	display: block
+	float: left
+	width: 100%
+	margin-top: 10px
 
 span.aka
 	font-style: italic
@@ -184,17 +193,56 @@ tr.point
 
 
 // --- index mode: grid
-$card_border_radius: 3px
+
+.wrapper
+	position: relative
+	width: 1060px
+	padding-top: 40px
+	margin: 0 auto
+	&:before
+		@extend .before
+	&:after
+		@extend .after
+	*zoom: 1
+
+nav.card-index
+	position: relative
+	float: left
+	text-align: center
+	width: 160px
+
+.add-button, .card
+	border-radius: 3px
+	+box-shadow(0 0 8px rgba(0, 0, 0, 0.3))
+	background: white
+
+.add-button
+	position: relative
+	text-align: center
+	line-height: 80px
+	font-size: 50px
+	font-weight: 600
+	width: 80px
+	height: 100px
+	margin: 0 auto
+
+section
+	position: relative
+	float: left
+	width: 880px
+	padding-left: 20px
+	&:before
+		@extend .before
+	&:after
+		@extend .after
+	*zoom: 1
 
 .card
 	float: left
 	postition: relative
-	background: white
 	width: 250px
 	padding: 10px
-	margin: 0 50px 50px 0
-	border-radius: $card_border_radius
-	+box-shadow(0 0 8px rgba(0, 0, 0, 0.3))
+	margin: 0 20px 20px 0
 	&:before
 		@extend .before
 	&:after
@@ -250,9 +298,9 @@ $card_border_radius: 3px
 		width: 115px
 		text-align: right
 
-.score_details
+.score_fraction
 	display: inline-block
-	width: 20px
+	width: 10px
 	line-height: 12px
 
 
