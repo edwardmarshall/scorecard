@@ -10,3 +10,5 @@
 			= point.id
 			|
 			= link_to 'edit', edit_point_url(point.id)
+
+= link_to '+ add point', new_point_url(antler_id: @antler.id)

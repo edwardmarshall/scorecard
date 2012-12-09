@@ -31,7 +31,9 @@
     %td= "#{@animal.left_antler.lg_antler / 8} #{@animal.left_antler.lg_antler % 8}/8 in"
 
 %br
-= link_to "Edit this #{@animal.kind.titleize}", edit_animal_path(@animal)
+= link_to "Edit", edit_animal_path(@animal)
+|
+= link_to "Close", animals_path
 
 
 

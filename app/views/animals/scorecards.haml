@@ -3,31 +3,29 @@
 %section
 	- @scoreable_animals.each do |animal|
 		.card
-			%header
-				%h3= animal.kind.titleize
-			%figure.card_avatar
-				.aka
-					%span.alias
+			%figure.card-avatar
+				%img{:src => "assets/photo.jpg"}
+				.alias
+					%span.aka
 						\"
 						= animal.alias.titleize
 						\"
-				%img{:src => "assets/photo.jpg"}
-			.card_stats
-				.score
-					= animal.score_title.titleize
-					Score
-					%br
-					%span.data= "#{animal.score / 8}"
-					.fraction
-						.number= "#{animal.score % 8}"
-						.eight 8
-				.points
-					Total Points
-					%br
-						%span.helper R
-						%span.data
-							= animal.right_antler.pts_all
-						%span.helper X
-						%span.data
-							= animal.left_antler.pts_all
-						%span.helper L
+			.card-title
+				Species:
+				%strong= animal.kind.titleize
+			.box-set
+				.box
+					.box1
+						= animal.score_title.titleize
+						Score
+						%br
+						%span.data= "#{animal.score / 8}"
+						.score_details
+							%strong= "#{animal.score % 8}/8"
+							inches
+					.box2
+						Scoreable Points
+						%br
+							%span.helper R
+							%span.data= "#{animal.right_antler.pts_all}x#{animal.left_antler.pts_all}"
+							%span.helper L

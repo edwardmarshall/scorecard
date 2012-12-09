@@ -1,3 +1,17 @@
 %h2 Editing Animal
 
 = render 'form'
+
+- if @animal.right_antler.present?
+  = "#{@animal.right_antler.lg_antler / 8} #{@animal.right_antler.lg_antler % 8}/8 in Right Antler"
+  |
+  = link_to 'Edit', edit_antler_url(@animal.right_antler.id)
+- else
+  = link_to '+ Add Right Antler', new_antler_url(side: 'right', animal_id: @animal.id)
+%br
+- if @animal.left_antler.present?
+  = "#{@animal.left_antler.lg_antler / 8} #{@animal.left_antler.lg_antler % 8}/8 in Left Antler"
+  |
+  = link_to 'Edit',  edit_antler_url(@animal.left_antler.id)
+- else
+  = link_to '+ Add Left Antler', new_antler_url(side: 'left', animal_id: @animal.id)

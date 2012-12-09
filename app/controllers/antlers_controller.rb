@@ -58,8 +58,10 @@ class AntlersController < ApplicationController
   # PUT /antlers/1.json
   def update
     @antler = Antler.find(params[:id])
+    # raise @antler.inspect <--- good to here...
+    @antler.attributes=(params[:antler]) # this fixes... but why?
     @antler.calculate_lg_value
-
+    
     respond_to do |format|
       if @antler.update_attributes(params[:antler])
         format.html { redirect_to @antler, notice: 'Antler was successfully updated.' }
