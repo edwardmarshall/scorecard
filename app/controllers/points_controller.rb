@@ -24,7 +24,7 @@ class PointsController < ApplicationController
   # GET /points/new
   # GET /points/new.json
   def new
-    @point = Point.new
+    @point = Point.new(antler_id: params[:antler_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -80,7 +80,7 @@ class PointsController < ApplicationController
     @point.destroy
 
     respond_to do |format|
-      format.html { redirect_to points_url }
+      format.html { redirect_to edit_antler_url(:antler_id => params[:antler_id]) }#//// error!!!!!
       format.json { head :no_content }
     end
   end
