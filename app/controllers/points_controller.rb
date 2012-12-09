@@ -17,7 +17,10 @@ class PointsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @point }
+      format.json do
+        html = render_to_string :partial => 'point', :layout => false, :locals => {point: @point}
+        render json: {html: html}
+      end
     end
   end
 

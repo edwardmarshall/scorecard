@@ -10,7 +10,7 @@ $ ->
     onSuccess = (response)->
       $element.parent().replaceWith(response.html)
     $.ajax
-      url: $element.data('point_url')
+      url: $element.data('edit_point_url')
       type: 'GET'
       success: onSuccess
 
@@ -29,6 +29,8 @@ $ ->
 
   # This deletes the point and removes it from the display
   $('.pointList').on 'click', 'a[data-method="delete"]', (e)->
+    e.preventDefault()
+    e.stopPropagation()
     $link = $(e.currentTarget)
     onSuccess = ->
       $link.parents('li').remove()
@@ -37,10 +39,11 @@ $ ->
       data: $link.data()
       type: 'DELETE'
       success: onSuccess
-    false
 
   # This adds an empty form for new points
   $('.addPoint').on 'click', (e)->
+    e.preventDefault()
+    e.stopPropagation()
     $link = $(e.currentTarget)
     onSuccess = (response)->
       $li = $('<li>').append(response.html)
@@ -50,7 +53,6 @@ $ ->
       data: $link.data()
       type: 'GET'
       success: onSuccess
-    false
 
   # This save a new form to the server and shows the display
   $('.pointList').on 'click', 'form.new_point input[type="submit"]', (e)->
@@ -63,4 +65,15 @@ $ ->
       url: $form.attr('action')
       data: data
       type: 'POST'
+      success: onSuccess
+
+      # This shows the point when cancel is clicked
+  $('.pointList').on 'click', '.cancelPoint', (e)->
+    e.preventDefault()
+    $cancelLink = $(e.currentTarget)
+    onSuccess = (response)->
+      $cancelLink.parents('form').replaceWith(response.html)
+    $.ajax
+      url: $cancelLink.data('point_url')
+      type: 'GET'
       success: onSuccess
