@@ -35,6 +35,13 @@ class PointsController < ApplicationController
   # GET /points/1/edit
   def edit
     @point = Point.find(params[:id])
+    respond_to do |format|
+      format.html { render 'edit' }
+      format.json do
+        html = render_to_string :partial => 'form', :layout => false
+        render json: {html: html}
+      end
+    end
   end
 
   # POST /points
