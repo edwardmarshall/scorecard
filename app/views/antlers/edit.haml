@@ -7,4 +7,4 @@
     %li
       = render :partial  => 'points/point', :locals => {:point => point}
 
-= link_to '+ Add point', new_point_url(antler_id: @antler.id)
+= link_to '+ Add point', new_point_url(antler_id: @antler.id), :class => 'addPoint'

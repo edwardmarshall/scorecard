@@ -27,6 +27,7 @@ $ ->
       type: 'POST'
       success: onSuccess
 
+  # This deletes the point and removes it from the display
   $('.pointList').on 'click', 'a[data-method="delete"]', (e)->
     $link = $(e.currentTarget)
     onSuccess = ->
@@ -37,3 +38,29 @@ $ ->
       type: 'DELETE'
       success: onSuccess
     false
+
+  # This adds an empty form for new points
+  $('.addPoint').on 'click', (e)->
+    $link = $(e.currentTarget)
+    onSuccess = (response)->
+      $li = $('<li>').append(response.html)
+      $('.pointList').append($li)
+    $.ajax
+      url: $link.attr('href')
+      data: $link.data()
+      type: 'GET'
+      success: onSuccess
+    false
+
+  # This save a new form to the server and shows the display
+  $('.pointList').on 'click', 'form.new_point input[type="submit"]', (e)->
+    e.preventDefault()
+    $form = $(e.currentTarget.form)
+    data = $form.serialize()
+    onSuccess = (response)->
+      $form.replaceWith(response.html)
+    $.ajax
+      url: $form.attr('action')
+      data: data
+      type: 'POST'
+      success: onSuccess

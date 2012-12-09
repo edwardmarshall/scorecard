@@ -28,7 +28,10 @@ class PointsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @point }
+      format.json do
+        html = render_to_string :partial => 'form', :layout => false, :locals => {point: @point}
+        render json: {html: html}
+      end
     end
   end
 
@@ -53,10 +56,16 @@ class PointsController < ApplicationController
     respond_to do |format|
       if @point.save
         format.html { redirect_to @point, notice: 'Point was successfully created.' }
-        format.json { render json: @point, status: :created, location: @point }
+        format.json do
+          html = render_to_string :partial => 'point', :layout => false, :locals => {point: @point}
+          render json: {html: html}
+        end
       else
         format.html { render action: "new" }
-        format.json { render json: @point.errors, status: :unprocessable_entity }
+        format.json do
+          html = render_to_string :partial => 'form', :layout => false
+          render json: {html: html}
+        end
       end
     end
   end
