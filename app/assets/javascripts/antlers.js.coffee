@@ -3,12 +3,26 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-  $('.editPoint').click (e)->
+  # This changes the display into the form
+  $('body').on 'click', '.editPoint', (e)->
     e.preventDefault()
     $element = $(e.currentTarget)
     onSuccess = (response)->
-      $element.replaceWith(response.html)
+      $element.parent().replaceWith(response.html)
     $.ajax
       url: $element.data('point_url')
       type: 'GET'
+      success: onSuccess
+
+  # This save the form to the server and shows the display
+  $('body').on 'click', 'form.edit_point input[type="submit"]', (e)->
+    e.preventDefault()
+    $form = $(e.currentTarget.form)
+    data = $form.serialize()
+    onSuccess = (response)->
+      $form.replaceWith(response.html)
+    $.ajax
+      url: $form.attr('action')
+      data: data
+      type: 'POST'
       success: onSuccess

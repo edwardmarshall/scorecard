@@ -65,17 +65,23 @@ class PointsController < ApplicationController
   # PUT /points/1.json
   def update
     @point = Point.find(params[:id])
-    
+
     @point.attributes=(params[:point])
     @point.calculate_lg_value
 
     respond_to do |format|
       if @point.update_attributes(params[:point])
         format.html { redirect_to @point, notice: 'Point was successfully updated.' }
-        format.json { head :no_content }
+        format.json do
+          html = render_to_string :partial => 'point', :layout => false, :locals => {point: @point}
+          render json: {html: html}
+        end
       else
         format.html { render action: "edit" }
-        format.json { render json: @point.errors, status: :unprocessable_entity }
+        format.json do
+          html = render_to_string :partial => 'form', :layout => false
+          render json: {html: html}
+        end
       end
     end
   end

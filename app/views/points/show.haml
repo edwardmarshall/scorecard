@@ -1,13 +1,6 @@
 %p.notice
 
-%p
-  %b Antler:
-  = @point.antler_id
-
-%p
-  %b Lg point:
-  = @point.lg_point
-
+= render :partial  => 'point', :locals => {:point => @point}
 
 = link_to 'Edit', edit_point_path(@point)
 |
