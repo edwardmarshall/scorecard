@@ -4,7 +4,7 @@
 
 $ ->
   # This changes the display into the form
-  $('body').on 'click', '.editPoint', (e)->
+  $('.pointList').on 'click', '.editPoint', (e)->
     e.preventDefault()
     $element = $(e.currentTarget)
     onSuccess = (response)->
@@ -15,7 +15,7 @@ $ ->
       success: onSuccess
 
   # This save the form to the server and shows the display
-  $('body').on 'click', 'form.edit_point input[type="submit"]', (e)->
+  $('.pointList').on 'click', 'form.edit_point input[type="submit"]', (e)->
     e.preventDefault()
     $form = $(e.currentTarget.form)
     data = $form.serialize()
@@ -26,3 +26,14 @@ $ ->
       data: data
       type: 'POST'
       success: onSuccess
+
+  $('.pointList').on 'click', 'a[data-method="delete"]', (e)->
+    $link = $(e.currentTarget)
+    onSuccess = ->
+      $link.parents('li').remove()
+    $.ajax
+      url: $link.attr('href')
+      data: $link.data()
+      type: 'DELETE'
+      success: onSuccess
+    false

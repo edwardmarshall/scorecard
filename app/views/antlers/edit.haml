@@ -2,7 +2,7 @@
 
 = render 'form'
 
-%ul
+%ul.pointList
   - @antler.points.each do |point|
     %li
       = render :partial  => 'points/point', :locals => {:point => point}
