@@ -14,8 +14,7 @@
 							\"
 							= animal.alias.titleize
 							\"
-				.card-title
-					Species:
+				.card-row
 					%strong= animal.kind.titleize
 				.box-set
 					.box
@@ -34,3 +33,8 @@
 								R
 								%span.data= "#{animal.right_antler.pts_all}x#{animal.left_antler.pts_all}"
 								L
+				.footer
+					%nav
+						=link_to 'Edit', edit_animal_url(animal.id)
+						|
+						=link_to 'Scorecard', animal_url(animal.id)
