@@ -1,0 +1,52 @@
+%p#notice
+
+%h2= "#{@antler.side.titleize} Antler"
+
+%table
+  %tr
+    %th Mainbeam:
+    %td= @antler.lg_mainbeam
+  %tr
+    %th G-1:
+    %td= @antler.lg_one
+  %tr
+    %th G-2:
+    %td= @antler.lg_two
+  %tr
+    %th G-3:
+    %td= @antler.lg_three
+  %tr
+    %th G-4:
+    %td= @antler.lg_four
+  %tr
+    %th H-1:
+    %td= @antler.circ_one
+  %tr
+    %th H-2:
+    %td= @antler.circ_two
+  %tr
+    %th H-3:
+    %td= @antler.circ_three
+  %tr
+    %th H-4:
+    %td= @antler.circ_four
+  %tr
+    %th Abnormal Point(s):
+    %td
+      %ul
+        - @antler.points.each do |point|
+          %li
+            = "#{point.lg_point / 8} #{point.lg_point % 8}/8\" Pt - id => #{point.id}"
+            |
+            = link_to 'Edit', edit_point_url(point.id)
+            |
+            = link_to 'Delete', point, method: :delete
+
+  %tr
+    %th= link_to '+ Add point', new_point_url(antler_id: @antler.id)
+
+
+
+= link_to 'Edit', edit_antler_path(@antler)
+|
+= link_to 'Done', animal_path(@antler.animal_id)

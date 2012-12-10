@@ -46,6 +46,18 @@ class AnimalsController < ApplicationController
     end
   end
 
+  def scorecard
+    @animal = Animal.find_by_id(params[:id])
+    if @animal.nil?
+      @animal = Animal.find_by_alias(params[:id])
+    end
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @animal }
+    end
+  end
+
   # GET /animals/new
   # GET /animals/new.json
   def new

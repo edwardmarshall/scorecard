@@ -33,8 +33,8 @@
 	clear: both
 
 // color pallete
-$background: #eee
-$copy: #666666
+$background: whitesmoke
+$copy: #999
 $model-val-em: rgba(255,200,0,0.1)
 $instance-val-em: rgba(0,0,255,0.1)
 $id-val-em: rgba(0,255,0,0.1)
@@ -76,6 +76,14 @@ span.data
 	color: #363636
 	font-size: 30px
 	font-weight: bold
+
+.id
+	font-family: letter-gothic-std, san-serif
+	color: $orange
+
+.right
+	float: right
+	display: inline-block
 
 span.sub_text
 	font-size: 12px
@@ -193,17 +201,19 @@ tr.point
 
 
 // --- index mode: grid
-
 .wrapper
-	position: relative
-	width: 1060px
-	padding-top: 40px
-	margin: 0 auto
+	width: 100%
+	padding: 40px 0
 	&:before
 		@extend .before
 	&:after
 		@extend .after
 	*zoom: 1
+
+.container
+	position: relative
+	width: 1060px
+	margin: 0 auto
 
 nav.card-index
 	position: relative
@@ -212,9 +222,9 @@ nav.card-index
 	width: 160px
 
 .add-button, .card
-	border-radius: 3px 3px 3px 20px
-	+box-shadow(0 0 5px rgba(0, 0, 0, 0.3))
-	background: white
+	border-radius: 2px 2px 2px 10px
+	+box-shadow(0 0 3px rgba(0, 0, 0, 0.2))
+	background: url('pattern.svg')
 
 .add-button
 	position: relative
@@ -250,11 +260,11 @@ section
 	*zoom: 1
 	
 .card-avatar, .card-row, .box-set
+	width: 100%
 	margin: 0 0 10px 0
 
 .card-avatar
 	position: relative
-	width: 100%
 	height: 200px
 	overflow: hidden
 	img
@@ -271,19 +281,19 @@ section
 	bottom: 0
 
 .card-row
-	width: 100%
-	text-align: center
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 1)
 
-.footer
+.card-footer
 	width: 100%
 	padding-top: 10px
-	text-align: right
 	border-style: solid
 	border-width: 1px 0 0 0
 	border-color: $copy
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 1)
 
 .box-set
 	position: relative
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 1)
 	&:before
 		@extend .before
 	&:after
