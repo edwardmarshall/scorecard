@@ -4,6 +4,11 @@
 	-moz-bok-shadow: $shadow
 	box-shadow: $shadow
 
+@mixin border($width, $style, $color)
+	border-width: $width
+	border-style: $style
+	border-color: $color
+
 @mixin lin-gradient-l2r($left, $right)
 	background-color: $right // fallback
 	background-repeat: repeat-y
@@ -125,19 +130,59 @@ a
 	font-size: 10px
 	color: grey
 
-ul.block
+ul.block, ol.block
 	list-style: none
+	&:before
+		@extend .before
+	&:after
+		@extend .after
+	*zoom: 1
+	li
+		display: inline
+		float: left
+
+.header_ul
 	margin: 0
 	padding: 0
 	li
-		display: inline
 		margin-right: 15px
-		float: left
 		line-height: 51px
 		&:nth-of-type(n+2)
 			width: 830px
 			text-align: right
 
+.form_row
+	margin: 0
+	padding: 0
+	li
+		height: 30px
+		padding: 5px
+		line-height: 30px
+		&:first-child
+			width: 50px
+			text-align: right
+		&:nth-of-type(n+2)
+			width: 260px
+		&:nth-of-type(n+3)
+			width: 75px
+		&:nth-of-type(n+4)
+			width: 75px
+		&:nth-of-type(n+5)
+			width: 500px
+
+.container_ol
+	margin: 0
+	padding: 0
+	width: 500px
+	background: url('pattern.svg')
+
+ol.block > li
+	&:nth-of-type(even)
+		background: rgba(whitesmoke, 0.5)
+
+.color
+	background: yellow
+	+border(0 1px 0 0, solid, black)
 
 // --- structure
 .wrapper
@@ -221,7 +266,7 @@ section.cards
 	width: 100%
 	padding: 5px 5px 5px 5px
 	z-index: 2
-	background: rgba($red, 0.5)
+	background: rgba($red, 0.75)
 	bottom: 0
 
 .card-row

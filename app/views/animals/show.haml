@@ -1,53 +1,63 @@
 %p#notice
 
+%ol.block.container_ol
+  %li
+    %ul.block.form_row
+      %li A.
+      %li Number of points on each antler:
+      %li= "R #{@animal.right_antler.pts_all} x #{@animal.left_antler.pts_all} L"
+      %li
+  %li
+    %ul.block.form_row
+      %li B.
+      %li Tip to Tip Spread:
+      %li= "#{@animal.spread_tip.to_i / 8} #{@animal.spread_tip.to_i % 8}/8\""
+      %li= link_to "Edit", edit_animal_path(@animal)
+  %li
+    %ul.block.form_row.greatest_spread
+      %li C.
+      %li Greatest Spread:
+      %li= "#{@animal.spread_greatest.to_i / 8} #{@animal.spread_greatest.to_i % 8}/8\""
+      %li= link_to "Edit", edit_animal_path(@animal)
+  %li
+    %ul.block.form_row
+      %li D.
+      %li Inside Spread:
+      %li= "#{@animal.spread_inside.to_i / 8} #{@animal.spread_inside.to_i % 8}/8\""
+      %li= link_to "Edit", edit_animal_path(@animal)
+  
+  
+  - if @animal.right_antler.present?
+    %li
+      %ul.block.form_row
+        %li 
+        %li Total length of Right antler:
+        %li= "#{@animal.right_antler.lg_antler / 8} #{@animal.right_antler.lg_antler % 8}/8\""
+        %li= link_to 'Edit', edit_antler_url(@animal.right_antler.id)
+        %li.color
+        %li.color
+        %li.color
+  - else
+    %li
+      %ul.block.form_row
+        %li= link_to '+ Add right antler', new_antler_url(side: 'right', animal_id: @animal.id)
+        %li
+        %li
+  
 
-
-%table
-  %tr
-    %th Kind:
-    %td= @animal.kind
-  %tr
-    %th Alias:
-    %td= @animal.alias
-  %tr
-    %th Image:
-    %td
-      %img{:src => @animal.image.to_s}
-  %tr
-    %th State:
-    %td= @animal.state
-  %tr
-    %th Tip to Tip Spread:
-    %td= "#{@animal.spread_tip.to_i / 8} #{@animal.spread_tip.to_i % 8}/8 in"
-  %tr
-    %th Greatest Spread:
-    %td= "#{@animal.spread_greatest.to_i / 8} #{@animal.spread_greatest.to_i % 8}/8 in"
-  %tr
-    %th Inside Spread:
-    %td= "#{@animal.spread_inside.to_i / 8} #{@animal.spread_inside.to_i % 8}/8 in"
-  %tr
-    %th Right Antler:
-    %td
-      - if @animal.right_antler.present?
-        = "#{@animal.right_antler.lg_antler / 8} #{@animal.right_antler.lg_antler % 8}/8 in Right Antler"
-        |
-        = link_to 'Edit', edit_antler_url(@animal.right_antler.id)
-      - else
-        = link_to '+ Add right antler', new_antler_url(side: 'right', animal_id: @animal.id)
-  %tr
-    %th Left Antler:
-    %td
-      - if @animal.left_antler.present?
-        = "#{@animal.left_antler.lg_antler / 8} #{@animal.left_antler.lg_antler % 8}/8 in Left Antler"
-        |
-        = link_to 'Edit',  edit_antler_url(@animal.left_antler.id)
-      - else
-        = link_to '+ Add left antler', new_antler_url(side: 'left', animal_id: @animal.id)
-
-%br
-= link_to "Edit", edit_animal_path(@animal)
-|
-= link_to "Close", scorecards_path
+  - if @animal.left_antler.present?
+    %li
+      %ul.block.form_row
+        %li 
+        %li Total length of Left antler:
+        %li= "#{@animal.left_antler.lg_antler / 8} #{@animal.left_antler.lg_antler % 8}/8\""
+        %li= link_to 'Edit', edit_antler_url(@animal.left_antler.id)
+  - else
+    %li
+      %ul.block.form_row
+        %li= link_to '+ Add left antler', new_antler_url(side: 'left', animal_id: @animal.id)
+        %li
+        %li
 
 
 
