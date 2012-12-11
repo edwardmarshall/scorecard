@@ -1,7 +1,7 @@
 class Animal < ActiveRecord::Base
  
-  has_many :antlers
-  has_many :roles
+  has_many :antlers, :dependent => :destroy
+  has_many :roles, :dependent => :destroy
   has_many :users, :through => :roles
 
   mount_uploader :image, ImageUploader

@@ -7,9 +7,11 @@
 
 		%section.cards
 			- @scoreable_animals.each do |animal|
+				/ - if @animal.type == "Sheds"
+				/ 	= render :partial => 'shed'
 				.card
 					%figure.card-avatar
-						%img{:src => "assets/photo.jpg"}
+						%img{:src => "/uploads/animal/image/#{animal.id}/thumb_go18_0.jpeg"}
 						.alias
 							%span.aka
 								\"
