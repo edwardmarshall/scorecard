@@ -41,12 +41,9 @@ $id-val-em: rgba(0,255,0,0.1)
 $red: 		#ff6633
 $orange: 	#ff9900
 
-$logo-icon: image-url('elusive_icon.svg')
+$logo-icon: image-url('elusiveindex_4e4d4f.svg')
 
 // --- CONTENT
-h1
-	font-family: abril-text, serif
-	color: #363636
 
 h2
 	margin-top: 0
@@ -109,6 +106,7 @@ body
 	font-size: 14px
 	color: $copy
 	background: $background
+	margin: 0
 
 a
 	color: $red
@@ -121,86 +119,27 @@ a
 
 .logo
 	content: $logo-icon
-	width: 100px
+	width: 200px
 
 .helper_note
 	font-size: 10px
 	color: grey
 
-ul.cards
+ul.block
 	list-style: none
+	margin: 0
+	padding: 0
 	li
 		display: inline
-		margin: 0 25px
+		margin-right: 15px
 		float: left
+		line-height: 51px
+		&:nth-of-type(n+2)
+			width: 830px
+			text-align: right
 
 
-// --- TABLE
-.table-wrapper
-	position: relative
-	width: 100%
-
-td, th
-	padding: 5px 5px
-	font-size: 10px
-
-// --- SCOPE: .admin
-table.admin
-	border-collapse: collapse
-	thead 
-		tr
-			background: #ccc
-		th
-			border-style: solid
-			border-width: 0 1px 0 0
-			border-color: white
-	tbody
-		tr:nth-of-type(even)
-			background: rgba(#eeeeee, 0.25)
-		td
-			border-style: solid
-			border-width: 0 1px 0 0
-			border-color: white
-			&:first-child
-				text-align: right
-
-// --- SNIPE: .class
-tr.animal
-	td
-		&:nth-of-type(n+6)
-			text-align: center
-			background: none
-		&:nth-of-type(n+7)
-			background: $model-val-em
-		&:nth-of-type(n+10)
-			background: $instance-val-em
-		&:nth-of-type(1)
-			background: $id-val-em
-
-tr.antler
-	td
-		&:nth-of-type(n+6)
-			text-align: center
-			background: none
-		&:nth-of-type(n+6)
-			background: $model-val-em
-		&:nth-of-type(-n+2)
-			background: $id-val-em
-		&:nth-of-type(n+18)
-			background: $instance-val-em
-
-tr.point
-	td
-		&:nth-of-type(n+1)
-			text-align: center
-			background: none
-		&:nth-of-type(n+3)
-			background: $model-val-em
-		&:nth-of-type(-n+2)
-			background: $id-val-em
-
-
-// --- index mode: grid
+// --- structure
 .wrapper
 	width: 100%
 	padding: 40px 0
@@ -210,11 +149,20 @@ tr.point
 		@extend .after
 	*zoom: 1
 
+.header_bg
+	background: white
+	padding: 20px 0
+
 .container
 	position: relative
 	width: 1060px
 	margin: 0 auto
 
+
+// --- header
+
+
+// --- index mode: grid
 nav.card-index
 	position: relative
 	float: left
@@ -346,6 +294,95 @@ section.cards
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// --- TABLE
+.table-wrapper
+	position: relative
+	width: 100%
+
+td, th
+	padding: 5px 5px
+	font-size: 10px
+
+// --- SCOPE: .admin
+table.admin
+	border-collapse: collapse
+	thead 
+		tr
+			background: #ccc
+		th
+			border-style: solid
+			border-width: 0 1px 0 0
+			border-color: white
+	tbody
+		tr:nth-of-type(even)
+			background: rgba(#eeeeee, 0.25)
+		td
+			border-style: solid
+			border-width: 0 1px 0 0
+			border-color: white
+			&:first-child
+				text-align: right
+
+// --- SNIPE: .class
+tr.animal
+	td
+		&:nth-of-type(n+6)
+			text-align: center
+			background: none
+		&:nth-of-type(n+7)
+			background: $model-val-em
+		&:nth-of-type(n+10)
+			background: $instance-val-em
+		&:nth-of-type(1)
+			background: $id-val-em
+
+tr.antler
+	td
+		&:nth-of-type(n+6)
+			text-align: center
+			background: none
+		&:nth-of-type(n+6)
+			background: $model-val-em
+		&:nth-of-type(-n+2)
+			background: $id-val-em
+		&:nth-of-type(n+18)
+			background: $instance-val-em
+
+tr.point
+	td
+		&:nth-of-type(n+1)
+			text-align: center
+			background: none
+		&:nth-of-type(n+3)
+			background: $model-val-em
+		&:nth-of-type(-n+2)
+			background: $id-val-em
 
 
 

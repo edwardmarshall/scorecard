@@ -17,26 +17,30 @@
 			try{Typekit.load();}catch(e){}
 	
 	%body
-		.container
-			%header
-				.logo
-				%h1 ELUSIVE INDEX
-			%nav
-				- if current_user
-					= link_to 'Animals', animals_url
-					|
-					= link_to 'Antlers', antlers_url
-					|
-					= link_to 'Point(s)', points_url
-					|
-					= link_to 'Scorecard Index', scorecards_url
-					|
-					= link_to "My Profile", user_url(current_user)
-					|
-					= link_to "Sign Out", sign_out_url
-				- else
-					= link_to "Sign Up", new_user_url
-					|
-					= link_to "Sign In", sign_in_url
-			
-			= yield
+		.wrapper.header_bg
+			.container
+				%header
+					%ul.block
+						%li
+							.logo
+						%li
+							%nav
+								- if current_user
+									= link_to 'Animals', animals_url
+									|
+									= link_to 'Antlers', antlers_url
+									|
+									= link_to 'Point(s)', points_url
+									|
+									= link_to 'Scorecard Index', scorecards_url
+									|
+									= link_to "My Profile", user_url(current_user)
+									|
+									= link_to "Sign Out", sign_out_url
+								- else
+									= link_to "Sign Up", new_user_url
+									|
+									= link_to "Sign In", sign_in_url
+		.wrapper
+			.container
+				= yield

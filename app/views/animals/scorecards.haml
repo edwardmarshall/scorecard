@@ -1,47 +1,45 @@
-.wrapper
-	.container
-		%nav.card-index
-			.new-card
-				+
-			%span.card-index= link_to 'New Scorecard', new_animal_url
+%nav.card-index
+	.new-card
+		+
+	%span.card-index= link_to 'New Scorecard', new_animal_url
 
-		%section.cards
-			- @scoreable_animals.each do |animal|
-				/ - if @animal.type == "Sheds"
-				/ 	= render :partial => 'shed'
-				.card
-					%figure.card-avatar
-						%img{:src => "/uploads/animal/image/#{animal.id}/thumb_go18_0.jpeg"}
-						.alias
-							%span.aka
-								\"
-								= animal.alias.titleize
-								\"
-					.card-row
-						%strong
-							= animal.kind.titleize
-							•
-							= animal.state.upcase
-							•
-							Riffle • DIY
-					.box-set
-						.box
-							.box1
-								= animal.score_title.titleize
-								Score:
-								%br
-								%span.data= "#{animal.score / 8}"
-								.score_fraction
-									%strong= "#{animal.score % 8}"
-									8
-								inches
-							.box2
-								Scoreable Points:
-								%br
-									R
-									%span.data= "#{animal.right_antler.pts_all}x#{animal.left_antler.pts_all}"
-									L
-					.card-footer
-						%span.id= "#{animal.id}-#{animal.gross_score}"
-						%nav.right
-							=link_to 'See Details', scorecard_url(animal.id)
+%section.cards
+	- @scoreable_animals.each do |animal|
+		-# - if @animal.type == "Sheds"
+		-# 	= render :partial => 'shed'
+		.card
+			%figure.card-avatar
+				%img{:src => "/uploads/animal/image/#{animal.id}/thumb_photo.jpg"}
+				.alias
+					%span.aka
+						\"
+						= animal.alias.titleize
+						\"
+			.card-row
+				%strong
+					= animal.kind.titleize
+					•
+					= animal.state.upcase
+					•
+					Riffle • DIY
+			.box-set
+				.box
+					.box1
+						= animal.score_title.titleize
+						Score:
+						%br
+						%span.data= "#{animal.score / 8}"
+						.score_fraction
+							%strong= "#{animal.score % 8}"
+							8
+						inches
+					.box2
+						Scoreable Points:
+						%br
+							R
+							%span.data= "#{animal.right_antler.pts_all}x#{animal.left_antler.pts_all}"
+							L
+			.card-footer
+				%span.id= "#{animal.id}-#{animal.gross_score}"
+				%nav.right
+					=link_to 'See Details', scorecard_url(animal.id)
