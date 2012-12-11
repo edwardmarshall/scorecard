@@ -35,6 +35,15 @@ class PointsController < ApplicationController
   # GET /points/1/edit
   def edit
     @point = Point.find(params[:id])
+
+    respond_to do |format|
+      format.html # edit.html.erb
+      format.json {
+        html = render_to_string :partial => 'form', :layout => false # ':layout => false' don't give me a layout, just render the partial
+        render json: {:html => html}
+        }#grabbing info from form_for
+    end
+
   end
 
   # POST /points
@@ -65,7 +74,10 @@ class PointsController < ApplicationController
     respond_to do |format|
       if @point.update_attributes(params[:point])
         format.html { redirect_to @point, notice: 'Point was successfully updated.' }
-        format.json { head :no_content }
+        format.json {
+          html = render_to_string :partial => 'points/point', :locals => {:point => @point}, :layout => false # ':layout => false' don't give me a layout, just render the partial
+          render json: {:html => html}
+          }
       else
         format.html { render action: "edit" }
         format.json { render json: @point.errors, status: :unprocessable_entity }

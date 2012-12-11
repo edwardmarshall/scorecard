@@ -18,8 +18,15 @@ u = User.create u1
 	animal_data = YAML::load( File.open(filename))
 	a = Animal.create(animal_data[:animal]) # create THIS animal in an instance variable 'a'
 	a.antlers.create(animal_data[:antlers]) # take 'a' and create THESE antlers for THIS animal
-	a.right_antler.points.create(animal_data[:right_points]) # take right_antler (defined in animal model) of 'a' and give it THESE points
-	a.left_antler.points.create(animal_data[:left_points])
+	
+	if animal_data[:right_points] != nil
+		a.right_antler.points.create(animal_data[:right_points]) # take right_antler (defined in animal model) of 'a' and give it THESE points
+	end
+	
+	if animal_data[:left_points] != nil
+		a.left_antler.points.create(animal_data[:left_points])
+	end
+
 	r = Role.create(:title => 'hunter', :user_id => u.id, :animal_id => a.id)
 end
 

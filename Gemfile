@@ -22,8 +22,6 @@ end
 
 gem 'jquery-rails'
 
-gem 'haml'
-
 gem 'bcrypt-ruby'
 
 # To use ActiveModel has_secure_password
@@ -40,3 +38,8 @@ gem 'bcrypt-ruby'
 
 # To use debugger
 # gem 'debugger'
+
+gem 'haml'
+
+gem 'carrierwave'
+gem 'rmagick'

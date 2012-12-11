@@ -10,7 +10,8 @@
     %td= @animal.alias
   %tr
     %th Image:
-    %td= @animal.image
+    %td
+      %img{:src => @animal.image.to_s}
   %tr
     %th State:
     %td= @animal.state
@@ -27,7 +28,7 @@
     %th Right Antler:
     %td
       - if @animal.right_antler.present?
-        = "#{@animal.right_antler.lg_antler / 8} #{@animal.right_antler.lg_antler % 8}/8 in"
+        = "#{@animal.right_antler.lg_antler / 8} #{@animal.right_antler.lg_antler % 8}/8 in Right Antler"
         |
         = link_to 'Edit', edit_antler_url(@animal.right_antler.id)
       - else

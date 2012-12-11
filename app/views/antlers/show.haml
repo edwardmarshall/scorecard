@@ -33,15 +33,10 @@
   %tr
     %th Abnormal Point(s):
     %td
-      %ul
+      %ul.points
         - @antler.points.each do |point|
           %li
-            = "#{point.lg_point / 8} #{point.lg_point % 8}/8\" Pt - id => #{point.id}"
-            |
-            = link_to 'Edit', edit_point_url(point.id)
-            |
-            = link_to 'Delete', point, method: :delete
-
+            = render :partial => 'points/point', :locals => {:point => point}
   %tr
     %th= link_to '+ Add point', new_point_url(antler_id: @antler.id)
 
