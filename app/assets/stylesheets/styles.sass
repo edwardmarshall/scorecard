@@ -141,6 +141,9 @@ ul.block, ol.block
 		display: inline
 		float: left
 
+ol.block
+	margin-bottom: 10px
+
 .header_ul
 	margin: 0
 	padding: 0
@@ -151,38 +154,44 @@ ul.block, ol.block
 			width: 830px
 			text-align: right
 
-.form_row
+.scorecard_row
 	margin: 0
 	padding: 0
 	li
 		height: 30px
-		padding: 5px
+		padding: 5px 10px
 		line-height: 30px
 		&:first-child
 			width: 50px
-			text-align: right
+			text-align: left
 		&:nth-of-type(n+2)
-			width: 260px
+			width: 300px
+			+border(0 2px 0 0, solid, whitesmoke)
 		&:nth-of-type(n+3)
 			width: 75px
 		&:nth-of-type(n+4)
 			width: 75px
-		&:nth-of-type(n+5)
-			width: 500px
 
 .container_ol
 	margin: 0
 	padding: 0
-	width: 500px
+	width: 600px
 	background: url('pattern.svg')
 
 ol.block > li
 	&:nth-of-type(even)
-		background: rgba(whitesmoke, 0.5)
+		background: rgba(whitesmoke, 0.35)
 
-.color
-	background: yellow
-	+border(0 1px 0 0, solid, black)
+.color1
+	background: magenta
+	+border(0 0 0 0, solid, black)
+
+.color2
+	background: cyan
+	+border(0 0 0 0, solid, black)
+
+.indent_li
+	margin-left: 50px
 
 // --- structure
 .wrapper

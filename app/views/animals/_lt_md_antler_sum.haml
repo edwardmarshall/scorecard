@@ -1,0 +1,95 @@
+%ol.block.container_ol  
+    %li
+        %ul.block.scorecard_row
+            %li
+            %li Left Antler
+            %li
+            %li
+    %li
+        %ul.block.scorecard_row
+            %li E.
+            %li Total of Lengths of Abnormal Points:
+            %li= "#{@animal.left_antler.pts_all.to_i / 8} #{@animal.left_antler.pts_all.to_i % 8}/8\""
+            %li= link_to "Edit", edit_animal_path(@animal)
+    %li
+        %ul.block.scorecard_row
+            %li F.
+            %li Length of Main Beam:
+            %li= "#{@animal.left_antler.lg_mainbeam.to_i / 8} #{@animal.left_antler.lg_mainbeam.to_i % 8}/8\""
+            %li
+    %li
+        %ul.block.scorecard_row
+            %li G-1.
+            %li Length of First Point:
+            %li= "#{@animal.left_antler.lg_one.to_i / 8} #{@animal.left_antler.lg_one.to_i % 8}/8\""
+            %li
+    %li
+        %ul.block.scorecard_row
+            %li G-2.
+            %li Length of Second Point:
+            %li= "#{@animal.left_antler.lg_two.to_i / 8} #{@animal.left_antler.lg_two.to_i % 8}/8\""
+            %li
+    %li
+        %ul.block.scorecard_row
+            %li G-3.
+            %li Length of Third Point:
+            %li= "#{@animal.left_antler.lg_three.to_i / 8} #{@animal.left_antler.lg_three.to_i % 8}/8\""
+            %li
+    %li
+        %ul.block.scorecard_row
+            %li G-4.
+            %li Length of Fourth Point:
+            %li= "#{@animal.left_antler.lg_four.to_i / 8} #{@animal.left_antler.lg_four.to_i % 8}/8\""
+            %li
+    %li
+        %ul.block.scorecard_row
+            %li H-1.
+            %li Circ between Burr and First Point:
+            %li= "#{@animal.left_antler.circ_one.to_i / 8} #{@animal.left_antler.circ_one.to_i % 8}/8\""
+            %li
+    %li
+        %ul.block.scorecard_row
+            %li H-2.
+            %li Circ between First and Second Point:
+            %li= "#{@animal.left_antler.circ_two.to_i / 8} #{@animal.left_antler.circ_two.to_i % 8}/8\""
+            %li
+    %li
+        %ul.block.scorecard_row
+            %li H-3.
+            %li Circ between Mainbeam and Third Point:
+            %li= "#{@animal.left_antler.circ_three.to_i / 8} #{@animal.left_antler.circ_three.to_i % 8}/8\""
+            %li
+    %li
+        %ul.block.scorecard_row
+            %li H-4.
+            %li Circ between Second and Fourth Point:
+            %li= "#{@animal.left_antler.circ_four.to_i / 8} #{@animal.left_antler.circ_four.to_i % 8}/8\""
+            %li
+    %li
+        %ul.block.scorecard_row
+            %li 
+            %li Total length of Right antler:
+            %li= "#{@animal.left_antler.lg_antler.to_i / 8} #{@animal.left_antler.lg_antler.to_i % 8}/8\""
+            %li= link_to 'Edit', edit_antler_url(@animal.left_antler.id)
+    %li
+        %ul.block.scorecard_row
+            %li
+            %li= link_to '+ Add Right Antler', new_antler_url(side: 'right', animal_id: @animal.id)
+            %li
+            %li
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
