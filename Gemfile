@@ -43,3 +43,9 @@ gem 'haml'
 
 gem 'carrierwave'
 gem 'rmagick'
+gem 'fog'
+
+
+
+
+

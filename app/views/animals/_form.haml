@@ -11,39 +11,351 @@
 
   .field
     = f.hidden_field(:user_id, :value => session[:user_id])
+    = f.hidden_field(:kind, :value => "mule deer")
   
-  .field
-    = f.label :kind, "Create a new scorecard for my:"
-    = f.select :kind, [["Mule Deer", "mule deer"],["White Tail Deer", "white tail deer"],["Elk", "elk"]]
+  %br
+
+  %ol.block.scoresheet_container_ol  
+    %li
+      %ul.block.ss_snip1_auto
+        %li
+          %span.circle A
+        %li No. Points on Right Antler
+        %li.color1 
+          %span.data 9
+      %ul.block.ss_snip1_auto 
+        %li 
+        %li No. Points on Left Antler
+        %li.color1
+          %span.data 5
+      %ul.block.ss_snip1_entry
+        %li 
+          %span.circle.active B
+        %li= f.label :spread_tip, "Tip to Tip Spread"
+        %li.color1
+          = f.text_field :spread_tip_whole
+          = f.select :spread_greatest_fraction, [["0/8","0"],["1/8","1"],["2/8","2"],["3/8","3"],["4/8","4"],["5/8","5"],["6/8","6"],["7/8", "7"]]
+          in
+      %ul.block.ss_snip1_entry
+        %li 
+          %span.circle.active C
+        %li= f.label :spread_greatest, "Greatest Spread"
+        %li.color1
+          = f.text_field :spread_greatest_whole
+          = f.select :spread_greatest_fraction, [["0/8","0"],["1/8","1"],["2/8","2"],["3/8","3"],["4/8","4"],["5/8","5"],["6/8","6"],["7/8", "7"]]
+          in
+      %ul.block.ss_snip1_entry
+        %li 
+          %span.circle.active D
+        %li= f.label :spread_inside, "Inside Spread of Main Beams"
+        %li.color1
+          = f.text_field :spread_inside_whole
+          = f.select :spread_inside_fraction, [["0/8","0"],["1/8","1"],["2/8","2"],["3/8","3"],["4/8","4"],["5/8","5"],["6/8","6"],["7/8", "7"]]
+          in
+      %ul.block.ss_snip1_auto
+        %li
+        %li
+          %span.stack
+            SPREAD CREDIT
+            %br
+            %span.sub_text2
+              (may equal but not exceed longer Main Beam)
+        %li.color1
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+      
+  %ol.block.scoresheet_container_ol  
+    %li
+      %ul.block.ss_snip2_auto
+        %li
+          %span.circle E
+        %li Total of Lengths of Abnormal Points
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+      
+  %ol.block.scoresheet_container_ol  
+    %li
+      %ul.block.ss_snip3_auto
+        %li
+        %li
+        %li.clear 
+          %span.stack
+            Column 1
+            %br
+            Right Antler
+        %li
+          %span.stack
+            Column 2
+            %br
+            Left Antler
+        %li 
+          %span.stack
+            Column 3
+            %br
+            Difference
+      %ul.block.ss_snip4_auto
+        %li
+          %span.circle F
+        %li Length of Main Beam
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+      %ul.block.ss_snip4_auto
+        %li
+          %span.circle G1
+        %li
+          Length of First Point
+          %span.sub_text2
+            (if present)
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+      %ul.block.ss_snip4_auto
+        %li
+          %span.circle G2
+        %li Length of Second Point
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+      %ul.block.ss_snip4_auto
+        %li
+          %span.circle G3
+        %li
+          Length of Third Point
+          %span.sub_text2
+            (if present)
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+      %ul.block.ss_snip4_auto
+        %li
+          %span.circle G4
+        %li
+          Length of Fourth Point
+          %span.sub_text2
+            (if present)
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+      %ul.block.ss_snip4_auto
+        %li
+          %span.circle H1
+        %li
+          %span.stack
+            Circumference between Burr and First Point
+            %br
+            %span.sub_text2
+              (at smallest place)
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+      %ul.block.ss_snip4_auto
+        %li
+          %span.circle H2
+        %li
+          %span.stack
+            Circumference between First and Second Points
+            %br
+            %span.sub_text2
+              (at smallest place)
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+      %ul.block.ss_snip4_auto
+        %li
+          %span.circle H3
+        %li
+          %span.stack
+            Circumference between Main Beam and Third Point
+            %br
+            %span.sub_text2
+              (at smallest place)
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+      %ul.block.ss_snip4_auto
+        %li
+          %span.circle H4
+        %li
+          %span.stack
+            Circumference between Second and Fourth Points
+            %br
+            %span.sub_text2
+              (at smallest place)
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+        %li.color1 
+          %span.data 24
+          .score_fraction
+            %strong 3
+            8
+          in
+      %ul.block.ss_snip3_auto
+        %li
+        %li TOTALS
+        %li.clear 
+          %span.stack
+            Column 1
+            %br
+            Right Antler
+        %li
+          %span.stack
+            Column 2
+            %br
+            Left Antler
+        %li 
+          %span.stack
+            Column 3
+            %br
+            Difference
+      
+
+  %br
 
   .field
     = f.label :state, "What state was your trophy taken in?"
     = f.select :state, [["AZ - Arizona", "az"],["CA - California", "ca"],["CO - Colorado", "co"],["ID - Idaho", "id"],["MT - Montana","mt"],["NM - New Mexico","nm"],["NV - Nevada", "nv"],["UT - Utah", "ut"],["WY - Wyoming", "wy"]]
 
   .field
-    = f.label :spread_tip, "Tip to Tip Spread:"
-    = f.text_field :spread_tip_whole
-    &
-    = f.select :spread_tip_fraction, [["0/8","0"],["1/8","1"],["2/8","2"],["3/8","3"],["4/8","4"],["5/8","5"],["6/8","6"],["7/8", "7"]]
-    Inches
-
-  .field
-    = f.label :spread_greatest, "Greatest Spread:"  
-    = f.text_field :spread_greatest_whole
-    &
-    = f.select :spread_greatest_fraction, [["0/8","0"],["1/8","1"],["2/8","2"],["3/8","3"],["4/8","4"],["5/8","5"],["6/8","6"],["7/8", "7"]]
-    Inches
-
-  .field
-    = f.label :spread_inside, "Inside Spread of Main Beams:"
-    = f.text_field :spread_inside_whole
-    &
-    = f.select :spread_inside_fraction, [["0/8","0"],["1/8","1"],["2/8","2"],["3/8","3"],["4/8","4"],["5/8","5"],["6/8","6"],["7/8", "7"]]
-    Inches
-
-  .field
     = f.label :alias, "Alias:"
-    = f.text_field :alias, :placeholder => "e.g. The Buck of Justice"
+    = f.text_field :alias, :placeholder => "e.g. The Buck of Justice", :class => "medium"
 
   .field
     = f.label :image, "Attach an Image:"
@@ -54,7 +366,22 @@
     or
     = link_to 'Cancel', scorecards_url
 
+%br
+- if @animal.right_antler.present?
+  Right Antler
+  = @animal.right_antler.id
+  |
+  = link_to 'edit', edit_antler_url(@animal.right_antler.id)
+- else
+  = link_to '+ add right antler', new_antler_url(side: 'right', animal_id: @animal.id)
 
+- if @animal.left_antler.present?
+  Left Antler
+  = @animal.left_antler.id
+  |
+  = link_to 'edit',  edit_antler_url(@animal.left_antler.id)
+- else
+  = link_to '+ add left antler', new_antler_url(side: 'left', animal_id: @animal.id)
 
 
     

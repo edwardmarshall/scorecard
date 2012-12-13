@@ -16,7 +16,6 @@ Scorecard::Application.routes.draw do
 
 	get '/scorecards' => 'animals#scorecards', as: :scorecards
 	get '/scorecards/:id' => 'animals#scorecard', as: :scorecard
-	get '/scorecards/:id/edit' => 'animals#scoresheet', as: :scoresheet
 
 	get '/home/' => 'animals#home', as: :home
   

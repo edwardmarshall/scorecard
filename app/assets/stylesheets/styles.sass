@@ -74,6 +74,12 @@ strong
 span.helper
 	font-size: 15px
 
+span.sub_text
+	font-size: 12px
+
+span.sub_text2
+	font-size: 10px
+
 span.data
 	color: #363636
 	font-size: 30px
@@ -87,11 +93,13 @@ span.data
 	float: right
 	display: inline-block
 
-span.sub_text
-	font-size: 12px
-
 span.rank
 	position: absolute
+
+span.scorecard_data
+	display: inline-block
+	padding: 0 5px
+	width: 80px
 
 span.card-index
 	display: block
@@ -118,6 +126,32 @@ a
 	&:hover
 		color: $orange
 
+a.none
+	color: $copy
+	text-decoration: none	
+	&:hover
+		color: none
+
+// form elements --------------------------------
+
+input:not([type=submit]):not([type=file])
+	font-family: helvetica, nimbus-sans, sans-serif
+	font-style: light
+	font-size: 14px
+	width: 45px
+	height: 25px
+	text-align: center
+	+border(1px, solid, white)
+	background: white
+	&.medium
+		width: 100px
+
+
+
+
+
+// end form elements ----------------------------
+
 .container
 	margin: 0px auto
 	width: 100%
@@ -129,20 +163,6 @@ a
 .helper_note
 	font-size: 10px
 	color: grey
-
-ul.block, ol.block
-	list-style: none
-	&:before
-		@extend .before
-	&:after
-		@extend .after
-	*zoom: 1
-	li
-		display: inline
-		float: left
-
-ol.block
-	margin-bottom: 10px
 
 .header_ul
 	margin: 0
@@ -165,12 +185,13 @@ ol.block
 			width: 50px
 			text-align: left
 		&:nth-of-type(n+2)
-			width: 300px
-			+border(0 2px 0 0, solid, whitesmoke)
+			width: 260px
 		&:nth-of-type(n+3)
-			width: 75px
+			text-align: center
+			width: 85px
 		&:nth-of-type(n+4)
-			width: 75px
+			text-align: center
+			width: 85px
 
 .container_ol
 	margin: 0
@@ -178,12 +199,156 @@ ol.block
 	width: 600px
 	background: url('pattern.svg')
 
-ol.block > li
-	&:nth-of-type(even)
-		background: rgba(whitesmoke, 0.35)
+// scoresheet (ss) ---------------------------------
+ul.block, ol.block
+	list-style: none
+	&:before
+		@extend .before
+	&:after
+		@extend .after
+	*zoom: 1
+	li
+		display: inline
+		float: left
+// [ ] margin-bottom: back to 10px
+ol.block
+	margin-bottom: 10px
+	+box-shadow(0 0 3px rgba(0, 0, 0, 0.2))
+
+.scoresheet_container_ol
+	margin: 0
+	padding: 0
+	width: 830px
+	background: url('pattern.svg')
+
+.ss_snip1_auto
+	margin: 0
+	padding: 0
+	float: left
+	li
+		height: 30px
+		padding: 5px 5px
+		line-height: 30px
+		&:first-child
+			width: 40px
+			text-align: center
+		&:nth-of-type(n+2)
+			width: 215px
+		&:nth-of-type(n+3)
+			text-align: center
+			width: 130px
+		&:nth-of-type(n+4)
+			width: 200px
+
+.ss_snip2_auto
+	margin: 0
+	padding: 0
+	float: left
+	li
+		height: 30px
+		padding: 5px 5px
+		line-height: 30px
+		&:first-child
+			width: 40px
+			text-align: center
+		&:nth-of-type(n+2)
+			width: 630px
+		&:nth-of-type(n+3)
+			text-align: center
+			width: 130px
+		&:nth-of-type(n+4)
+			width: 200px
+
+
+.ss_snip3_auto
+	margin: 0
+	padding: 0
+	float: left
+	li
+		height: 30px
+		padding: 5px 5px
+		line-height: 30px
+		&:first-child
+			width: 40px
+			text-align: center
+		&:nth-of-type(n+2)
+			width: 350px
+		&:nth-of-type(n+3)
+			text-align: center
+			width: 130px
+
+span.stack
+	display: inline-block
+	line-height: 20px
+
+
+.ss_snip4_auto
+	margin: 0
+	padding: 0
+	float: left
+	li
+		height: 30px
+		padding: 5px 5px
+		line-height: 30px
+		&:first-child
+			width: 40px
+			text-align: center
+		&:nth-of-type(n+2)
+			width: 350px
+		&:nth-of-type(n+3)
+			text-align: center
+			width: 130px
+
+.ss_snip1_entry
+	margin: 0
+	padding: 0
+	float: left
+	li
+		height: 30px
+		padding: 5px 5px
+		line-height: 30px
+		&:first-child
+			width: 40px
+			text-align: center
+		&:nth-of-type(n+2)
+			width: 215px
+		&:nth-of-type(n+3)
+			text-align: right
+			padding-right: 5px
+			width: 130px
+		&:nth-of-type(n+4)
+			text-align: left
+			padding-left: 5px
+			width: 70px
+		&:nth-of-type(n+5)
+			width: 20px
+
+span.stack, span.col_title
+	display: inline-block
+	line-height: 15px
+
+.clear
+	padding: 0
+	margin: 0
+
+span.circle
+	margin: 0
+	padding: 0
+	display: inline-block
+	line-height: 20px
+	width: 20px
+	height: 20px
+	border-radius: 50%	
+	+border(1px, dotted, $copy)
+	background: none
+	&.active
+		color: white
+		background: $orange
+
+// end ---------------------------------------
 
 .color1
-	background: magenta
+	background: rgba(whitesmoke, 0.5)
 	+border(0 0 0 0, solid, black)
 
 .color2
