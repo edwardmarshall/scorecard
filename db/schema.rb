@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121201145426) do
+ActiveRecord::Schema.define(:version => 20121215224721) do
 
   create_table "animals", :force => true do |t|
     t.string   "kind"
@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(:version => 20121201145426) do
   create_table "antlers", :force => true do |t|
     t.integer  "animal_id"
     t.integer  "parent_id"
-    t.string   "image"
     t.string   "certification"
     t.integer  "lg_mainbeam"
     t.integer  "lg_one"

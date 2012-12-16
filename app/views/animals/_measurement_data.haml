@@ -1,0 +1,7 @@
+%span.data= "#{value / 8}"
+- if (value / 8) > 0 || (value % 8) > 0
+	.score_fraction
+		%strong= "#{value % 8}"
+		.fraction_base
+			%span.t6 8
+	%span.t6 in

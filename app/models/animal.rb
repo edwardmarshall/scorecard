@@ -6,6 +6,8 @@ class Animal < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
+  #validates :spread_tip, :numericality => { only_integer: true, greater_than: 0}
+
   attr_accessible :alias, :certification, :hunter, :image, :kind, :region, :state, :unit, :contributor, :user_id,
     :spread_tip, :spread_tip_whole, :spread_tip_fraction,
     :spread_greatest, :spread_greatest_whole, :spread_greatest_fraction,
@@ -63,7 +65,7 @@ class Animal < ActiveRecord::Base
     role.user
   end
 
-# --- defining for score calculator
+# --- defining functions for score calculator
   def longest_antler_mainbeam
     if right_antler.lg_mainbeam.to_i >= left_antler.lg_mainbeam.to_i
       return right_antler.lg_mainbeam.to_i

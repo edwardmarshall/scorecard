@@ -2,7 +2,6 @@ class AnimalsController < ApplicationController
   # GET /animals
   # GET /animals.json
   def index
-    @animals = Animal.all
     
     if current_user == nil
       redirect_to sign_in_url
@@ -63,6 +62,9 @@ class AnimalsController < ApplicationController
   def new
     @animal = Animal.new
     @animal.calculate_lg_value # <-- is used to combine whole/fraction given by user
+    @animal.save #<-- so that the animal has an id
+    
+    @role = Role.create(:user => current_user, :title => "hunter", :animal => @animal)
     # raise params.inspect
     respond_to do |format|
       format.html # new.html.erb
@@ -81,14 +83,10 @@ class AnimalsController < ApplicationController
     @animal = Animal.new(params[:animal])
     @animal.calculate_lg_value
     # raise params.inspect # <--- helps figure via browser log what is in params
-    @role = Role.new(:user_id => params[:animal][:user_id], :title => "hunter")
+    @role = Role.new(:user => current_user, :title => "hunter", :animal => @animal)
     
     respond_to do |format|
       if @animal.save
-        #raise @animal.inspect # <--- helps figure via browser log what is in @animal
-        # @role.animal_id = @animal.id #<-- think of this as an object not a number (user_id) see next line
-        @role.animal = @animal
-        @role.user = current_user
         @role.save
         format.html { redirect_to @animal, notice: 'Animal was successfully created.' }
         format.json { render json: @animal, status: :created, location: @animal }

@@ -1,0 +1,6 @@
+%li 
+  %span.circle= letter
+%li= title
+%li.color1
+  - if value > 0 
+    = render partial: 'measurement_data', :locals => {value: value}

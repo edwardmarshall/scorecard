@@ -1,0 +1,377 @@
+%ol.block.scoresheet_container_ol  
+  %li
+    
+    %ul.block.ss_snip1_auto
+      %li
+        %span.circle A
+      %li No. Points on Right Antler
+      %li.color1 
+        - if @animal.right_antler.pts_all.to_i > 0 
+          %span.data= @animal.right_antler.pts_all.to_i
+    
+    %ul.block.ss_snip1_auto
+      %li 
+      %li No. Points on Left Antler
+      %li.color1
+        - if @animal.left_antler.pts_all.to_i > 0 
+          %span.data= @animal.left_antler.pts_all.to_i
+      
+    %ul.block.ss_snip1_auto
+      = render partial: 'spread_row', :locals => {letter: 'B', title: 'Tip to Tip Spread', value: @animal.spread_tip.to_i}
+    
+    %ul.block.ss_snip1_auto
+      = render partial: 'spread_row', :locals => {letter: 'C', title: 'Greatest Spread', value: @animal.spread_greatest.to_i}
+    
+    %ul.block.ss_snip1_auto
+      = render partial: 'spread_row', :locals => {letter: 'D', title: 'Inside Spread', value: @animal.spread_inside.to_i}
+    
+    %ul.block.ss_snip1_auto
+      %li
+      %li
+        %span.stack
+          SPREAD CREDIT
+          %br
+          %span.sub_text2
+            (may equal but not exceed longer Main Beam)
+      %li.color1
+        - if @animal.spread_credit.to_i > 0 
+          %span.data= "#{@animal.spread_credit.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.spread_credit.to_i % 8}"
+            8
+          in
+    
+    %ul.block.ss_snip2_auto
+      %li
+        %span.circle E
+      %li Total of Lengths of Abnormal Points
+      %li.color1 
+        - if @animal.lg_points.to_i > 0
+          %span.data= "#{@animal.lg_points.to_i / 8}"
+          .score_fraction
+            %strong
+              = "#{@animal.lg_points.to_i % 8}"
+            8
+          in
+    %ul.block.ss_snip3_auto
+      %li
+      %li
+      %li Right Antler
+      %li Left Antler
+      %li Difference
+    %ul.block.ss_snip4_auto
+      %li
+        %span.circle F
+      %li Length of Main Beam
+      %li.color1 
+        - if @animal.right_antler.lg_mainbeam.to_i > 0
+          %span.data= "#{@animal.right_antler.lg_mainbeam.to_i / 8}"
+          .score_fraction
+            %strong
+              = "#{@animal.right_antler.lg_mainbeam.to_i % 8}"
+            8
+          in
+      %li.color1
+        - if @animal.left_antler.lg_mainbeam.to_i > 0 
+          %span.data= "#{@animal.left_antler.lg_mainbeam.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.left_antler.lg_mainbeam.to_i % 8}"
+            8
+          in
+      %li.color1 
+        - if @animal.right_antler.lg_mainbeam.to_i > 0 || @animal.left_antler.lg_mainbeam.to_i > 0 
+          - if (@animal.dif_mb.to_i / 8) > 0
+            %span.data= "#{@animal.dif_mb.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.dif_mb.to_i % 8}"
+            8
+          in
+    %ul.block.ss_snip4_auto
+      %li
+        %span.circle G1
+      %li
+        Length of First Point
+        %span.sub_text2
+          (if present)
+      %li.color1
+        - if @animal.right_antler.lg_one.to_i > 0 
+          %span.data= "#{@animal.right_antler.lg_one.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.right_antler.lg_one.to_i % 8}"
+            8
+          in
+      %li.color1
+        - if @animal.left_antler.lg_one.to_i > 0
+          %span.data= "#{@animal.left_antler.lg_one.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.left_antler.lg_one.to_i % 8}"
+            8
+          in
+      %li.color1
+        - if @animal.right_antler.lg_one.to_i > 0 || @animal.left_antler.lg_one.to_i > 0
+          -if (@animal.dif_g1.to_i / 8) > 0
+            %span.data= "#{@animal.dif_g1.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.dif_g1.to_i % 8}"
+            8
+          in
+    %ul.block.ss_snip4_auto
+      %li
+        %span.circle G2
+      %li Length of Second Point
+      %li.color1
+        - if @animal.right_antler.lg_two.to_i > 0 
+          %span.data= "#{@animal.right_antler.lg_two.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.right_antler.lg_two.to_i % 8}"
+            8
+          in
+      %li.color1
+        - if @animal.left_antler.lg_two.to_i > 0
+          %span.data= "#{@animal.left_antler.lg_two.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.left_antler.lg_two.to_i % 8}"
+            8
+          in
+      %li.color1
+        - if @animal.right_antler.lg_two.to_i > 0 || @animal.left_antler.lg_two.to_i > 0
+          - if (@animal.dif_g2.to_i / 8) > 0
+            %span.data= "#{@animal.dif_g2.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.dif_g2.to_i % 8}"
+            8
+          in
+    %ul.block.ss_snip4_auto
+      %li
+        %span.circle G3
+      %li
+        Length of Third Point
+        %span.sub_text2
+          (if present)
+      %li.color1
+        - if @animal.right_antler.lg_three.to_i > 0
+          %span.data= "#{@animal.right_antler.lg_three.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.right_antler.lg_three.to_i % 8}"
+            8
+          in
+      %li.color1 
+        - if @animal.left_antler.lg_three.to_i > 0
+          %span.data= "#{@animal.left_antler.lg_three.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.left_antler.lg_three.to_i % 8}"
+            8
+          in
+      %li.color1 
+        - if @animal.right_antler.lg_three.to_i > 0 || @animal.left_antler.lg_three.to_i > 0
+          - if (@animal.dif_g3.to_i / 8) > 0
+            %span.data= "#{@animal.dif_g3.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.dif_g3.to_i % 8}"
+            8
+          in
+    %ul.block.ss_snip4_auto
+      %li
+        %span.circle G4
+      %li
+        Length of Fourth Point
+        %span.sub_text2
+          (if present)
+      %li.color1
+        - if @animal.right_antler.lg_four.to_i > 0
+          %span.data= "#{@animal.right_antler.lg_four.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.right_antler.lg_four.to_i % 8}"
+            8
+          in
+      %li.color1
+        - if @animal.left_antler.lg_four.to_i > 0
+          %span.data= "#{@animal.left_antler.lg_four.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.left_antler.lg_four.to_i % 8}"
+            8
+          in
+      %li.color1
+        - if @animal.right_antler.lg_four.to_i > 0 || @animal.left_antler.lg_four.to_i > 0
+          - if (@animal.dif_g4.to_i / 8) > 0
+            %span.data= "#{@animal.dif_g4.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.dif_g4.to_i % 8}"
+            8
+          in
+    %ul.block.ss_snip4_auto
+      %li
+        %span.circle H1
+      %li
+        %span.stack
+          Circumference between Burr and First Point
+          %br
+          %span.sub_text2
+            (at smallest place)
+      %li.color1
+        - if @animal.right_antler.circ_one.to_i > 0
+          %span.data= "#{@animal.right_antler.circ_one.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.right_antler.circ_one.to_i % 8}"
+            8
+          in
+      %li.color1
+        - if @animal.left_antler.circ_four.to_i > 0
+          %span.data= "#{@animal.left_antler.circ_one.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.left_antler.circ_one.to_i % 8}"
+            8
+          in
+      %li.color1
+        - if @animal.right_antler.circ_one.to_i > 0 || @animal.left_antler.circ_one.to_i > 0 
+          - if (@animal.dif_c1.to_i / 8) > 0
+            %span.data= "#{@animal.dif_c1.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.dif_c1.to_i % 8}"
+            8
+          in
+    %ul.block.ss_snip4_auto
+      %li
+        %span.circle H2
+      %li
+        %span.stack
+          Circumference between First and Second Points
+          %br
+          %span.sub_text2
+            (at smallest place)
+      %li.color1
+        - if @animal.right_antler.circ_two.to_i > 0
+          %span.data= "#{@animal.right_antler.circ_two.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.right_antler.circ_two.to_i % 8}"
+            8
+          in
+      %li.color1 
+        - if @animal.left_antler.circ_two.to_i > 0
+          %span.data= "#{@animal.left_antler.circ_two.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.left_antler.circ_two.to_i % 8}"
+            8
+          in
+      %li.color1
+        - if @animal.right_antler.circ_two.to_i > 0 || @animal.left_antler.circ_two.to_i > 0
+          - if (@animal.dif_c2.to_i / 8) > 0
+            %span.data= "#{@animal.dif_c2.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.dif_c2.to_i % 8}"
+            8
+          in
+    %ul.block.ss_snip4_auto
+      %li
+        %span.circle H3
+      %li
+        %span.stack
+          Circumference between Main Beam and Third Point
+          %br
+          %span.sub_text2
+            (at smallest place)
+      %li.color1
+        - if @animal.right_antler.circ_three.to_i > 0
+          %span.data= "#{@animal.right_antler.circ_three.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.right_antler.circ_three.to_i % 8}"
+            8
+          in
+      %li.color1 
+        - if @animal.left_antler.circ_three.to_i > 0
+          %span.data= "#{@animal.left_antler.circ_three.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.left_antler.circ_three.to_i % 8}"
+            8
+          in
+      %li.color1
+        - if @animal.right_antler.circ_three.to_i > 0 || @animal.left_antler.circ_three.to_i > 0
+          - if (@animal.dif_c3.to_i / 8) > 0
+            %span.data= "#{@animal.dif_c3.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.dif_c3.to_i % 8}"
+            8
+          in
+    %ul.block.ss_snip4_auto
+      %li
+        %span.circle H4
+      %li
+        %span.stack
+          Circumference between Second and Fourth Points
+          %br
+          %span.sub_text2
+            (at smallest place)
+      %li.color1
+        - if @animal.right_antler.circ_four.to_i > 0
+          %span.data= "#{@animal.right_antler.circ_four.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.right_antler.circ_four.to_i % 8}"
+            8
+          in
+      %li.color1 
+        - if @animal.left_antler.circ_four.to_i > 0
+          %span.data= "#{@animal.left_antler.circ_four.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.left_antler.circ_four.to_i % 8}"
+            8
+          in
+      %li.color1
+        - if @animal.right_antler.circ_four.to_i > 0 || @animal.left_antler.circ_four.to_i > 0
+          - if (@animal.dif_c4.to_i / 8) > 0
+            %span.data= "#{@animal.dif_c4.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.dif_c4.to_i % 8}"
+            8
+          in
+    %ul.block.ss_snip5_auto
+      %li
+      %li
+      %li
+        - if @animal.right_antler.present?
+          = link_to 'Edit Right',  edit_antler_url(@animal.right_antler.id)
+        - else
+          = link_to '+ Right Antler', new_antler_url(side: 'right', animal_id: @animal.id)
+      %li
+        - if @animal.left_antler.present?
+          = link_to 'Edit Left',  edit_antler_url(@animal.left_antler.id)
+        - else
+          = link_to '+ Left Antler', new_antler_url(side: 'left', animal_id: @animal.id)
+      %li Difference
+      %li 
+        %span.stack.sub_text2
+          Typical
+          %br
+          Difference
+    %ul.block.ss_snip5_auto
+      %li
+      %li SUB TOTALS
+      %li.color1
+        - if @animal.right_antler.lg_antler.to_i > 0
+          %span.data= "#{@animal.right_antler.lg_antler.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.right_antler.lg_antler.to_i % 8}"
+            8
+          in
+      %li.color1
+        - if @animal.right_antler.lg_antler.to_i > 0
+          %span.data= "#{@animal.left_antler.lg_antler.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.left_antler.lg_antler.to_i % 8}"
+            8
+          in
+      %li.color1
+        - if @animal.difference.to_i > 0
+          - if (@animal.difference.to_i / 8) > 0
+            %span.data= "#{@animal.difference.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.difference.to_i % 8}"
+            8
+          in
+      %li.color1
+        - if @animal.typical_difference.to_i > 0
+          - if (@animal.typical_difference.to_i / 8) > 0
+            %span.data= "#{@animal.typical_difference.to_i / 8}"
+          .score_fraction
+            %strong= "#{@animal.typical_difference.to_i % 8}"
+            8
+          in

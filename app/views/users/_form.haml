@@ -6,16 +6,16 @@
         prohibited this user from being saved:
       %ul
         - @user.errors.full_messages.each do |msg|
-          %li = msg
+          %li= msg
   .field
     = f.label :username
     = f.text_field :username
   .field
     = f.label :email
-    = f.text_field :email
+    = f.text_field :email, type: 'email'
   .field
     = f.label :password
-    = f.text_field :password
+    = f.text_field :password, type: 'password'
   .field
     = f.label :password_confirmation
     = f.text_field :password_confirmation

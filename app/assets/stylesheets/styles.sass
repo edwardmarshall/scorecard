@@ -39,7 +39,8 @@
 
 // color pallete
 $background: whitesmoke
-$copy: #999
+$grey: #999
+$black: #333
 $model-val-em: rgba(255,200,0,0.1)
 $instance-val-em: rgba(0,0,255,0.1)
 $id-val-em: rgba(0,255,0,0.1)
@@ -47,6 +48,8 @@ $red: 		#ff6633
 $orange: 	#ff9900
 
 $logo-icon: image-url('elusiveindex_4e4d4f.svg')
+$refguide: image-url('nontypical-referanceguide.svg')
+$refguide-bw: image-url('nontypical-referanceguide-bw.svg')
 
 // --- CONTENT
 
@@ -80,10 +83,35 @@ span.sub_text
 span.sub_text2
 	font-size: 10px
 
-span.data
-	color: #363636
+
+
+
+
+
+// fraction style -----------------------
+.data
+	color: $black
 	font-size: 30px
 	font-weight: bold
+
+.fraction_variable
+	color: $black
+
+.fraction_base
+	line-height: 10px
+	margin-top: 1px
+	+border(1px 0 0 0, solid, $grey)
+
+.t6
+	font-size: 12px
+// end fraction style
+
+
+
+
+
+.strike
+	text-decoration: line-through
 
 .id
 	font-family: letter-gothic-std, san-serif
@@ -117,7 +145,7 @@ body
 	font-family: helvetica, nimbus-sans, sans-serif
 	font-style: light
 	font-size: 14px
-	color: $copy
+	color: $grey
 	background: $background
 	margin: 0
 
@@ -127,7 +155,7 @@ a
 		color: $orange
 
 a.none
-	color: $copy
+	color: $grey
 	text-decoration: none	
 	&:hover
 		color: none
@@ -138,13 +166,15 @@ input:not([type=submit]):not([type=file])
 	font-family: helvetica, nimbus-sans, sans-serif
 	font-style: light
 	font-size: 14px
-	width: 45px
-	height: 25px
+	width: 35px
+	height: 15px
+	padding: 5px
 	text-align: center
 	+border(1px, solid, white)
 	background: white
 	&.medium
-		width: 100px
+		width: 200px
+		text-align: left
 
 
 
@@ -159,6 +189,13 @@ input:not([type=submit]):not([type=file])
 .logo
 	content: $logo-icon
 	width: 200px
+
+.fig-frame
+	margin: 0 auto
+
+.refguide
+	content: $refguide-bw
+	height: 275px
 
 .helper_note
 	font-size: 10px
@@ -221,6 +258,20 @@ ol.block
 	width: 830px
 	background: url('pattern.svg')
 
+.ss_snip0_auto
+	margin: 0
+	padding: 0
+	float: left
+	li
+		height: 300px
+		width: 820px
+		text-align: center
+		padding: 5px 5px
+		background: rgba(white, 0.5)
+
+.mid-section
+	+border(0 0 1px 0, dotted, $grey)
+
 .ss_snip1_auto
 	margin: 0
 	padding: 0
@@ -272,10 +323,13 @@ ol.block
 			width: 40px
 			text-align: center
 		&:nth-of-type(n+2)
-			width: 350px
+			width: 340px
 		&:nth-of-type(n+3)
-			text-align: center
-			width: 130px
+			text-align: right
+			width: 100px
+		&:nth-of-type(n+5)
+			text-align: right
+			width: 85px
 
 span.stack
 	display: inline-block
@@ -294,10 +348,41 @@ span.stack
 			width: 40px
 			text-align: center
 		&:nth-of-type(n+2)
-			width: 350px
+			width: 340px
 		&:nth-of-type(n+3)
+			text-align: right
+			padding-right: 10px
+			width: 94px
+			+border(0 1px 0 0, dotted, $grey)
+		&:nth-of-type(n+5)
+			text-align: right
+
+.ss_snip5_auto
+	margin: 0
+	padding: 0
+	float: left
+	li
+		height: 30px
+		padding: 5px 5px
+		line-height: 30px
+		&:first-child
+			width: 40px
 			text-align: center
-			width: 130px
+		&:nth-of-type(n+2)
+			width: 340px
+		&:nth-of-type(n+3)
+			text-align: right
+			width: 94px
+			padding-right: 10px
+			+border(0 1px 0 0, dotted, $grey)
+		&:nth-of-type(n+5)
+			text-align: right
+			width: 94px
+		&:nth-of-type(n+6)
+			width: 80px
+			text-align: left
+			padding-left: 10px
+			+border(0, solid, $grey)
 
 .ss_snip1_entry
 	margin: 0
@@ -339,7 +424,7 @@ span.circle
 	width: 20px
 	height: 20px
 	border-radius: 50%	
-	+border(1px, dotted, $copy)
+	+border(1px, dotted, $grey)
 	background: none
 	&.active
 		color: white
@@ -451,7 +536,7 @@ section.cards
 	padding-top: 10px
 	border-style: solid
 	border-width: 1px 0 0 0
-	border-color: $copy
+	border-color: $grey
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 1)
 
 .box-set
@@ -474,7 +559,7 @@ section.cards
 		width: 114px
 		border-width: 0 1px 0 0
 		border-style: solid
-		border-color: $copy
+		border-color: $grey
 	.box2
 		padding-left: 10px
 		width: 115px
