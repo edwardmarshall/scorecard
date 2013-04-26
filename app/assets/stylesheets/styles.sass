@@ -1,3 +1,5 @@
+@import "layout"
+
 // global mixin(s)
 @mixin box-shadow($shadow...)
 	-webkit-box-shadow: $shadow
@@ -91,19 +93,42 @@ span.sub_text2
 // fraction style -----------------------
 .data
 	color: $black
-	font-size: 30px
+	font-size: 25px
 	font-weight: bold
+
+.score_fraction
+	display: inline-block
+	width: 10px
+	line-height: 12px
+// new
+.measurement
+	display: inline-block
+	line-height: 20px
+
+.whole_num
+	color: $black
+	font-size: 25px
+	font-weight: bold
+	display: inline
+
+.fraction
+	width: 10px
+	line-height: 12px
+	display: inline-block
 
 .fraction_variable
 	color: $black
-
-.fraction_base
-	line-height: 10px
-	margin-top: 1px
-	+border(1px 0 0 0, solid, $grey)
-
-.t6
 	font-size: 12px
+	font-weight: bold
+
+.fraction_constant
+	line-height: 10px
+	+border(1px 0 0 0, solid, $grey)
+	
+.fine_print
+	font-size: 12px
+	line-height: 12px
+	display: inline-block
 // end fraction style
 
 
@@ -237,40 +262,11 @@ input:not([type=submit]):not([type=file])
 	background: url('pattern.svg')
 
 // scoresheet (ss) ---------------------------------
-ul.block, ol.block
-	list-style: none
-	&:before
-		@extend .before
-	&:after
-		@extend .after
-	*zoom: 1
-	li
-		display: inline
-		float: left
+
 // [ ] margin-bottom: back to 10px
 ol.block
 	margin-bottom: 10px
 	+box-shadow(0 0 3px rgba(0, 0, 0, 0.2))
-
-.scoresheet_container_ol
-	margin: 0
-	padding: 0
-	width: 830px
-	background: url('pattern.svg')
-
-.ss_snip0_auto
-	margin: 0
-	padding: 0
-	float: left
-	li
-		height: 300px
-		width: 820px
-		text-align: center
-		padding: 5px 5px
-		background: rgba(white, 0.5)
-
-.mid-section
-	+border(0 0 1px 0, dotted, $grey)
 
 .ss_snip1_auto
 	margin: 0
@@ -412,17 +408,13 @@ span.stack, span.col_title
 	display: inline-block
 	line-height: 15px
 
-.clear
-	padding: 0
-	margin: 0
-
-span.circle
+.circle
 	margin: 0
 	padding: 0
 	display: inline-block
-	line-height: 20px
-	width: 20px
-	height: 20px
+	line-height: 25px
+	width: 25px
+	height: 25px
 	border-radius: 50%	
 	+border(1px, dotted, $grey)
 	background: none
@@ -565,11 +557,6 @@ section.cards
 		width: 115px
 		text-align: right
 
-.score_fraction
-	display: inline-block
-	width: 10px
-	line-height: 12px
-
 
 // --- index mode: list
 .graph
@@ -590,9 +577,6 @@ section.cards
 		border-color:	white
 		+lin-gradient-l2r($orange, $red)
 		+box-shadow(inset 0 5px 1px rgba(white, 0.3))
-
-
-
 
 
 
@@ -687,8 +671,3 @@ tr.point
 			background: $model-val-em
 		&:nth-of-type(-n+2)
 			background: $id-val-em
-
-
-
-
-

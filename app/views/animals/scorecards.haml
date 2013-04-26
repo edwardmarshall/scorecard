@@ -6,8 +6,6 @@
 
 %section.cards
 	- @scoreable_animals.each do |animal|
-		-# - if @animal.type == "Sheds"
-		-# 	= render :partial => 'shed'
 		%a.none{:href => scorecard_url(animal.id)}
 			.card
 				%figure.card-avatar
@@ -28,11 +26,7 @@
 							= animal.score_title.titleize
 							Score:
 							%br
-							%span.data= "#{animal.score / 8}"
-							.score_fraction
-								%strong= "#{animal.score % 8}"
-								8
-							inches
+							= render partial: 'measurement', :locals => {value: animal.score}
 						.box2
 							Scoreable Points:
 							%br

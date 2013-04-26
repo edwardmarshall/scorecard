@@ -1,9 +1,29 @@
+ 
+%ul.block
+  %li A
+  %li Tip to Tip Spread
+  %li 15
+
+
+
 %ol.block.scoresheet_container_ol  
   %li
+      
+    %ul.block.ss_snip1_auto
+      = render partial: 'spread_row', :locals => {letter: 'A', title: 'Tip to Tip Spread', subtext: nil, value: @animal.spread_tip.to_i}
     
     %ul.block.ss_snip1_auto
+      = render partial: 'spread_row', :locals => {letter: 'B', title: 'Greatest Spread', subtext: nil, value: @animal.spread_greatest.to_i}
+    
+    %ul.block.ss_snip1_auto
+      = render partial: 'spread_row', :locals => {letter: 'C1', title: 'Inside Spread', subtext: nil, value: @animal.spread_inside.to_i}
+    
+    %ul.block.ss_snip1_auto
+      = render partial: 'spread_row', :locals => {letter: 'C2', title: 'SPREAD CREDIT', subtext: '(may equal but not exceed longer Main Beam)', value: @animal.spread_credit.to_i}
+
+    %ul.block.ss_snip1_auto
       %li
-        %span.circle A
+        %span.circle D
       %li No. Points on Right Antler
       %li.color1 
         - if @animal.right_antler.pts_all.to_i > 0 
@@ -15,32 +35,7 @@
       %li.color1
         - if @animal.left_antler.pts_all.to_i > 0 
           %span.data= @animal.left_antler.pts_all.to_i
-      
-    %ul.block.ss_snip1_auto
-      = render partial: 'spread_row', :locals => {letter: 'B', title: 'Tip to Tip Spread', value: @animal.spread_tip.to_i}
-    
-    %ul.block.ss_snip1_auto
-      = render partial: 'spread_row', :locals => {letter: 'C', title: 'Greatest Spread', value: @animal.spread_greatest.to_i}
-    
-    %ul.block.ss_snip1_auto
-      = render partial: 'spread_row', :locals => {letter: 'D', title: 'Inside Spread', value: @animal.spread_inside.to_i}
-    
-    %ul.block.ss_snip1_auto
-      %li
-      %li
-        %span.stack
-          SPREAD CREDIT
-          %br
-          %span.sub_text2
-            (may equal but not exceed longer Main Beam)
-      %li.color1
-        - if @animal.spread_credit.to_i > 0 
-          %span.data= "#{@animal.spread_credit.to_i / 8}"
-          .score_fraction
-            %strong= "#{@animal.spread_credit.to_i % 8}"
-            8
-          in
-    
+
     %ul.block.ss_snip2_auto
       %li
         %span.circle E
@@ -204,7 +199,7 @@
         %span.circle H1
       %li
         %span.stack
-          Circumference between Burr and First Point
+          Circ. between Burr and First Point
           %br
           %span.sub_text2
             (at smallest place)
@@ -235,7 +230,7 @@
         %span.circle H2
       %li
         %span.stack
-          Circumference between First and Second Points
+          Circ. between First and Second Points
           %br
           %span.sub_text2
             (at smallest place)
@@ -266,7 +261,7 @@
         %span.circle H3
       %li
         %span.stack
-          Circumference between Main Beam and Third Point
+          Circ. between Main Beam and Third Point
           %br
           %span.sub_text2
             (at smallest place)
@@ -297,7 +292,7 @@
         %span.circle H4
       %li
         %span.stack
-          Circumference between Second and Fourth Points
+          Circ. between Second and Fourth Points
           %br
           %span.sub_text2
             (at smallest place)

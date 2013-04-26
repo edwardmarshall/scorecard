@@ -1,0 +1,8 @@
+.measurement
+	.whole_num= "#{value / 8}"
+	- if (value / 8) > 0 || (value % 8) > 0
+		.fraction
+			.fraction_variable= "#{value % 8}"
+			.fraction_constant.fine_print
+				8
+		.fine_print in

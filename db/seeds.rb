@@ -12,8 +12,6 @@ u = User.create u1
 	"db/fixtures/muledeer3.yml",
 	"db/fixtures/muledeer4.yml",
 	"db/fixtures/muledeer_shedset1.yml",
-	"db/fixtures/elk1.yml",
-	"db/fixtures/elk2.yml",
 		].each do |filename|
 	animal_data = YAML::load( File.open(filename))
 	a = Animal.create(animal_data[:animal]) # create THIS animal in an instance variable 'a'

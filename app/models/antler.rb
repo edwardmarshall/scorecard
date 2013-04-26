@@ -3,7 +3,7 @@ class Antler < ActiveRecord::Base
   belongs_to :animal
   has_many :points, :dependent => :destroy
 
-  attr_accessible :animal_id, :parent_id, :certification, :image, :side, :kind, :state,
+  attr_accessible :animal_id, :parent_id, :certification, :side, :kind, :state,
   	:lg_mainbeam, :lg_mainbeam_whole, :lg_mainbeam_fraction,
   	:lg_one, :lg_one_whole, :lg_one_fraction,
   	:lg_two, :lg_two_whole, :lg_two_fraction,

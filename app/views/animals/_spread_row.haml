@@ -1,6 +1,12 @@
 %li 
-  %span.circle= letter
-%li= title
+  .circle= letter
+%li
+  %span.stack
+    = title
+    - if subtext != nil
+      %br
+      %span.sub_text2
+        = subtext
 %li.color1
   - if value > 0 
-    = render partial: 'measurement_data', :locals => {value: value}
+    = render partial: 'measurement', :locals => {value: value}
