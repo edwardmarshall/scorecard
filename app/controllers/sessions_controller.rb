@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
   def new
     redirect_to :scorecards if current_user
-    @user = User.new
   end
 
   def create
@@ -27,5 +26,4 @@ class SessionsController < ApplicationController
     reset_session # rails method so not defined by us. Takes everything inside the session[] hash and makes it return 'nil'
     redirect_to root_url
   end
-
 end

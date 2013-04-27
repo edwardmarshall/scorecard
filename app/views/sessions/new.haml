@@ -11,14 +11,15 @@
     = submit_tag "Let Me In!"
 
 or if you don't have an account, Sign Up
-= form_for @user, :url => sign_up_path do |f|
-  - if @user.errors.any?
+- user = User.new
+= form_for user, :url => sign_up_path do |f|
+  - if user.errors.any?
     #error_explanation
       %h2
-        = pluralize(@user.errors.count, "error")
+        = pluralize(user.errors.count, "error")
         prohibited this user from being saved:
       %ul
-        - @user.errors.full_messages.each do |msg|
+        - user.errors.full_messages.each do |msg|
           %li= msg
   .field
     = f.label :username
