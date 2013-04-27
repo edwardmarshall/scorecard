@@ -11,6 +11,7 @@ Scorecard::Application.routes.draw do
   post '/login' => 'sessions#create', as: :sign_in
   post '/sign_up' => 'sessions#sign_up', as: :sign_up
   get '/logout' => 'sessions#destroy', as: :sign_out
+  get '/reset_password' => 'sessions#reset_password', as: :reset_password
 
   resources :scorecards do
     collection do

@@ -37,4 +37,11 @@ class SessionsController < ApplicationController
     reset_session # rails method so not defined by us. Takes everything inside the session[] hash and makes it return 'nil'
     redirect_to root_url
   end
+
+  def reset_password
+
+  end
+
+  def change_password
+  end
 end
