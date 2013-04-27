@@ -1,22 +1,23 @@
 Scorecard::Application.routes.draw do
+  resources :points
 
-	root :to => 'animals#home'
+  resources :antlers
 
-	resources :points
+  resources :users
 
-	resources :antlers
+  resources :animals
 
-	resources :users
+  post '/login' => 'sessions#create', as: :sign_in
+  post '/sign_up' => 'sessions#sign_up', as: :sign_up
+  get '/logout' => 'sessions#destroy', as: :sign_out
 
-	resources :animals
+  resources :scorecards do
+    collection do
+      get 'example'
+    end
+  end
 
-	get '/login' => 'sessions#new', as: :sign_in
-	post '/sessions' => 'sessions#create' 
-	get '/logout' => 'sessions#destroy', as: :sign_out
+  get '/home/' => 'animals#home', as: :home
 
-	get '/scorecards' => 'animals#scorecards', as: :scorecards
-	get '/scorecards/:id' => 'animals#scorecard', as: :scorecard
-
-	get '/home/' => 'animals#home', as: :home
-  
+  root :to => 'sessions#new'
 end
