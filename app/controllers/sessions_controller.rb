@@ -13,6 +13,16 @@ class SessionsController < ApplicationController
     end
   end
 
+  def oauth
+    Rails.logger.info request.env['omniauth.auth']
+
+    token = request.env['omniauth.auth'].credentials.token
+    expiration = Time.at(request.env['omniauth.auth'].credentials.expires_at)
+
+    current_user.update_attributes(:facebook_token => token, :facebook_token_expiration => expiration)
+    redirect_to :root
+  end
+
   def sign_up
     @user = User.new(params[:user])
     if @user.save

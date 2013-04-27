@@ -7,6 +7,7 @@ Scorecard::Application.routes.draw do
 
   resources :animals
 
+  get '/login' => 'sessions#new', as: :sign_in
   post '/login' => 'sessions#create', as: :sign_in
   post '/sign_up' => 'sessions#sign_up', as: :sign_up
   get '/logout' => 'sessions#destroy', as: :sign_out
@@ -18,6 +19,7 @@ Scorecard::Application.routes.draw do
   end
 
   get '/home/' => 'animals#home', as: :home
+  match '/auth/:provider/callback', to: 'sessions#oauth'
 
   root :to => 'sessions#new'
 end

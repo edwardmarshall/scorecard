@@ -1,0 +1,16 @@
+:defaults:
+  :facebook:
+    :key: 354809344619351
+    :token: e38727a4dac2e61d48d37d48f967a068
+:development:
+  :facebook:
+    :key: 354809344619351
+    :token: e38727a4dac2e61d48d37d48f967a068
+:test:
+  :facebook:
+    :key: 354809344619351
+    :token: e38727a4dac2e61d48d37d48f967a068
+:production:
+  :facebook:
+    :key: 354809344619351
+    :token: e38727a4dac2e61d48d37d48f967a068

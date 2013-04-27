@@ -6,6 +6,8 @@
   %b Email:
   = @user.email
 
+
+= link_to 'Authenticate with Facebook', '/auth/facebook'
 = link_to 'Edit', edit_user_path(@user)
 |
 \#{link_to 'Back', users_path}

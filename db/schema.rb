@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121215224721) do
+ActiveRecord::Schema.define(:version => 20130427200515) do
 
   create_table "animals", :force => true do |t|
     t.string   "kind"
@@ -73,10 +73,12 @@ ActiveRecord::Schema.define(:version => 20121215224721) do
     t.string   "email"
     t.string   "first_name"
     t.string   "last_name"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.string   "password_digest"
     t.string   "phone"
+    t.string   "facebook_token"
+    t.datetime "facebook_token_expiration"
   end
 
 end
