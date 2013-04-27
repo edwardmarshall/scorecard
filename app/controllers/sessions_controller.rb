@@ -26,6 +26,7 @@ class SessionsController < ApplicationController
   def sign_up
     @user = User.new(params[:user])
     if @user.save
+      session[:user_id] = @user.id
       redirect_to example_scorecards_path
     else
       render 'new'
