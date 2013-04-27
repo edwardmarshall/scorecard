@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :first_name, :last_name, :username, :password, :password_confirmation, :password_digest, :phone
 
   has_secure_password
-  validates_presence_of :email
+  validates_presence_of :email, :username
+  validates_uniqueness_of :email, :username
 
   def full_name
     first_name + " " + last_name

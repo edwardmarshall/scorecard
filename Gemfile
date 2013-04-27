@@ -45,7 +45,6 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'fog'
 
-
-
-
-
+group :development do
+  gem 'pry-rails'
+end

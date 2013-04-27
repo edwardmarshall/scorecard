@@ -1,11 +1,36 @@
 %h2 Sign in!
 -# form_tag is ALWAYS use the http method of 'post' (see routes) by default AND requires a url (form_for will accept a model name)
-= form_tag '/sessions' do
-	.field
-		= label_tag :email
-		= text_field_tag :email
-	.field
-		= label_tag :password
-		= password_field_tag :password
-	.actions
-		= submit_tag "Let Me In!"
+= form_tag '/login' do
+  .field
+    = label_tag :email
+    = text_field_tag :email
+  .field
+    = label_tag :password
+    = password_field_tag :password
+  .actions
+    = submit_tag "Let Me In!"
+
+or if you don't have an account, Sign Up
+= form_for @user, :url => sign_up_path do |f|
+  - if @user.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@user.errors.count, "error")
+        prohibited this user from being saved:
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :username
+    = f.text_field :username
+  .field
+    = f.label :email
+    = f.text_field :email, type: 'email'
+  .field
+    = f.label :password
+    = f.text_field :password, type: 'password'
+  .field
+    = f.label :password_confirmation
+    = f.text_field :password_confirmation, type: 'password'
+  .actions
+    = f.submit 'Sign Up'
