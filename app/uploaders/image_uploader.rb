@@ -27,13 +27,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   def default_url
     # For Rails 3.1+ asset pipeline compatibility:
     # asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  
+
     "fallback/" + [version_name, "default.png"].compact.join('_')
   end
 
   # Process files as they are uploaded:
   # process :scale => [200, 300]
-  
+
   # def scale(width, height)
   #   # do something
   # end
@@ -62,18 +62,4 @@ class ImageUploader < CarrierWave::Uploader::Base
   def filename
     "#{model.kind.gsub(" ", "_")}_photo" if original_filename
   end
-
-  # def mogrify(options = {})
-  #   manipulate! do |img|
-  #     img.format("png") do |c|
-  #       c.push        '+profile'
-  #       c.+           "!xmp,*"
-  #       c.profile     "#{Rails.root}/lib/color_profiles/sRGB_v4_ICC_preference_displayclass.icc"
-  #       c.colorspace  "sRGB"
-  #     end
-  #     img
-  #   end
-  # end
-
-
 end

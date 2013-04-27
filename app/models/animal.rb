@@ -1,5 +1,5 @@
 class Animal < ActiveRecord::Base
- 
+
   has_many :antlers, :dependent => :destroy
   has_many :roles, :dependent => :destroy
   has_many :users, :through => :roles
@@ -12,9 +12,9 @@ class Animal < ActiveRecord::Base
     :spread_tip, :spread_tip_whole, :spread_tip_fraction,
     :spread_greatest, :spread_greatest_whole, :spread_greatest_fraction,
     :spread_inside, :spread_inside_whole, :spread_inside_fraction # <-- These guys have permission to be mass assigned
-  
+
   attr_accessor :spread_tip_whole, :spread_tip_fraction, :spread_greatest_whole, :spread_greatest_fraction, :spread_inside_whole, :spread_inside_fraction, :user_id
-  
+
   def calculate_lg_value
     self.spread_tip       =        (@spread_tip_whole.to_i * 8) + @spread_tip_fraction.to_i
     self.spread_greatest  =   (@spread_greatest_whole.to_i * 8) + @spread_greatest_fraction.to_i
@@ -78,7 +78,7 @@ class Animal < ActiveRecord::Base
     if antlers.count < 2
         return 0
     end
-    
+
     if spread_inside.to_i <= longest_antler_mainbeam.to_i
       return spread_inside.to_i
     else
@@ -159,7 +159,7 @@ class Animal < ActiveRecord::Base
   def typical_score
     subtotal_score - typical_difference
   end
-  
+
   def nontypical_score
     subtotal2_score + lg_points
   end
@@ -184,5 +184,4 @@ class Animal < ActiveRecord::Base
   def gross_score
     spread_credit.to_i + (right_antler.lg_antler + right_antler.lg_points.to_i) + (left_antler.lg_antler + left_antler.lg_points.to_i)
   end
-
 end

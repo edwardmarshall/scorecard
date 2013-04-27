@@ -11,11 +11,11 @@ class Point < ActiveRecord::Base
   end
 
   def lg_point_whole
-  	lg_point.to_i / 8
+    lg_point.to_i / 8
   end
 
   def lg_point_fraction
-  	lg_point.to_i % 8
+    lg_point.to_i % 8
   end
 
 end

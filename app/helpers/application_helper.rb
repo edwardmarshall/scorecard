@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def logged_in?
-  	session[:user_id]
+    session[:user_id]
   end
   # 1. Returning the session[:user_id] if exists otherwitse returns 'nil'
 
