@@ -21,6 +21,7 @@ class ScorecardsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @animal }
+      format.svg { render svg: @animal, :layout => false}
     end
   end
 
