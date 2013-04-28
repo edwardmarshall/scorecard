@@ -16,23 +16,22 @@ class SessionsController < ApplicationController
   def oauth
     Rails.logger.info params
     Rails.logger.info request.env['omniauth.auth']
-    token = request.env['omniauth.auth'].credentials.token
-    expiration = Time.at(request.env['omniauth.auth'].credentials.expires_at)
+
+    oauth_data = request.env['omniauth.auth']
+    provider = FacebookProvider.new(oauth_data)
 
     if current_user
       Rails.logger.info 'current user found'
-      current_user.update_attributes(:facebook_token => token, :facebook_token_expiration => expiration)
-      session[:user_id] = user.id # create new session, find the user.id and hold in the new session cookie as :user_id...
+      current_user.update_attributes(provider.credentials)
       redirect_to :root
     else
-      email = request.env['omniauth.auth'].info.email
-      if user = User.find_by_email(email)
+      if user = provider.existing_user
         Rails.logger.info 'existing user found'
         session[:user_id] = user.id # create new session, find the user.id and hold in the new session cookie as :user_id...
         redirect_to :root
       else
         Rails.logger.info 'create user from facebook'
-        user = User.new(data_from_facebook(request.env['omniauth.auth']))
+        user = User.new(provider.user_create_data)
         if user.save
           Rails.logger.info 'user created from facebook'
           session[:user_id] = user.id # create new session, find the user.id and hold in the new session cookie as :user_id...
@@ -66,22 +65,5 @@ class SessionsController < ApplicationController
   end
 
   def change_password
-  end
-
-  private
-
-  def data_from_facebook(omniauth_data)
-    token = omniauth_data.credentials.token
-    expiration = Time.at(omniauth_data.credentials.expires_at)
-    info = omniauth_data.info
-    username = info.name.downcase.gsub(' ', '-')
-    {
-      :username => username,
-      :first_name => info.first_name,
-      :last_name => info.last_name,
-      :email => info.email,
-      :password => rand(36**16).to_s(36),
-      :facebook_token => token,
-      :facebook_token_expiration => expiration}
   end
 end

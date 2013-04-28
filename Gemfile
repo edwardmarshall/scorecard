@@ -41,7 +41,6 @@ gem 'fog'
 
 # Authenticate with Facebook and twitter
 gem 'omniauth-facebook'
-gem 'omniauth-twitter'
 
 group :production do
   gem 'pg'
