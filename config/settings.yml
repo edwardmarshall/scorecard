@@ -2,15 +2,27 @@
   :facebook:
     :key: 354809344619351
     :token: e38727a4dac2e61d48d37d48f967a068
+  :twitter:
+    :key: va4BE5NFCRMu7mw3CHT1g
+    :token: CVzAIryeD6l9sDi7whwKKFbkaohI8N77No2T4
 :development:
   :facebook:
     :key: 354809344619351
     :token: e38727a4dac2e61d48d37d48f967a068
+  :twitter:
+    :key: va4BE5NFCRMu7mw3CHT1g
+    :token: CVzAIryeD6l9sDi7whwKKFbkaohI8N77No2T4
 :test:
   :facebook:
     :key: 354809344619351
     :token: e38727a4dac2e61d48d37d48f967a068
+  :twitter:
+    :key: va4BE5NFCRMu7mw3CHT1g
+    :token: CVzAIryeD6l9sDi7whwKKFbkaohI8N77No2T4
 :production:
   :facebook:
     :key: 354809344619351
     :token: e38727a4dac2e61d48d37d48f967a068
+  :twitter:
+    :key: va4BE5NFCRMu7mw3CHT1g
+    :token: CVzAIryeD6l9sDi7whwKKFbkaohI8N77No2T4

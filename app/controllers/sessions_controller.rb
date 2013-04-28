@@ -14,6 +14,8 @@ class SessionsController < ApplicationController
   end
 
   def oauth
+    Rails.logger.info params
+    Rails.logger.info request.env['omniauth.auth']
     token = request.env['omniauth.auth'].credentials.token
     expiration = Time.at(request.env['omniauth.auth'].credentials.expires_at)
 
