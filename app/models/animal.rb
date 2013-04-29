@@ -15,10 +15,14 @@ class Animal < ActiveRecord::Base
 
   attr_accessor :spread_tip_whole, :spread_tip_fraction, :spread_greatest_whole, :spread_greatest_fraction, :spread_inside_whole, :spread_inside_fraction, :user_id
 
+  def view_attributes
+    attributes
+  end
+
   def calculate_lg_value
-    self.spread_tip       =        (@spread_tip_whole.to_i * 8) + @spread_tip_fraction.to_i
-    self.spread_greatest  =   (@spread_greatest_whole.to_i * 8) + @spread_greatest_fraction.to_i
-    self.spread_inside    =     (@spread_inside_whole.to_i * 8) + @spread_inside_fraction.to_i
+    self.spread_tip       =        (@spread_tip_whole.to_i * 8) + @spread_tip_fraction.to_i if self.spread_tip_fraction && self.spread_tip_whole
+    self.spread_greatest  =   (@spread_greatest_whole.to_i * 8) + @spread_greatest_fraction.to_i if self.spread_greatest_fraction && self.spread_greatest_whole
+    self.spread_inside    =     (@spread_inside_whole.to_i * 8) + @spread_inside_fraction.to_i if self.spread_inside_fraction && self.spread_inside_whole
   end
 
   def scoreable?

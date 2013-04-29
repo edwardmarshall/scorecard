@@ -42,6 +42,8 @@ gem 'fog'
 # Authenticate with Facebook and twitter
 gem 'omniauth-facebook'
 
+gem "rails-backbone"
+
 group :production do
   gem 'pg'
 end

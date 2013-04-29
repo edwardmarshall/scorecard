@@ -12,6 +12,14 @@ class ScorecardsController < ApplicationController
     end
   end
 
+  def new
+    @animal = Animal.new
+    @animal.calculate_lg_value # <-- is used to combine whole/fraction given by user
+    @animal.save #<-- so that the animal has an id
+
+    @role = Role.create(:user => current_user, :title => "hunter", :animal => @animal)
+  end
+
   def show
     @animal = Animal.find_by_id(params[:id])
     if @animal.nil?

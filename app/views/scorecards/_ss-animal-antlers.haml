@@ -1,21 +1,13 @@
-
-%ul.block
-  %li A
-  %li Tip to Tip Spread
-  %li 15
-
-
-
+%a.edit-spreads-done.hide Done
 %ol.block.scoresheet_container_ol
   %li
-
-    %ul.block.ss_snip1_auto
+    %ul.block.ss_snip1_auto.editable{:'data-field' => 'spread_tip'}
       = render partial: 'spread_row', :locals => {letter: 'A', title: 'Tip to Tip Spread', subtext: nil, value: @animal.spread_tip.to_i}
 
-    %ul.block.ss_snip1_auto
+    %ul.block.ss_snip1_auto.editable{:'data-field' => 'spread_greatest'}
       = render partial: 'spread_row', :locals => {letter: 'B', title: 'Greatest Spread', subtext: nil, value: @animal.spread_greatest.to_i}
 
-    %ul.block.ss_snip1_auto
+    %ul.block.ss_snip1_auto.editable{:'data-field' => 'spread_inside'}
       = render partial: 'spread_row', :locals => {letter: 'C1', title: 'Inside Spread', subtext: nil, value: @animal.spread_inside.to_i}
 
     %ul.block.ss_snip1_auto

@@ -12,8 +12,23 @@
 #
 #= require jquery
 #= require jquery_ujs
-#= require application
-#= require_tree .
+#= require underscore
+#= require backbone
+#= require_self
+#= require_tree ./backbone/templates/
+#= require_tree ./backbone/models
+#= require_tree ./backbone/views
+#= require_tree ./backbone/routers
+
+window.Scorecard =
+  Models: {}
+  Collections: {}
+  Routers: {}
+  Views: {}
+  Templates: {}
+  start: ->
+    Scorecard.router = new Scorecard.Routers.Router
+    console.log Backbone.history.start(pushState: true)
 
 $ ->
   window.generic_ajax_error_handler = (jqXHR, textStatus, errorThrown)->
@@ -25,3 +40,12 @@ $ ->
     beforeSend: (xhr)->
       xhr.setRequestHeader("Accept", "application/json")
     error: generic_ajax_error_handler
+
+  _.templateSettings =
+    interpolate : /\{\{(.+?)\}\}/g
+
+  window.delay = (timeout, fn) ->
+    setTimeout(fn, timeout)
+
+  #delay 1000, Scorecard.start
+  Scorecard.start()

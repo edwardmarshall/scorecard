@@ -21,14 +21,11 @@ class AnimalsController < ApplicationController
   # GET /animals/1
   # GET /animals/1.json
   def show
-    @animal = Animal.find_by_id(params[:id])
-    if @animal.nil?
-      @animal = Animal.find_by_alias(params[:id])
-    end
+    @animal = Animal.find_by_id(params[:id]) || Animal.find_by_alias(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @animal }
+      format.json { render json: AnimalPresenter.new(@animal) }
     end
   end
 
