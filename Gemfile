@@ -45,6 +45,7 @@ gem 'omniauth-facebook'
 
 gem "rails-backbone"
 
+
 group :production do
   gem 'pg'
 end
@@ -52,4 +53,11 @@ end
 group :development do
   gem 'sqlite3'
   gem 'pry-rails'
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'cucumber-rails'
+  gem 'selenium-webdriver'
 end

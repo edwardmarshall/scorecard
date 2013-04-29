@@ -1,7 +1,12 @@
 Scorecard.Routers.Router = Backbone.Router.extend
   routes:
-    "scorecards/new": "newScorecardView"   # search/kiwis/p7
-    "scorecards/:id": "scorecardView"   # search/kiwis/p7
+    "scorecards/new": "newScorecardView"
+    "scorecards/:id": "scorecardView"
+    "(/login)": "login"
+
+  login: ->
+    new Scorecard.Views.LoginView
+      el: $('.main.container')
 
   newScorecardView: ->
     Scorecard.currentAnimal = new Scorecard.Models.Animal()

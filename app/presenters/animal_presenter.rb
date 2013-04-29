@@ -9,7 +9,7 @@ class AnimalPresenter
     {
       :alias => animal.alias,
       :certification => animal.certification,
-      :id => 1,
+      :id => animal.id,
       :kind => animal.kind,
       :spread_greatest_whole => animal.spread_greatest_whole,
       :spread_greatest_fraction => animal.spread_greatest_fraction,
