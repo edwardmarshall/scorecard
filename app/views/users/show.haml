@@ -1,13 +1,18 @@
-%p#notice= notice
-%p
-  %b Username:
-  = @user.username
-%p
-  %b Email:
-  = @user.email
+.row.fluid
+  .center.cards
+    .span12
+      %h1= "#{@user.first_name} #{@user.last_name}"
+      %h3= "@#{@user.username}"
+      %h3
+        Trophies in
+        = @user.animals.map(&:state).compact.map(&:upcase).uniq.join(', ')
 
+    .span8
+      - @user.scoreable_animals.each do |animal|
+        = render :partial => 'scorecards/card', :locals => { :animal => animal }
 
-= link_to 'Authenticate with Facebook', '/auth/facebook'
-= link_to 'Edit', edit_user_path(@user)
-|
-\#{link_to 'Back', users_path}
+    .span12
+      = link_to 'Authenticate with Facebook', '/auth/facebook'
+      = link_to 'Edit', edit_user_path(@user)
+      |
+      \#{link_to 'Back', users_path}

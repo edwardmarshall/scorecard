@@ -1,7 +1,7 @@
 Scorecard.Templates.EditMeasurement =
   html: """
       <input size="30" type="text" value="{{wholeNum}}">
-      <select>
+      <select class="measurement-edit">
         <option value="0">0/8</option>
         <option value="1">1/8</option>
         <option value="2">2/8</option>

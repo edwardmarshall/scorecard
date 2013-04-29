@@ -20,4 +20,8 @@ class User < ActiveRecord::Base
   def full_name
     first_name + " " + last_name
   end
+
+  def scoreable_animals
+    self.animals.select(&:scoreable?)
+  end
 end

@@ -1,0 +1,31 @@
+%a.none{:href => scorecard_url(animal.id)}
+  .card
+    %figure.card-avatar
+      = image_tag animal.image_url(:thumb).to_s
+      .alias
+        %span.aka
+          = "\"#{animal.alias.titleize}\""
+    .card-row
+      %strong
+        = animal.kind.titleize
+        •
+        = animal.state.upcase
+        •
+        Riffle • DIY
+    .box-set
+      .box
+        .box1
+          = animal.score_title.titleize
+          Score:
+          %br
+          = render partial: 'scorecards/measurement', :locals => {value: animal.score}
+        .box2
+          Scoreable Points:
+          %br
+            R
+            %span.data= "#{animal.right_antler.pts_all}x#{animal.left_antler.pts_all}"
+            L
+    .card-footer
+      %span.id= "#{animal.id}-#{animal.gross_score}"
+      %nav.right
+        =link_to 'See Details', scorecard_url(animal.id)
