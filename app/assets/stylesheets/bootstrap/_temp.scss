@@ -87,26 +87,6 @@ span.aka {
   margin: 0 auto;
 }
 
-// form elements --------------------------------
-
-input:not([type=submit]):not([type=file]) {
-  font-family: helvetica, nimbus-sans, sans-serif;
-  font-style: light;
-  font-size: 14px;
-  width: 35px;
-  height: 15px;
-  padding: 5px;
-  text-align: center;
-  border: 1px solid white;
-  background: white;
-  &.medium {
-    width: 200px;
-    text-align: left;
-  }
-}
-
-// end form elements ----------------------------
-
 .container {
   margin: 0px auto;
   width: 100%;

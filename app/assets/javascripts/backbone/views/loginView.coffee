@@ -4,13 +4,15 @@ Scorecard.Views.LoginView = Backbone.View.extend
     'click a.sign-in': 'signInClicked'
 
   signUpClicked: (e) ->
-    console.log 'sign up clicked'
     e.preventDefault()
+
+    @$('h2.title').text('Sign Up')
     @$('form.sign-in').slideUp()
     @$('form.sign-up').slideDown()
 
   signInClicked: (e) ->
-    console.log 'sign in clicked'
     e.preventDefault()
+
+    @$('h2.title').text('Sign In')
     @$('form.sign-in').slideDown()
     @$('form.sign-up').slideUp()

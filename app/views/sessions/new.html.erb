@@ -1,55 +1,59 @@
-<h2> Sign in!</h2>
-<%= form_tag '/login', :class => 'sign-in' do %>
-  <div class="field">
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
-  </div>
-  <div class="field">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </div>
-  <div class="actions">
-    <%= submit_tag "Sign In" %>
-  </div>
-  or if you don't have an account,
-  <a class='sign-up'>Sign Up</a>
-<% end %>
-
-<% user = User.new %>
-<%= form_for user, :url => sign_up_path, :html => {:class => 'sign-up hide'} do |f| %>
-  If you already have an account,
-  <a class='sign-in'>Sign In</a>
-  <% if user.errors.any? %>
-    <h2>
-      <%= pluralize(user.errors.count, "error") %>
-      prohibited this user from being saved:
-    </h2>
-    <ul>
-      <% user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      </ul>
+<div class="row">
+  <div class="span3 offset6 sign-in">
+    <h2 class='title'> Sign in!</h2>
+    <%= form_tag '/login', :class => 'sign-in' do %>
+      <div class="field">
+        <%= label_tag :email %>
+        <%= text_field_tag :email, nil, :class => 'span12' %>
+      </div>
+      <div class="field">
+        <%= label_tag :password %>
+        <%= password_field_tag :password, nil, :class => 'pull-left' %>
+      </div>
+      <div class="actions">
+        <%= submit_tag "Sign In", :class => 'btn btn-success' %>
+      </div>
+      <div class='clearfix'></div>
+      or if you don't have an account,
+      <a class='sign-up'>Sign Up</a>
     <% end %>
-  <% end %>
-  <div class="field">
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.text_field :password_confirmation, type: 'password' %>
-  </div>
-  <div class="actions">
-    <%= submit_tag "Sign In" %>
-  </div>
-  or
-  <%= link_to 'Sign up with Facebook', '/auth/facebook' %>
-<% end %>
 
+    <% user = User.new %>
+    <%= form_for user, :url => sign_up_path, :html => {:class => 'sign-up hide'} do |f| %>
+      If you already have an account,
+      <a class='sign-in'>Sign In</a>
+      <% if user.errors.any? %>
+        <h2>
+          <%= pluralize(user.errors.count, "error") %>
+          prohibited this user from being saved:
+        </h2>
+        <ul>
+          <% user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          </ul>
+        <% end %>
+      <% end %>
+      <div class="field">
+        <%= f.label :username %>
+        <%= f.text_field :username, :class => 'span12' %>
+      </div>
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.text_field :email, :class => 'span12' %>
+      </div>
+      <div class="field">
+        <%= f.label :password %>
+        <%= f.password_field :password, :class => 'span12' %>
+      </div>
+      <div class="field">
+        <%= f.label :password_confirmation %>
+        <%= f.text_field :password_confirmation, :class => 'span12', type: 'password' %>
+      </div>
+      <div class="actions">
+        <%= submit_tag "Sign In", :class => 'btn btn-primary span12' %>
+      </div>
+      or
+      <%= link_to 'Sign up with Facebook', '/auth/facebook' %>
+    <% end %>
+  </div>
+</div>
