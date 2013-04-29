@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 development:
   adapter: sqlite3
-  database: elusive_development_sqlite3
+  database: db/development.sqlite3
   encoding: utf-8
   pool: 5
   host: localhost
