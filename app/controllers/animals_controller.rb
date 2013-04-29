@@ -1,6 +1,7 @@
 class AnimalsController < ApplicationController
-  # GET /animals
-  # GET /animals.json
+  before_filter :load_animal, :only => ['show', 'edit', 'update', 'destroy']
+  before_filter :authorize_user, :only => ['edit', 'update', 'destroy']
+
   def index
     if current_user == nil
       redirect_to sign_in_url
@@ -17,20 +18,13 @@ class AnimalsController < ApplicationController
     end
   end
 
-
-  # GET /animals/1
-  # GET /animals/1.json
   def show
-    @animal = Animal.find_by_id(params[:id]) || Animal.find_by_alias(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: AnimalPresenter.new(@animal) }
+      format.json { render json: AnimalPresenter.new(@animal, current_user) }
     end
   end
 
-  # GET /animals/new
-  # GET /animals/new.json
   def new
     @animal = Animal.new
     @animal.calculate_lg_value # <-- is used to combine whole/fraction given by user
@@ -44,13 +38,9 @@ class AnimalsController < ApplicationController
     end
   end
 
-  # GET /animals/1/edit
   def edit
-    @animal = Animal.find(params[:id])
   end
 
-  # POST /animals
-  # POST /animals.json
   def create
     @animal = Animal.new(params[:animal])
     @animal.calculate_lg_value
@@ -69,11 +59,7 @@ class AnimalsController < ApplicationController
     end
   end
 
-  # PUT /animals/1
-  # PUT /animals/1.json
   def update
-    @animal = Animal.find(params[:id])
-
     @animal.attributes=(params[:animal])
     @animal.calculate_lg_value
 
@@ -91,7 +77,6 @@ class AnimalsController < ApplicationController
   # DELETE /animals/1
   # DELETE /animals/1.json
   def destroy
-    @animal = Animal.find(params[:id])
     @animal.destroy
 
     respond_to do |format|
@@ -100,6 +85,18 @@ class AnimalsController < ApplicationController
     end
   end
 
-  def home
+  private
+
+  def load_animal
+    @animal = Animal.find_by_id(params[:id]) || Animal.find_by_alias(params[:id])
+  end
+
+  def authorize_user
+    unless @animal.editable_by?(current_user)
+      respond_to do |format|
+        format.html { redirect_to @animal, alert: 'You do not have permission to edit this animal.' }
+        format.json { head :forbidden }
+      end
+    end
   end
 end

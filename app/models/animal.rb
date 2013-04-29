@@ -14,6 +14,9 @@ class Animal < ActiveRecord::Base
     :spread_inside, :spread_inside_whole, :spread_inside_fraction # <-- These guys have permission to be mass assigned
 
   attr_accessor :spread_tip_whole, :spread_tip_fraction, :spread_greatest_whole, :spread_greatest_fraction, :spread_inside_whole, :spread_inside_fraction, :user_id
+  def editable_by?(user)
+    self.roles.map(&:user).include? user
+  end
 
   def view_attributes
     attributes

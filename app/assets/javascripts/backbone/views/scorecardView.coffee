@@ -9,6 +9,7 @@ Scorecard.Views.ScorecardView = Backbone.View.extend
 
   editSpreads: (e) ->
     e.preventDefault()
+    return unless Scorecard.currentAnimal.get('editable')
     @$('a.edit-spreads-done').removeClass('hide')
 
     $editableFields = @$('ul.editable')
