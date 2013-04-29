@@ -4,8 +4,8 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 development:
-  adapter: postgresql
-  database: elusive_development
+  adapter: sqlite3
+  database: elusive_development_sqlite3
   encoding: utf-8
   pool: 5
   host: localhost

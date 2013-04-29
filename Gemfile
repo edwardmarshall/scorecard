@@ -17,8 +17,8 @@ group :assets do
 end
 
 gem "therubyracer"
-gem "less-rails"
-gem "twitter-bootstrap-rails"
+# gem "less-rails"
+# gem "twitter-bootstrap-rails"
 
 gem 'jquery-rails'
 
