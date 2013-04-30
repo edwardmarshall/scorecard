@@ -45,11 +45,11 @@
 <div class="row antlers checkered">
   <div class="span12">
     <ul class="unstyled">
-      <%= render :partial => 'antlers_row', :locals => {:description => 'F. Length of Main Beam', :right_value => @animal.right_antler.lg_one, :left_value => @animal.left_antler.lg_one, :difference => @animal.dif_g1} %>
-      <%= render :partial => 'antlers_row', :locals => {:description => 'G-1. Length of First Point, If Present', :right_value => @animal.right_antler.lg_one, :left_value => @animal.left_antler.lg_one, :difference => @animal.dif_g1} %>
-      <%= render :partial => 'antlers_row', :locals => {:description => 'G-2. Length of Second Point', :right_value => @animal.right_antler.lg_two, :left_value => @animal.left_antler.lg_two, :difference => @animal.dif_g2} %>
-      <%= render :partial => 'antlers_row', :locals => {:description => 'G-3. Length of Third Point, If Present', :right_value => @animal.right_antler.lg_three, :left_value => @animal.left_antler.lg_three, :difference => @animal.dif_g3} %>
-      <%= render :partial => 'antlers_row', :locals => {:description => 'G-4. Length of Fourth Point, If Present', :right_value => @animal.right_antler.lg_four, :left_value => @animal.left_antler.lg_four, :difference => @animal.dif_g4} %>
+      <%= render :partial => 'antlers_row', :locals => {:field => 'lg_mainbeam', :description => 'F. Length of Main Beam', :right_value => @animal.right_antler.lg_mainbeam, :left_value => @animal.left_antler.lg_mainbeam, :difference => @animal.dif_mb} %>
+      <%= render :partial => 'antlers_row', :locals => {:field => 'lg_one', :description => 'G-1. Length of First Point, If Present', :right_value => @animal.right_antler.lg_one, :left_value => @animal.left_antler.lg_one, :difference => @animal.dif_g1} %>
+      <%= render :partial => 'antlers_row', :locals => {:field => 'lg_two', :description => 'G-2. Length of Second Point', :right_value => @animal.right_antler.lg_two, :left_value => @animal.left_antler.lg_two, :difference => @animal.dif_g2} %>
+      <%= render :partial => 'antlers_row', :locals => {:field => 'lg_three', :description => 'G-3. Length of Third Point, If Present', :right_value => @animal.right_antler.lg_three, :left_value => @animal.left_antler.lg_three, :difference => @animal.dif_g3} %>
+      <%= render :partial => 'antlers_row', :locals => {:field => 'lg_four', :description => 'G-4. Length of Fourth Point, If Present', :right_value => @animal.right_antler.lg_four, :left_value => @animal.left_antler.lg_four, :difference => @animal.dif_g4} %>
 
       <li>
         <div class="span12">
@@ -57,11 +57,14 @@
         </div>
       </li>
 
-      <%= render :partial => 'antlers_row', :locals => {:description => 'H-1. Burr and First Point', :right_value => @animal.right_antler.circ_one, :left_value => @animal.left_antler.circ_one, :difference => @animal.dif_c1 } %>
-      <%= render :partial => 'antlers_row', :locals => {:description => 'H-2. First and Second Points', :right_value => @animal.right_antler.circ_two, :left_value => @animal.left_antler.circ_two, :difference => @animal.dif_c2 } %>
-      <%= render :partial => 'antlers_row', :locals => {:description => 'H-3. Main Beam and Third Point', :right_value => @animal.right_antler.circ_three, :left_value => @animal.left_antler.circ_three, :difference => @animal.dif_c3 } %>
-      <%= render :partial => 'antlers_row', :locals => {:description => 'H-4. Second and Fourth Points', :right_value => @animal.right_antler.circ_four, :left_value => @animal.left_antler.circ_four, :difference => @animal.dif_c4 } %>
-      <%= render :partial => 'antlers_row', :locals => {:description => 'Totals', :right_value => @animal.right_antler.lg_antler, :left_value => @animal.left_antler.lg_antler, :difference => @animal.difference } %>
+      <%= render :partial => 'antlers_row', :locals => {:field => 'circ_one', :description => 'H-1. Burr and First Point', :right_value => @animal.right_antler.circ_one, :left_value => @animal.left_antler.circ_one, :difference => @animal.dif_c1 } %>
+      <%= render :partial => 'antlers_row', :locals => {:field => 'circ_two', :description => 'H-2. First and Second Points', :right_value => @animal.right_antler.circ_two, :left_value => @animal.left_antler.circ_two, :difference => @animal.dif_c2 } %>
+      <%= render :partial => 'antlers_row', :locals => {:field => 'circ_three', :description => 'H-3. Main Beam and Third Point', :right_value => @animal.right_antler.circ_three, :left_value => @animal.left_antler.circ_three, :difference => @animal.dif_c3 } %>
+      <%= render :partial => 'antlers_row', :locals => {:field => 'circ_four', :description => 'H-4. Second and Fourth Points', :right_value => @animal.right_antler.circ_four, :left_value => @animal.left_antler.circ_four, :difference => @animal.dif_c4 } %>
+      <%= render :partial => 'antlers_row', :locals => {:field => nil, :description => 'Totals', :right_value => @animal.right_antler.lg_antler, :left_value => @animal.left_antler.lg_antler, :difference => @animal.difference } %>
+      <li>
+        <a class="span12 btn btn-primary hide done">Done</a>
+      </li>
     </ul>
   </div>
 </div>

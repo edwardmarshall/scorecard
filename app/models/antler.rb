@@ -68,7 +68,7 @@ class Antler < ActiveRecord::Base
     lg_two.to_i % 8
   end
 
-  def lg_thre_whole
+  def lg_three_whole
     lg_three.to_i / 8
   end
 

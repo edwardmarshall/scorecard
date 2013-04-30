@@ -2,10 +2,10 @@
   <div class="span6">
     <%= description %>
   </div>
-  <div class="span2">
+  <div class="span2 measurement <%= field ? 'editable' : '' %>" data-side="right" <%= field ? "data-field=#{field}" : '' %>>
     <%= render :partial => 'measurement', :locals => {:value => right_value } %>
   </div>
-  <div class="span2">
+  <div class="span2 measurement <%= field ? 'editable' : '' %>" data-side="left" <%= field ? "data-field=#{field}" : '' %>>
     <%= render :partial => 'measurement', :locals => {:value => left_value } %>
   </div>
   <div class="span2">
