@@ -1,24 +1,59 @@
-.sessions.new {
-  background-image: url('http://wallpapershdgallery.com/wp-content/uploads/animal-RAM-745x558.jpeg');
-  background-size: 100%;
+// SITE HEADER
+// ----------------------------------------
+.site-header {
+	background-color: $black;
+	height: 60px;
+
+	.site-logo {
+		background-color: $white;
+		height: 30px;
+		margin: 15px 0;
+		position: relative;
+		width: 100%;
+
+		a {
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		h1 {
+			display: none;
+			visibility: hidden;
+		}
+	}
 }
 
-.checkered {
-  background-image: url('pattern.svg');
-  &.active {
-    background-image: url('pattern2.svg');
-  }
+// SITE FOOTER
+// ----------------------------------------
+
+// HOME PAGE
+// ----------------------------------------
+.home-hero {
+	background-color: #eee;
+	min-height: 530px;
+	padding: 60px 0px;
 }
 
-.measurement {
-  input.whole-number {
-    width: 60px;
-  }
-  select.fraction {
-    width: 70px;
-  }
+// SIGN IN/SIGN UP FORM
+// ----------------------------------------
+.sign-up, .sign-in {
+	h2 {
+		font-size: 24px;
+		line-height: 1;
+
+		span {
+			color: $gray;
+		}
+	}
+
+	.options {
+		font-size: 12px;
+	}
 }
 
-.editable {
-  cursor: pointer;
+.sign-up .options {
+	margin-top: 12px;
 }

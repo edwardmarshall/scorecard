@@ -1,50 +1,78 @@
-<div class="row">
-  <div class="span5 offset6 sign-in">
-    <h2 class='title'>Score & Archive your Trophy</h2>
-    <%= form_tag '/login', :class => 'sign-in' do %>
-      <div class="field">
-        <%= text_field_tag :email, nil, :class => 'span10', :placeholder => 'Username' %>
-      </div>
-      <div class="field">
-        <%= password_field_tag :password, nil, :class => 'pull-left', :placeholder => 'Password' %>
-      </div>
-      <div class="actions">
-        <%= submit_tag "Sign In", :class => 'btn btn-primary' %>
-      </div>
-      <div class='clearfix'></div>
-      or if you don't have an account,
-      <a class='sign-up'>Sign Up</a>
-    <% end %>
+<section class="home-hero">
+  <div class="container">
+    <div class="row">
+      <div class="offset7 span5">
 
-    <% user = User.new %>
-    <%= form_for user, :url => sign_up_path, :html => {:class => 'sign-up hide'} do |f| %>
-      If you already have an account,
-      <a class='sign-in'>Sign In</a>
-      <% if user.errors.any? %>
-        <h2>
-          <%= pluralize(user.errors.count, "error") %>
-          prohibited this user from being saved:
-        </h2>
-        <ul>
-          <% user.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          </ul>
-        <% end %>
-      <% end %>
-      <div class="field">
-        <%= f.text_field :username, :class => 'span10', :placeholder => 'Username' %>
+        <div class="sign-in">
+          <h2>Score &amp; Archive your Trophy.</h2>
+          <%= form_tag '/login', :class => 'sign-in-form' do %>
+            <div class="row">
+              <div class="span5">
+                <%= text_field_tag :email, nil, :class => 'span5', :placeholder => 'Username' %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="span3">
+                <%= password_field_tag :password, nil, :class => 'span3', :placeholder => 'Password' %>
+              </div>
+              <div class="span2">
+                <%= submit_tag "Sign In", :class => 'btn btn-primary btn-block' %>
+              </div>
+            </div>
+            <div class="options">
+              Remember me &middot; Forgot my password?
+            </div>
+          <% end %>
+        </div>
+
+
+        <div class="sign-up">
+          <h2>New to Elusive? <span>Sign up.</span></h2>
+          <% user = User.new %>
+          <%= form_for user, :url => sign_up_path, :html => { :class => 'sign-up-form' } do |f| %>
+
+            <% if user.errors.any? %>
+              <h2>
+                <%= pluralize(user.errors.count, "error") %>
+                prohibited this user from being saved:
+              </h2>
+              <ul>
+                <% user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+              </ul>              
+            <% end %>
+
+            <div class="row">
+              <div class="span5">
+                <%= f.text_field :username, :class => 'span5', :placeholder => 'Username' %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="span5">
+                <%= f.text_field :email, :class => 'span5', :placeholder => 'Email' %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="span5">
+                <%= f.password_field :password, :class => 'span5', :placeholder => 'Password' %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="span5">
+                <%= submit_tag "Sign up for Elusive", :class => 'btn btn-success btn-block' %>
+              </div>
+            </div>
+            <div class="options">
+              <%= link_to 'Sign up with Facebook', '/auth/facebook' %>
+            </div>
+          <% end %>
+        </div>
+
       </div>
-      <div class="field">
-        <%= f.text_field :email, :class => 'span10', :placeholder => 'Email' %>
-      </div>
-      <div class="field">
-        <%= f.password_field :password, :class => 'span10', :placeholder => 'Password' %>
-      </div>
-      <div class="actions">
-        <%= submit_tag "Sign Up for Elusive", :class => 'btn btn-success span10' %>
-      </div>
-    <% end %>
-    or
-    <%= link_to 'Sign up with Facebook', '/auth/facebook' %>
+    </div>
   </div>
-</div>
+</section>

@@ -16,30 +16,27 @@
   </head>
   <body class="<%= "#{controller.controller_name} #{controller.action_name}" %>">
 
-    <div class="navbar navbar-fluid-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="brand" href="/">Elusive</a>
-          <div class="container-fluid nav-collapse">
-            <%= render :partial => 'shared/header' %>
-          </div><!--/.nav-collapse -->
+    <header class="site-header">
+      <div class="container">
+        <div class="row">
+          <div class="span3">
+            <div class="site-logo">
+              <a href="/"><h1>Elusive</h1></a>
+            </div>
+          </div>
+
+          <div class="span9">
+          </div>
         </div>
       </div>
-    </div>
+    </header>
 
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span12 main container">
-          <%= render "shared/flash_message" %>
-          <%= yield %>
-        </div>
-      </div><!--/row-->
+    <%= yield %>
 
-      <footer>
-      <p>&copy; Elusive Index <%= Time.now.year %></p>
-      </footer>
-
-    </div> <!-- /container -->
+    <footer class="site-footer">
+      <div class="container">
+      </div>
+    </footer>
 
     <!-- Javascripts
     ================================================== -->
