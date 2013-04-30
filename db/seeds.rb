@@ -4,36 +4,36 @@ Antler.destroy_all
 Point.destroy_all
 
 
-u1 = { :username => "tophamt",	:email => "travis.topham@gmail.com", :first_name => "Travis", :last_name => "Topham", :password => "test", :password_confirmation => "test" }
+u1 = { :username => "tophamt",  :email => "travis.topham@gmail.com", :first_name => "Travis", :last_name => "Topham", :password => "test", :password_confirmation => "test" }
 u = User.create u1
 
 ["db/fixtures/muledeer1.yml",
-	"db/fixtures/muledeer2.yml",
-	"db/fixtures/muledeer3.yml",
-	"db/fixtures/muledeer4.yml",
-	"db/fixtures/muledeer_shedset1.yml",
-		].each do |filename|
-	animal_data = YAML::load( File.open(filename))
-	a = Animal.create(animal_data[:animal]) # create THIS animal in an instance variable 'a'
-	a.antlers.create(animal_data[:antlers]) # take 'a' and create THESE antlers for THIS animal
-	
-	if animal_data[:right_points] != nil
-		a.right_antler.points.create(animal_data[:right_points]) # take right_antler (defined in animal model) of 'a' and give it THESE points
-	end
-	
-	if animal_data[:left_points] != nil
-		a.left_antler.points.create(animal_data[:left_points])
-	end
+  "db/fixtures/muledeer2.yml",
+  "db/fixtures/muledeer3.yml",
+  "db/fixtures/muledeer4.yml",
+  "db/fixtures/muledeer_shedset1.yml",
+    ].each do |filename|
+  animal_data = YAML::load( File.open(filename))
+  a = Animal.create(animal_data[:animal]) # create THIS animal in an instance variable 'a'
+  a.antlers.create(animal_data[:antlers]) # take 'a' and create THESE antlers for THIS animal
 
-	r = Role.create(:title => 'hunter', :user_id => u.id, :animal_id => a.id)
+  if animal_data[:right_points] != nil
+    a.right_antler.points.create(animal_data[:right_points]) # take right_antler (defined in animal model) of 'a' and give it THESE points
+  end
+
+  if animal_data[:left_points] != nil
+    a.left_antler.points.create(animal_data[:left_points])
+  end
+
+  r = Role.create(:title => 'hunter', :user_id => u.id, :animal_id => a.id)
 end
 
 # # belongs_to relationships
 # animal_data.each do |animal| #grabs all animals from SEED and loop for each
-# 	a = Animal.create(animal) # create THIS animal in an instance variable 'a'
-# 	a.antlers.create(antlers) # take 'a' and create THESE antlers for THIS animal
-# 	a.right_antler.points.create(right_points) # take right_antler (defined in animal model) of 'a' and give it THESE points
-# 	a.left_antler.points.create(left_points)
+#   a = Animal.create(animal) # create THIS animal in an instance variable 'a'
+#   a.antlers.create(antlers) # take 'a' and create THESE antlers for THIS animal
+#   a.right_antler.points.create(right_points) # take right_antler (defined in animal model) of 'a' and give it THESE points
+#   a.left_antler.points.create(left_points)
 # end
 
 puts "#{User.count} user(s) in the database."

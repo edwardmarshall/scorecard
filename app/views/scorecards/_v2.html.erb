@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="span6">
+    <%= image_tag @animal.image_url(:display).to_s %>
+  </div>
+
+  <div class="span6 point-count checkered">
+    <ul class="unstyled">
+      <%= render :partial => 'single_column_row', :locals => {:field => nil, :description => 'A-1. No of Points on Right Antler', :value => @animal.right_antler.pts_all } %>
+      <%= render :partial => 'single_column_row', :locals => {:field => nil, :description => 'A-2. No of Points on Left Antler', :value => @animal.left_antler.pts_all } %>
+    </ul>
+  </div>
+
+  <div class="span6 spreads checkered">
+    <ul class="unstyled">
+      <% tip_to_tip = render :partial => 'measurement', :locals => {:value => @animal.spread_tip } %>
+      <%= render :partial => 'single_column_row', :locals => {:field => 'spread_tip', :description => 'B. Tip to Tip Spread', :value => tip_to_tip} %>
+      <% greatest_spread = render :partial => 'measurement', :locals => {:value => @animal.spread_greatest } %>
+      <%= render :partial => 'single_column_row', :locals => {:field => 'spread_greatest', :description => 'C. Greatest Spread', :value => greatest_spread} %>
+      <% inside_spread = render :partial => 'measurement', :locals => {:value => @animal.spread_inside } %>
+      <%= render :partial => 'single_column_row', :locals => {:field => 'spread_inside',:description => 'Inside Spread of Main Beam', :value => inside_spread} %>
+      <% spread_credit = render :partial => 'measurement', :locals => {:value => @animal.spread_credit } %>
+      <%= render :partial => 'single_column_row', :locals => {:field => nil,:description => 'Spread Credit (May Equal But Not Exceed Longer MAIN BEAM)', :value => spread_credit} %>
+      <li>
+        <a class="span12 btn btn-primary hide done">Done</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row abnormal-points checkered">
+  <div class="span12">
+    <ul class="unstyled">
+      <li>
+        <div class="span10">
+          E. Total Length of Abnormal Points
+        </div>
+        <div class="span2">
+          <%= render :partial => 'measurement', :locals => {:value => @animal.lg_points } %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row antlers checkered">
+  <div class="span12">
+    <ul class="unstyled">
+      <%= render :partial => 'antlers_row', :locals => {:description => 'F. Length of Main Beam', :right_value => @animal.right_antler.lg_one, :left_value => @animal.left_antler.lg_one, :difference => @animal.dif_g1} %>
+      <%= render :partial => 'antlers_row', :locals => {:description => 'G-1. Length of First Point, If Present', :right_value => @animal.right_antler.lg_one, :left_value => @animal.left_antler.lg_one, :difference => @animal.dif_g1} %>
+      <%= render :partial => 'antlers_row', :locals => {:description => 'G-2. Length of Second Point', :right_value => @animal.right_antler.lg_two, :left_value => @animal.left_antler.lg_two, :difference => @animal.dif_g2} %>
+      <%= render :partial => 'antlers_row', :locals => {:description => 'G-3. Length of Third Point, If Present', :right_value => @animal.right_antler.lg_three, :left_value => @animal.left_antler.lg_three, :difference => @animal.dif_g3} %>
+      <%= render :partial => 'antlers_row', :locals => {:description => 'G-4. Length of Fourth Point, If Present', :right_value => @animal.right_antler.lg_four, :left_value => @animal.left_antler.lg_four, :difference => @animal.dif_g4} %>
+
+      <li>
+        <div class="span12">
+          Circumference at Smallest Place Between...
+        </div>
+      </li>
+
+      <%= render :partial => 'antlers_row', :locals => {:description => 'H-1. Burr and First Point', :right_value => @animal.right_antler.circ_one, :left_value => @animal.left_antler.circ_one, :difference => @animal.dif_c1 } %>
+      <%= render :partial => 'antlers_row', :locals => {:description => 'H-2. First and Second Points', :right_value => @animal.right_antler.circ_two, :left_value => @animal.left_antler.circ_two, :difference => @animal.dif_c2 } %>
+      <%= render :partial => 'antlers_row', :locals => {:description => 'H-3. Main Beam and Third Point', :right_value => @animal.right_antler.circ_three, :left_value => @animal.left_antler.circ_three, :difference => @animal.dif_c3 } %>
+      <%= render :partial => 'antlers_row', :locals => {:description => 'H-4. Second and Fourth Points', :right_value => @animal.right_antler.circ_four, :left_value => @animal.left_antler.circ_four, :difference => @animal.dif_c4 } %>
+      <%= render :partial => 'antlers_row', :locals => {:description => 'Totals', :right_value => @animal.right_antler.lg_antler, :left_value => @animal.left_antler.lg_antler, :difference => @animal.difference } %>
+    </ul>
+  </div>
+</div>
+

@@ -9,6 +9,8 @@ class AnimalPresenter
   def to_json(options)
     {
       :alias => animal.alias,
+      :left_antler_id => animal.left_antler.id,
+      :right_antler_id => animal.right_antler.id,
       :certification => animal.certification,
       :id => animal.id,
       :editable => animal.editable_by?(current_user),

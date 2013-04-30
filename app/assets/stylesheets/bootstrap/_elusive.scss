@@ -3,8 +3,22 @@
   background-size: 100%;
 }
 
-div.sign-in {
-  background-color: white;
-  border-radius: 5px;
-  padding: 10px;
+.checkered {
+  background-image: url('pattern.svg');
+  &.active {
+    background-image: url('pattern2.svg');
+  }
+}
+
+.measurement {
+  input.whole-number {
+    width: 60px;
+  }
+  select.fraction {
+    width: 70px;
+  }
+}
+
+.editable {
+  cursor: pointer;
 }

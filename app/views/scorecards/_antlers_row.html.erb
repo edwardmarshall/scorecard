@@ -1,0 +1,14 @@
+<li>
+  <div class="span6">
+    <%= description %>
+  </div>
+  <div class="span2">
+    <%= render :partial => 'measurement', :locals => {:value => right_value } %>
+  </div>
+  <div class="span2">
+    <%= render :partial => 'measurement', :locals => {:value => left_value } %>
+  </div>
+  <div class="span2">
+    <%= render :partial => 'measurement', :locals => {:value => difference } %>
+  </div>
+</li>

@@ -1,6 +1,7 @@
-%p#notice
+-#%p#notice
 
-= image_tag @animal.image_url(:display).to_s
+-#= image_tag @animal.image_url(:display).to_s
 
 -if @animal.antlers.present?
-  =render 'ss-animal-antlers'
+  -#=render 'ss-animal-antlers'
+  = render 'v2'

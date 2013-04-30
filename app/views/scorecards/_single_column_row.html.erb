@@ -1,0 +1,12 @@
+<li>
+  <div class="span9">
+    <%= description %>
+  </div>
+  <% if field %>
+  <div class="span3 measurement editable" data-field="<%= field %>">
+  <% else %>
+  <div class="span3 measurement">
+  <% end %>
+    <%= value.to_s.html_safe %>
+  </div>
+</li>

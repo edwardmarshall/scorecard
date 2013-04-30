@@ -1,8 +1,8 @@
 Scorecard.Views.ScorecardView = Backbone.View.extend
   events:
     'click a.edit-spreads': 'editSpreads'
-    'click a.edit-spreads-done': 'doneEditSpreads'
-    'click ul.editable': 'editSpreads'
+    'click .spreads a.done': 'doneEditSpreads'
+    'click .spreads .editable': 'editSpreads'
 
   initialize: ->
     @id = @options.id
@@ -10,9 +10,11 @@ Scorecard.Views.ScorecardView = Backbone.View.extend
   editSpreads: (e) ->
     e.preventDefault()
     return unless Scorecard.currentAnimal.get('editable')
-    @$('a.edit-spreads-done').removeClass('hide')
 
-    $editableFields = @$('ul.editable')
+    @$('a.done').removeClass('hide')
+    @$('.spreads').addClass('active')
+
+    $editableFields = @$('.measurement.editable')
     $editableFields.each (i, el) ->
       $field = $(el)
       return if $field.data('editable')
@@ -20,22 +22,25 @@ Scorecard.Views.ScorecardView = Backbone.View.extend
       fraction = Scorecard.currentAnimal.get("#{$field.data('field')}_fraction")
       form = Scorecard.Templates.EditMeasurement.template
         wholeNum: Scorecard.currentAnimal.get("#{$field.data('field')}_whole")
-      $field.find('.color1').html(form)
-      $field.find('.color1 select').val(fraction)
+      $field.html(form)
+      $field.find('select').val(fraction)
 
   doneEditSpreads: (e) ->
     e.preventDefault()
-    @$('a.edit-spreads-done').addClass('hide')
-    $editableFields = @$('ul.editable')
+
+    @$('a.done').addClass('hide')
+    @$('.spreads').removeClass('active')
+
+    $editableFields = @$('.measurement.editable')
     $editableFields.each (i, el) ->
       $field = $(el)
       $field.data('editable', false)
-      wholeNum = $field.find('input').val()
-      fraction = $field.find('select').val()
+      wholeNum = $field.find('input.whole-number').val()
+      fraction = $field.find('select.fraction').val()
       html = Scorecard.Templates.Measurement.template
         wholeNum: wholeNum
         fraction: fraction
-      $field.find('.color1').html(html)
+      $field.html(html)
       Scorecard.currentAnimal.set("#{$field.data('field')}_whole", wholeNum)
       Scorecard.currentAnimal.set("#{$field.data('field')}_fraction", fraction)
 
