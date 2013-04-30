@@ -26,15 +26,21 @@
           </div>
 
           <div class="span9">
+            <!-- THIS IS MOST LIKELY GOING TO CHANGE -->
+            <%= render "shared/header" %>
           </div>
         </div>
       </div>
     </header>
 
+    <!-- TEMP FLASH MESSAGE -->
+    <%= render "shared/flash_message" %>
+
     <%= yield %>
 
     <footer class="site-footer">
       <div class="container">
+        <div class="site-copyright">&copy; Elusive Index <%= Time.now.year %></div>
       </div>
     </footer>
 
